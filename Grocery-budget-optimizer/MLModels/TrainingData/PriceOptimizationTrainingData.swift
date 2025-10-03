@@ -25,15 +25,15 @@ struct PriceOptimizationTrainingData: Codable {
     let priceScore: Double // 0-1, where 1 is the best price
 }
 
-/// Price history record
-struct PriceHistory: Identifiable {
+/// Price history record for ML training
+struct TrainingPriceHistory: Identifiable {
     let id = UUID()
     let groceryItemId: UUID
     let price: Decimal
     let recordedAt: Date
     let storeName: String?
     let location: String?
-    
+
     init(groceryItemId: UUID, price: Decimal, recordedAt: Date = Date(), storeName: String? = nil, location: String? = nil) {
         self.groceryItemId = groceryItemId
         self.price = price

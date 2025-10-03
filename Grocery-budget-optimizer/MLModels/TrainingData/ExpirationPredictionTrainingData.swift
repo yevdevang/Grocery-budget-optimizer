@@ -42,7 +42,7 @@ struct ExpirationTrainingData: Codable {
 }
 
 /// Expiration tracking for individual items
-struct ExpirationTracker: Identifiable {
+struct TrainingExpirationTracker: Identifiable {
     let id = UUID()
     let groceryItem: ExpirationMLGroceryItem
     let purchaseDate: Date

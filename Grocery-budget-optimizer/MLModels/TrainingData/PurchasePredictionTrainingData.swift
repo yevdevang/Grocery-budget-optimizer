@@ -29,7 +29,7 @@ struct TrainingMLGroceryItem {
 
 // Temporary Purchase struct for ML training
 // Will be replaced with actual Purchase entity in Phase 3
-struct Purchase {
+struct TrainingPurchase {
     let groceryItem: TrainingMLGroceryItem
     let quantity: Decimal
     let purchaseDate: Date
@@ -76,7 +76,7 @@ struct PurchasePredictionTrainingData: Codable {
 class PurchasePredictionDataPreparation {
     
     /// Prepare purchase history data for training
-    static func preparePurchaseHistory(purchases: [Purchase]) -> [PurchasePredictionTrainingData] {
+    static func preparePurchaseHistory(purchases: [TrainingPurchase]) -> [PurchasePredictionTrainingData] {
         // Group purchases by item
         let groupedByItem = Dictionary(grouping: purchases, by: { $0.groceryItem.name })
         
