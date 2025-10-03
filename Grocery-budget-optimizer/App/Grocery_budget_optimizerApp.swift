@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct Grocery_budget_optimizerApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
