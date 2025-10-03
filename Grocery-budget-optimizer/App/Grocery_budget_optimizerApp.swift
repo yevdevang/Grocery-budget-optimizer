@@ -10,10 +10,24 @@ import CoreData
 
 @main
 struct Grocery_budget_optimizerApp: App {
-    
+
+    init() {
+        print("🚀 App launching...")
+        // Seed mock data
+        MockDataSeeder.shared.seedMockData()
+
+        // Warmup ML models
+        MLCoordinator.shared.warmupModels()
+
+        print("✅ App initialized successfully")
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+                .onAppear {
+                    print("📱 MainTabView appeared")
+                }
         }
     }
 }

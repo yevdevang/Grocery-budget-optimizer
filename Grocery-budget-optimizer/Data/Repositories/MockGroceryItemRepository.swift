@@ -12,34 +12,47 @@ class MockGroceryItemRepository: GroceryItemRepositoryProtocol {
     private var items: [GroceryItem] = []
     
     init() {
-        // Add some sample data
+        // Populate with all items that the ML service can recommend
         items = [
-            GroceryItem(
-                name: "Organic Milk",
-                category: "Dairy",
-                brand: "Whole Foods",
-                unit: "1L",
-                averagePrice: 4.99
-            ),
-            GroceryItem(
-                name: "Bananas",
-                category: "Produce",
-                unit: "1kg",
-                averagePrice: 2.49
-            ),
-            GroceryItem(
-                name: "Chicken Breast",
-                category: "Meat & Seafood",
-                unit: "1kg",
-                averagePrice: 12.99
-            ),
-            GroceryItem(
-                name: "Whole Wheat Bread",
-                category: "Bakery",
-                brand: "Nature's Own",
-                unit: "1 loaf",
-                averagePrice: 3.49
-            )
+            // Dairy
+            GroceryItem(name: "Milk", category: "Dairy", unit: "1 gallon", averagePrice: 3.50),
+            GroceryItem(name: "Cheese", category: "Dairy", unit: "1 lb", averagePrice: 4.99),
+            GroceryItem(name: "Yogurt", category: "Dairy", unit: "32 oz", averagePrice: 1.29),
+            GroceryItem(name: "Butter", category: "Dairy", unit: "1 lb", averagePrice: 3.99),
+
+            // Produce
+            GroceryItem(name: "Tomatoes", category: "Produce", unit: "1 lb", averagePrice: 2.99),
+            GroceryItem(name: "Lettuce", category: "Produce", unit: "1 head", averagePrice: 1.99),
+            GroceryItem(name: "Apples", category: "Produce", unit: "1 lb", averagePrice: 3.49),
+            GroceryItem(name: "Bananas", category: "Produce", unit: "1 lb", averagePrice: 1.49),
+            GroceryItem(name: "Carrots", category: "Produce", unit: "1 lb", averagePrice: 1.79),
+            GroceryItem(name: "Onions", category: "Produce", unit: "1 lb", averagePrice: 1.99),
+            GroceryItem(name: "Potatoes", category: "Produce", unit: "5 lb", averagePrice: 2.49),
+            GroceryItem(name: "Bell Peppers", category: "Produce", unit: "1 lb", averagePrice: 3.99),
+            GroceryItem(name: "Broccoli", category: "Produce", unit: "1 lb", averagePrice: 2.99),
+            GroceryItem(name: "Spinach", category: "Produce", unit: "1 bunch", averagePrice: 2.49),
+            GroceryItem(name: "Garlic", category: "Produce", unit: "1 bulb", averagePrice: 0.99),
+
+            // Meat & Seafood
+            GroceryItem(name: "Chicken Breast", category: "Meat & Seafood", unit: "1 lb", averagePrice: 6.99),
+            GroceryItem(name: "Ground Beef", category: "Meat & Seafood", unit: "1 lb", averagePrice: 5.99),
+            GroceryItem(name: "Salmon", category: "Meat & Seafood", unit: "1 lb", averagePrice: 12.99),
+            GroceryItem(name: "Tuna", category: "Meat & Seafood", unit: "5 oz can", averagePrice: 2.99),
+
+            // Pantry
+            GroceryItem(name: "Bread", category: "Pantry", unit: "1 loaf", averagePrice: 2.49),
+            GroceryItem(name: "Rice", category: "Pantry", unit: "2 lb", averagePrice: 3.99),
+            GroceryItem(name: "Pasta", category: "Pantry", unit: "1 lb", averagePrice: 1.99),
+            GroceryItem(name: "Eggs", category: "Pantry", unit: "1 dozen", averagePrice: 3.49),
+            GroceryItem(name: "Olive Oil", category: "Pantry", unit: "16 oz", averagePrice: 6.99),
+            GroceryItem(name: "Salt", category: "Pantry", unit: "26 oz", averagePrice: 1.99),
+            GroceryItem(name: "Pepper", category: "Pantry", unit: "2 oz", averagePrice: 2.99),
+            GroceryItem(name: "Cereal", category: "Pantry", unit: "18 oz", averagePrice: 4.99),
+            GroceryItem(name: "Oats", category: "Pantry", unit: "42 oz", averagePrice: 3.49),
+            GroceryItem(name: "Honey", category: "Pantry", unit: "12 oz", averagePrice: 5.99),
+
+            // Beverages
+            GroceryItem(name: "Coffee", category: "Beverages", unit: "12 oz", averagePrice: 8.99)
         ]
     }
     

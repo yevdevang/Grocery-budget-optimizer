@@ -94,7 +94,8 @@ class GetPurchasePredictionsUseCase: GetPurchasePredictionsUseCaseProtocol {
     }
 }
 
-struct ItemPurchasePrediction {
+struct ItemPurchasePrediction: Identifiable {
+    var id: UUID { item.id }
     let item: GroceryItem
     let prediction: PurchasePrediction
 }

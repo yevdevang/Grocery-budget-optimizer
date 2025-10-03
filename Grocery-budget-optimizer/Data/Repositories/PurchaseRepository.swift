@@ -190,13 +190,29 @@ class PurchaseRepository: PurchaseRepositoryProtocol {
         entity.storeName = domain.storeName
         entity.receiptImage = domain.receiptImage
 
-        // Fetch and link grocery item
+        // Fetch or create grocery item
         let groceryItemRequest: NSFetchRequest<GroceryItemEntity> = GroceryItemEntity.fetchRequest()
         groceryItemRequest.predicate = NSPredicate(format: "id == %@", domain.groceryItemId as CVarArg)
         groceryItemRequest.fetchLimit = 1
 
-        if let groceryItemEntity = try? context.fetch(groceryItemRequest).first {
-            entity.groceryItem = groceryItemEntity
+        let groceryItemEntity: GroceryItemEntity
+        if let existingItem = try? context.fetch(groceryItemRequest).first {
+            groceryItemEntity = existingItem
+        } else {
+            // Create the grocery item if it doesn't exist
+            groceryItemEntity = GroceryItemEntity(context: context)
+            groceryItemEntity.id = domain.groceryItem.id
+            groceryItemEntity.name = domain.groceryItem.name
+            groceryItemEntity.categoryName = domain.groceryItem.category
+            groceryItemEntity.brand = domain.groceryItem.brand
+            groceryItemEntity.unit = domain.groceryItem.unit
+            groceryItemEntity.notes = domain.groceryItem.notes
+            groceryItemEntity.imageData = domain.groceryItem.imageData
+            groceryItemEntity.averagePrice = domain.groceryItem.averagePrice as NSDecimalNumber
+            groceryItemEntity.createdAt = domain.groceryItem.createdAt
+            groceryItemEntity.updatedAt = domain.groceryItem.updatedAt
         }
+
+        entity.groceryItem = groceryItemEntity
     }
 }
