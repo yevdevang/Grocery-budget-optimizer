@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     @StateObject private var viewModel = GroceryItemsViewModel()
+    @StateObject private var mlManager = MLModelManager()
     @State private var showingAddItemSheet = false
+    @State private var showingRecommendations = false
     @State private var newItemName = ""
     @State private var newItemCategory = "Produce"
     @State private var newItemUnit = "kg"
     @State private var newItemPrice = ""
+    @State private var priceAnalyses: [String: PriceAnalysis] = [:]
     
     let categories = ["Produce", "Dairy", "Meat & Seafood", "Bakery", "Frozen", "Pantry", "Beverages", "Snacks", "Personal Care", "Household", "Other"]
     let units = ["kg", "g", "lbs", "oz", "L", "ml", "pieces", "packs", "boxes"]
@@ -46,7 +50,10 @@ struct ContentView: View {
                 } else {
                     List {
                         ForEach(viewModel.groceryItems) { item in
-                            GroceryItemRow(item: item)
+                            GroceryItemRow(
+                                item: item,
+                                priceAnalysis: priceAnalyses[item.displayName]
+                            )
                         }
                         .onDelete(perform: deleteItems)
                     }
@@ -61,6 +68,16 @@ struct ContentView: View {
             .navigationTitle("Grocery Items")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        showingRecommendations = true
+                    }) {
+                        HStack {
+                            Image(systemName: "brain")
+                            Text("AI Assistant")
+                        }
+                    }
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         showingAddItemSheet = true
@@ -84,6 +101,34 @@ struct ContentView: View {
                     }
                 )
             }
+            .sheet(isPresented: $showingRecommendations) {
+                NavigationView {
+                    ShoppingRecommendationsView()
+                }
+            }
+            .onAppear {
+                analyzePrices()
+            }
+            .onChange(of: viewModel.groceryItems) { _ in
+                analyzePrices()
+            }
+        }
+    }
+
+    private func analyzePrices() {
+        for item in viewModel.groceryItems {
+            let mockHistory = mlManager.priceOptimization.generateMockPriceHistory(
+                for: item.displayName,
+                basePrice: Double(truncating: item.averagePrice as NSNumber)
+            )
+
+            let analysis = mlManager.priceOptimization.analyzePrice(
+                for: item.displayName,
+                currentPrice: item.averagePrice,
+                history: mockHistory
+            )
+
+            priceAnalyses[item.displayName] = analysis
         }
     }
     
@@ -135,18 +180,43 @@ struct SearchBar: View {
 
 struct GroceryItemRow: View {
     let item: GroceryItem
-    
+    let priceAnalysis: PriceAnalysis?
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 6) {
             HStack {
                 Text(item.displayName)
                     .font(.headline)
                 Spacer()
-                Text(item.formattedPrice)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                VStack(alignment: .trailing, spacing: 2) {
+                    Text(item.formattedPrice)
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+
+                    if let analysis = priceAnalysis {
+                        if analysis.isGoodDeal {
+                            HStack(spacing: 2) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.caption2)
+                                Text("\(Int(analysis.savingsPercentage))% off")
+                                    .font(.caption2)
+                                    .fontWeight(.medium)
+                            }
+                            .foregroundColor(.green)
+                        } else if analysis.isBestPrice {
+                            HStack(spacing: 2) {
+                                Image(systemName: "star.fill")
+                                    .font(.caption2)
+                                Text("Best Price")
+                                    .font(.caption2)
+                                    .fontWeight(.medium)
+                            }
+                            .foregroundColor(.orange)
+                        }
+                    }
+                }
             }
-            
+
             HStack {
                 Text(item.category)
                     .font(.caption)
@@ -155,15 +225,30 @@ struct GroceryItemRow: View {
                     .background(Color.blue.opacity(0.1))
                     .foregroundColor(.blue)
                     .cornerRadius(4)
-                
+
                 Text(item.unit)
                     .font(.caption)
                     .foregroundColor(.secondary)
-                
+
                 Spacer()
             }
+
+            // AI Price Insight
+            if let analysis = priceAnalysis {
+                HStack(spacing: 4) {
+                    Image(systemName: "brain")
+                        .font(.caption2)
+                        .foregroundColor(.purple)
+
+                    Text(analysis.recommendation)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
+                .padding(.top, 2)
+            }
         }
-        .padding(.vertical, 2)
+        .padding(.vertical, 4)
     }
 }
 
