@@ -1,5 +1,6 @@
 import SwiftUI
 import Charts
+import Combine
 
 struct BudgetView: View {
     @StateObject private var viewModel = BudgetViewModel()
@@ -38,6 +39,13 @@ struct BudgetView: View {
             }
             .task {
                 await viewModel.loadBudget()
+            }
+            .sheet(isPresented: $viewModel.showingCreateBudget) {
+                CreateBudgetSheet(onCreated: {
+                    Task {
+                        await viewModel.refreshBudget()
+                    }
+                })
             }
         }
     }
@@ -214,6 +222,109 @@ struct BudgetView: View {
             }
             .buttonStyle(.borderedProminent)
         }
+    }
+}
+
+struct CreateBudgetSheet: View {
+    @Environment(\.dismiss) var dismiss
+    @State private var budgetName = ""
+    @State private var budgetAmount = ""
+    @State private var startDate = Date()
+    @State private var endDate = Calendar.current.date(byAdding: .month, value: 1, to: Date()) ?? Date()
+    @State private var isLoading = false
+    @State private var cancellables = Set<AnyCancellable>()
+
+    let onCreated: () -> Void
+
+    private let createBudgetUseCase = DIContainer.shared.createBudgetUseCase
+
+    private var isFormValid: Bool {
+        !budgetName.trimmingCharacters(in: .whitespaces).isEmpty &&
+        !budgetAmount.trimmingCharacters(in: .whitespaces).isEmpty &&
+        endDate > startDate
+    }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("Budget Information") {
+                    TextField("Budget Name", text: $budgetName)
+                        .textInputAutocapitalization(.words)
+
+                    HStack {
+                        Text("$")
+                            .foregroundStyle(.secondary)
+                        TextField("Total Amount", text: $budgetAmount)
+                            .keyboardType(.decimalPad)
+                    }
+                }
+
+                Section("Duration") {
+                    DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+                    DatePicker("End Date", selection: $endDate, in: startDate..., displayedComponents: .date)
+
+                    if endDate > startDate {
+                        let days = Calendar.current.dateComponents([.day], from: startDate, to: endDate).day ?? 0
+                        HStack {
+                            Text("Duration")
+                                .foregroundStyle(.secondary)
+                            Spacer()
+                            Text("\(days) days")
+                                .fontWeight(.medium)
+                        }
+                    }
+                }
+
+                Section {
+                    Text("Category-specific budgets can be added after creating the main budget")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            .navigationTitle("Create Budget")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") { dismiss() }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Create") {
+                        createBudget()
+                    }
+                    .disabled(!isFormValid || isLoading)
+                }
+            }
+        }
+    }
+
+    private func createBudget() {
+        guard let amount = Decimal(string: budgetAmount) else { return }
+        isLoading = true
+
+        let budget = Budget(
+            name: budgetName.trimmingCharacters(in: .whitespaces),
+            amount: amount,
+            startDate: startDate,
+            endDate: endDate,
+            isActive: true
+        )
+
+        createBudgetUseCase.execute(budget)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [self] completion in
+                    isLoading = false
+                    if case .failure(let error) = completion {
+                        print("❌ Error creating budget: \(error)")
+                    }
+                },
+                receiveValue: { [self] _ in
+                    print("✅ Budget created successfully")
+                    onCreated()
+                    dismiss()
+                }
+            )
+            .store(in: &cancellables)
     }
 }
 

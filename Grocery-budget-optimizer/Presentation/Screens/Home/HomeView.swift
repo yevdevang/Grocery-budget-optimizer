@@ -2,6 +2,7 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
+    @Binding var selectedTab: Int
     @StateObject private var viewModel = HomeViewModel(
         getBudgetSummary: DIContainer.shared.getBudgetSummaryUseCase,
         getExpiringItems: DIContainer.shared.getExpiringItemsUseCase,
@@ -127,7 +128,7 @@ struct HomeView: View {
                     title: "View Stats",
                     color: .purple
                 ) {
-                    viewModel.showAnalytics()
+                    selectedTab = 3  // Navigate to Budget tab
                 }
             }
         }
@@ -638,5 +639,6 @@ struct ItemPickerSheet: View {
 }
 
 #Preview {
-    HomeView()
+    @Previewable @State var selectedTab = 0
+    HomeView(selectedTab: $selectedTab)
 }

@@ -6,6 +6,7 @@ class BudgetViewModel: ObservableObject {
     @Published var currentBudgetSummary: BudgetSummary?
     @Published var dailySpending: [DailySpendingData] = []
     @Published var isLoading = false
+    @Published var showingCreateBudget = false
 
     private let getBudgetSummary: GetBudgetSummaryUseCaseProtocol
     private let purchaseRepository: PurchaseRepositoryProtocol
@@ -58,7 +59,11 @@ class BudgetViewModel: ObservableObject {
     }
 
     func showCreateBudget() {
-        // Navigate to create budget
+        showingCreateBudget = true
+    }
+
+    func refreshBudget() async {
+        await loadBudget()
     }
 }
 
