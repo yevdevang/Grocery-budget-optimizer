@@ -39,6 +39,9 @@ enum L10n {
 
     // MARK: - Home Screen
     enum Home {
+        static var title: String { localized("home.title", comment: "App title") }
+        static var subtitle: String { localized("home.subtitle", comment: "App subtitle") }
+        
         enum Greeting {
             static var morning: String { localized("home.greeting.morning", comment: "Morning greeting") }
             static var afternoon: String { localized("home.greeting.afternoon", comment: "Afternoon greeting") }
@@ -83,6 +86,7 @@ enum L10n {
         static var totalCost: String { localized("addExpense.totalCost", comment: "Total Cost label") }
         static var purchaseDate: String { localized("addExpense.purchaseDate", comment: "Purchase Date field") }
         static var storeName: String { localized("addExpense.storeName", comment: "Store Name field") }
+        static var storeNameOptional: String { localized("addExpense.storeNameOptional", comment: "Store Name optional field") }
     }
 
     // MARK: - Item Picker
@@ -154,6 +158,14 @@ enum L10n {
         static var noItems: String { localized("items.noItems", comment: "No Items") }
         static var addItemsMessage: String { localized("items.addItemsMessage", comment: "Add items message") }
         static var addButton: String { localized("items.addButton", comment: "Add button") }
+        
+        // Item Detail
+        static var details: String { localized("items.details", comment: "Details section") }
+        static var name: String { localized("items.name", comment: "Name field") }
+        static var category: String { localized("items.category", comment: "Category field") }
+        static var averagePrice: String { localized("items.averagePrice", comment: "Average Price field") }
+        static var priceHistory: String { localized("items.priceHistory", comment: "Price History section") }
+        static var priceHistoryPlaceholder: String { localized("items.priceHistoryPlaceholder", comment: "Price history placeholder") }
     }
 
     // MARK: - Settings
@@ -182,4 +194,30 @@ enum L10n {
         static var bakery: String { localized("category.bakery", comment: "Bakery") }
         static var other: String { localized("category.other", comment: "Other") }
     }
+}
+
+// Extension to get localized category name
+extension L10n.Category {
+    /// Get localized category name for any category string
+    static func localizedName(_ categoryName: String) -> String {
+        switch categoryName {
+        case "Produce": return produce
+        case "Dairy": return dairy
+        case "Meat & Seafood": return meatSeafood
+        case "Pantry": return pantry
+        case "Beverages": return beverages
+        case "Frozen": return frozen
+        case "Bakery": return bakery
+        case "Other": return other
+        default: return categoryName
+        }
+    }
+}
+
+// Helper function to get localized product name
+func localizedProductName(_ productName: String) -> String {
+    let key = "product.\(productName.lowercased())"
+    let translated = LanguageManager.shared.localizedString(key)
+    // If translation is the same as key, return original name
+    return translated == key ? productName : translated
 }

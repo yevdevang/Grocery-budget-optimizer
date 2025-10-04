@@ -117,6 +117,12 @@
 "items.noItems" = "Нет товаров";
 "items.addItemsMessage" = "Добавьте товары для отслеживания продуктов и эффективного управления бюджетом";
 "items.addButton" = "Добавить товар";
+"items.details" = "Детали";
+"items.name" = "Название";
+"items.category" = "Категория";
+"items.averagePrice" = "Средняя цена";
+"items.priceHistory" = "История цен";
+"items.priceHistoryPlaceholder" = "Здесь будет график истории цен";
 
 /* Settings */
 "settings.title" = "Настройки";
@@ -154,3 +160,22 @@
 "success.budgetCreated" = "Бюджет успешно создан";
 "success.listCreated" = "Список покупок успешно создан";
 "success.smartListGenerated" = "Умный список успешно создан";
+
+/* Product Names */
+"product.milk" = "Молоко";
+"product.cheese" = "Сыр";
+"product.yogurt" = "Йогурт";
+"product.butter" = "Масло";
+"product.eggs" = "Яйца";
+"product.chicken" = "Куриная грудка";
+"product.beef" = "Говяжий фарш";
+"product.salmon" = "Лосось";
+"product.bread" = "Хлеб";
+"product.rice" = "Рис";
+"product.pasta" = "Паста";
+"product.tomatoes" = "Помидоры";
+"product.lettuce" = "Салат";
+"product.carrots" = "Морковь";
+"product.apples" = "Яблоки";
+"product.bananas" = "Бананы";
+"product.oranges" = "Апельсины";

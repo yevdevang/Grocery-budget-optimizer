@@ -117,6 +117,12 @@
 "items.noItems" = "Немає товарів";
 "items.addItemsMessage" = "Додайте товари для відстеження продуктів та ефективного управління бюджетом";
 "items.addButton" = "Додати товар";
+"items.details" = "Деталі";
+"items.name" = "Назва";
+"items.category" = "Категорія";
+"items.averagePrice" = "Середня ціна";
+"items.priceHistory" = "Історія цін";
+"items.priceHistoryPlaceholder" = "Тут буде графік історії цін";
 
 /* Settings */
 "settings.title" = "Налаштування";
@@ -154,3 +160,22 @@
 "success.budgetCreated" = "Бюджет успішно створено";
 "success.listCreated" = "Список покупок успішно створено";
 "success.smartListGenerated" = "Розумний список успішно створено";
+
+/* Product Names */
+"product.milk" = "Молоко";
+"product.cheese" = "Сир";
+"product.yogurt" = "Йогурт";
+"product.butter" = "Масло";
+"product.eggs" = "Яйця";
+"product.chicken" = "Куряча грудка";
+"product.beef" = "Яловичий фарш";
+"product.salmon" = "Лосось";
+"product.bread" = "Хліб";
+"product.rice" = "Рис";
+"product.pasta" = "Паста";
+"product.tomatoes" = "Помідори";
+"product.lettuce" = "Салат";
+"product.carrots" = "Морква";
+"product.apples" = "Яблука";
+"product.bananas" = "Банани";
+"product.oranges" = "Апельсини";

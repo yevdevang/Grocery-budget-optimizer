@@ -117,6 +117,12 @@
 "items.noItems" = "No Items";
 "items.addItemsMessage" = "Add items to track your groceries and manage your budget effectively";
 "items.addButton" = "Add Item";
+"items.details" = "Details";
+"items.name" = "Name";
+"items.category" = "Category";
+"items.averagePrice" = "Average Price";
+"items.priceHistory" = "Price History";
+"items.priceHistoryPlaceholder" = "Price history chart would go here";
 
 /* Settings */
 "settings.title" = "Settings";
@@ -154,3 +160,22 @@
 "success.budgetCreated" = "Budget created successfully";
 "success.listCreated" = "Shopping list created successfully";
 "success.smartListGenerated" = "Smart shopping list generated successfully";
+
+/* Product Names */
+"product.milk" = "Milk";
+"product.cheese" = "Cheese";
+"product.yogurt" = "Yogurt";
+"product.butter" = "Butter";
+"product.eggs" = "Eggs";
+"product.chicken" = "Chicken Breast";
+"product.beef" = "Ground Beef";
+"product.salmon" = "Salmon";
+"product.bread" = "Bread";
+"product.rice" = "Rice";
+"product.pasta" = "Pasta";
+"product.tomatoes" = "Tomatoes";
+"product.lettuce" = "Lettuce";
+"product.carrots" = "Carrots";
+"product.apples" = "Apples";
+"product.bananas" = "Bananas";
+"product.oranges" = "Oranges";

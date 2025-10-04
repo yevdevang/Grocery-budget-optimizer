@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ItemsView: View {
     @StateObject private var viewModel = ItemsViewModel()
+    @ObservedObject private var languageManager = LanguageManager.shared
     @State private var searchText = ""
     @State private var selectedCategory: String?
     @State private var showingAddItem = false
@@ -23,11 +24,11 @@ struct ItemsView: View {
                     }
                 }
             }
-            .searchable(text: $searchText, prompt: "Search items")
+            .searchable(text: $searchText, prompt: L10n.Items.search)
             .onChange(of: searchText) { _, newValue in
                 viewModel.search(query: newValue)
             }
-            .navigationTitle("Items")
+            .navigationTitle(L10n.Items.title)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -50,7 +51,7 @@ struct ItemsView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
                 CategoryChip(
-                    name: "All",
+                    name: L10n.Items.all,
                     isSelected: selectedCategory == nil
                 ) {
                     selectedCategory = nil
@@ -59,7 +60,7 @@ struct ItemsView: View {
 
                 ForEach(viewModel.categories, id: \.self) { category in
                     CategoryChip(
-                        name: category,
+                        name: L10n.Category.localizedName(category),
                         isSelected: selectedCategory == category
                     ) {
                         selectedCategory = category
@@ -87,10 +88,10 @@ struct ItemRow: View {
                 }
 
             VStack(alignment: .leading, spacing: 4) {
-                Text(item.name)
+                Text(localizedProductName(item.name))
                     .font(.headline)
 
-                Text(item.category)
+                Text(L10n.Category.localizedName(item.category))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -129,17 +130,17 @@ struct ItemDetailView: View {
 
     var body: some View {
         List {
-            Section("Details") {
-                LabeledContent("Name", value: item.name)
-                LabeledContent("Category", value: item.category)
-                LabeledContent("Average Price", value: item.averagePrice, format: .currency(code: "USD"))
+            Section(L10n.Items.details) {
+                LabeledContent(L10n.Items.name, value: localizedProductName(item.name))
+                LabeledContent(L10n.Items.category, value: L10n.Category.localizedName(item.category))
+                LabeledContent(L10n.Items.averagePrice, value: item.averagePrice, format: .currency(code: "USD"))
             }
 
-            Section("Price History") {
-                Text("Price history chart would go here")
+            Section(L10n.Items.priceHistory) {
+                Text(L10n.Items.priceHistoryPlaceholder)
             }
         }
-        .navigationTitle(item.name)
+        .navigationTitle(localizedProductName(item.name))
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -150,18 +151,18 @@ struct AddItemView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Item Details") {
+                Section(L10n.AddItem.details) {
                     Text("Add new item form")
                 }
             }
-            .navigationTitle("New Item")
+            .navigationTitle(L10n.AddItem.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.Common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") { dismiss() }
+                    Button(L10n.Common.add) { dismiss() }
                 }
             }
         }

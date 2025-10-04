@@ -81,10 +81,9 @@ class LanguageManager: ObservableObject {
         UserDefaults.standard.synchronize()
 
         // Update layout direction for RTL languages
-        if currentLanguage.isRTL {
-            UIView.appearance().semanticContentAttribute = .forceRightToLeft
-        } else {
-            UIView.appearance().semanticContentAttribute = .forceLeftToRight
+        // For macOS, we'll handle RTL in SwiftUI using environment values
+        DispatchQueue.main.async {
+            self.objectWillChange.send()
         }
     }
 
@@ -101,16 +100,11 @@ class LanguageManager: ObservableObject {
     }
 }
 
-// Extension to use LanguageManager with Environment
-extension EnvironmentValues {
-    var languageManager: LanguageManager {
-        get { LanguageManager.shared }
-        set { }
-    }
-}
-
+// Extension for environment access
 extension View {
+    @MainActor
     func environmentLanguage() -> some View {
-        self.environment(\.layoutDirection, LanguageManager.shared.currentLanguage.isRTL ? .rightToLeft : .leftToRight)
+        let isRTL = LanguageManager.shared.currentLanguage.isRTL
+        return self.environment(\.layoutDirection, isRTL ? .rightToLeft : .leftToRight)
     }
 }

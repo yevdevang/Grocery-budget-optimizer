@@ -117,6 +117,12 @@
 "items.noItems" = "אין מוצרים";
 "items.addItemsMessage" = "הוסף מוצרים כדי לעקוב אחר המצרכים שלך ולנהל את התקציב שלך ביעילות";
 "items.addButton" = "הוסף מוצר";
+"items.details" = "פרטים";
+"items.name" = "שם";
+"items.category" = "קטגוריה";
+"items.averagePrice" = "מחיר ממוצע";
+"items.priceHistory" = "היסטוריית מחירים";
+"items.priceHistoryPlaceholder" = "כאן יהיה גרף היסטוריית המחירים";
 
 /* Settings */
 "settings.title" = "הגדרות";
@@ -154,3 +160,22 @@
 "success.budgetCreated" = "התקציב נוצר בהצלחה";
 "success.listCreated" = "רשימת הקניות נוצרה בהצלחה";
 "success.smartListGenerated" = "הרשימה החכמה נוצרה בהצלחה";
+
+/* Product Names */
+"product.milk" = "חלב";
+"product.cheese" = "גבינה";
+"product.yogurt" = "יוגורט";
+"product.butter" = "חמאה";
+"product.eggs" = "ביצים";
+"product.chicken" = "חזה עוף";
+"product.beef" = "בשר בקר טחון";
+"product.salmon" = "סלמון";
+"product.bread" = "לחם";
+"product.rice" = "אורז";
+"product.pasta" = "פסטה";
+"product.tomatoes" = "עגבניות";
+"product.lettuce" = "חסה";
+"product.carrots" = "גזר";
+"product.apples" = "תפוחים";
+"product.bananas" = "בננות";
+"product.oranges" = "תפוזים";
