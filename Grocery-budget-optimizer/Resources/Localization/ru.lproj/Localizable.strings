@@ -205,17 +205,33 @@
 "product.butter" = "Масло";
 "product.eggs" = "Яйца";
 "product.chicken" = "Куриная грудка";
+"product.chickenBreast" = "Куриная грудка";
 "product.beef" = "Говяжий фарш";
+"product.groundBeef" = "Говяжий фарш";
 "product.salmon" = "Лосось";
+"product.tuna" = "Тунец";
 "product.bread" = "Хлеб";
 "product.rice" = "Рис";
 "product.pasta" = "Паста";
 "product.tomatoes" = "Помидоры";
 "product.lettuce" = "Салат";
 "product.carrots" = "Морковь";
+"product.onions" = "Лук";
+"product.potatoes" = "Картофель";
+"product.bellPeppers" = "Болгарский перец";
+"product.broccoli" = "Брокколи";
+"product.spinach" = "Шпинат";
+"product.garlic" = "Чеснок";
 "product.apples" = "Яблоки";
 "product.bananas" = "Бананы";
 "product.oranges" = "Апельсины";
+"product.oliveOil" = "Оливковое масло";
+"product.salt" = "Соль";
+"product.pepper" = "Перец";
+"product.cereal" = "Хлопья";
+"product.oats" = "Овсянка";
+"product.honey" = "Мёд";
+"product.coffee" = "Кофе";
 
 /* Smart List Creation */
 "smartList.budget" = "Бюджет";

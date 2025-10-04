@@ -275,7 +275,14 @@ extension L10n.Category {
 
 // Helper function to get localized product name
 func localizedProductName(_ productName: String) -> String {
-    let key = "product.\(productName.lowercased())"
+    // Convert product name to camelCase key format
+    // "Olive Oil" -> "oliveOil", "Ground Beef" -> "groundBeef"
+    let components = productName.components(separatedBy: " ")
+    let camelCased = components.enumerated().map { index, component in
+        index == 0 ? component.lowercased() : component.capitalized
+    }.joined()
+    
+    let key = "product.\(camelCased)"
     let translated = LanguageManager.shared.localizedString(key)
     // If translation is the same as key, return original name
     return translated == key ? productName : translated

@@ -205,17 +205,33 @@
 "product.butter" = "Butter";
 "product.eggs" = "Eggs";
 "product.chicken" = "Chicken Breast";
+"product.chickenBreast" = "Chicken Breast";
 "product.beef" = "Ground Beef";
+"product.groundBeef" = "Ground Beef";
 "product.salmon" = "Salmon";
+"product.tuna" = "Tuna";
 "product.bread" = "Bread";
 "product.rice" = "Rice";
 "product.pasta" = "Pasta";
 "product.tomatoes" = "Tomatoes";
 "product.lettuce" = "Lettuce";
 "product.carrots" = "Carrots";
+"product.onions" = "Onions";
+"product.potatoes" = "Potatoes";
+"product.bellPeppers" = "Bell Peppers";
+"product.broccoli" = "Broccoli";
+"product.spinach" = "Spinach";
+"product.garlic" = "Garlic";
 "product.apples" = "Apples";
 "product.bananas" = "Bananas";
 "product.oranges" = "Oranges";
+"product.oliveOil" = "Olive Oil";
+"product.salt" = "Salt";
+"product.pepper" = "Pepper";
+"product.cereal" = "Cereal";
+"product.oats" = "Oats";
+"product.honey" = "Honey";
+"product.coffee" = "Coffee";
 
 /* Smart List Creation */
 "smartList.budget" = "Budget";

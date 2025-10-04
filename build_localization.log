@@ -1,0 +1,1007 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -scheme Grocery-budget-optimizer -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 17" clean build
+
+Build settings from command line:
+    SDKROOT = iphonesimulator26.0
+
+2025-10-04 13:25:16.758 xcodebuild[2575:2912117] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+** CLEAN SUCCEEDED **
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'Grocery-budget-optimizer' in project 'Grocery-budget-optimizer' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/momc --dry-run --action generate --swift-version 5.0 --sdkroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk --iphonesimulator-deployment-target 26.0 --module Grocery_budget_optimizer /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/GroceryBudgetOptimizer.xcdatamodeld /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/CoreDataGenerated/GroceryBudgetOptimizer
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: 7e56907d78987ad162e2567dc3f178f6
+Build description path: /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/XCBuildData/7e56907d78987ad162e2567dc3f178f6.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -o /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache
+
+CreateBuildDirectory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer.xcodeproj
+    builtin-create-build-directory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products
+
+CreateBuildDirectory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer.xcodeproj
+    builtin-create-build-directory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer.xcodeproj
+    builtin-create-build-directory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer.xcodeproj
+    builtin-create-build-directory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer.xcodeproj
+    builtin-create-build-directory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer-4c1b5eea388a89c184336ed2ff2c02b2-VFS-iphonesimulator/all-product-headers.yaml
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer.xcodeproj
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer-4c1b5eea388a89c184336ed2ff2c02b2-VFS-iphonesimulator/all-product-headers.yaml
+
+CreateBuildDirectory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer.xcodeproj
+    builtin-create-build-directory /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/empty-Grocery-budget-optimizer.plist (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/empty-Grocery-budget-optimizer.plist
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.hmap (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.hmap
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.DependencyStaticMetadataFileList (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.DependencyMetadataFileList (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer-OutputFileMap.json (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.SwiftConstValuesFileList (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.SwiftFileList (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.SwiftFileList
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.LinkFileList (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.LinkFileList
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer_const_extract_protocols.json (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-project-headers.hmap (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-project-headers.hmap
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-own-target-headers.hmap (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-generated-files.hmap (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-generated-files.hmap
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-all-target-headers.hmap (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-all-non-framework-target-headers.hmap (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-DebugDylibPath-normal-arm64.txt (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-DebugDylibInstallName-normal-arm64.txt (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-DebugDylibInstallName-normal-arm64.txt
+
+MkDir /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /bin/mkdir -p /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app
+
+WriteAuxiliaryFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/Entitlements-Simulated.plist (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    write-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/Entitlements-Simulated.plist
+
+ProcessProductPackaging "" /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+    Entitlements:
+    
+    {
+    "application-identifier" = "392G674982.com.yevgenylevin.animated.Grocery-budget-optimizer";
+}
+    
+    builtin-productPackagingUtility -entitlements -format xml -o /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent
+
+ProcessProductPackagingDER /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent.der (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /usr/bin/derq query -f xml -i /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent -o /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent.der --raw
+
+GenerateAssetSymbols /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Assets.xcassets (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Assets.xcassets --compile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app --output-format human-readable-text --notices --warnings --export-dependency-info /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_dependencies --output-partial-info-plist /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_generated_info.plist --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 26.0 --platform iphonesimulator --bundle-identifier com.yevgenylevin.animated.Grocery-budget-optimizer --generate-swift-asset-symbols /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.compilation-results */
+/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+DataModelCompile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/ /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/GroceryBudgetOptimizer.xcdatamodeld (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /Applications/Xcode.app/Contents/Developer/usr/bin/momc --sdkroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk --iphonesimulator-deployment-target 26.0 --module Grocery_budget_optimizer /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/GroceryBudgetOptimizer.xcdatamodeld /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/
+GroceryBudgetOptimizer.xcdatamodel: note: Model GroceryBudgetOptimizer version checksum: zupdwqgNUh+XaNrOBG1aLQz2zTs50r3k73NlHr8K40Y=
+
+MkDir /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_output/thinned (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /bin/mkdir -p /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_output/thinned
+
+MkDir /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_output/unthinned (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /bin/mkdir -p /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_output/unthinned
+
+Ld /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/__preview.dylib normal (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -O0 -L/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -F/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -install_name @rpath/Grocery-budget-optimizer.debug.dylib -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer_dependency_info.dat -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent.der -Xlinker -no_adhoc_codesign -o /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/__preview.dylib
+
+CpResource /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/build.log /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/build.log (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/build.log /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app
+
+CopyStringsFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/uk.lproj/Localizable.strings /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/uk.lproj/Localizable.strings (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-copyStrings --validate --outputencoding binary --outfilename Localizable.strings --outdir /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/uk.lproj -- /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/uk.lproj/Localizable.strings
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/uk.lproj/Localizable.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+CopyStringsFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/ru.lproj/Localizable.strings /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/ru.lproj/Localizable.strings (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-copyStrings --validate --outputencoding binary --outfilename Localizable.strings --outdir /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/ru.lproj -- /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/ru.lproj/Localizable.strings
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/ru.lproj/Localizable.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+CopyStringsFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/he.lproj/Localizable.strings /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/he.lproj/Localizable.strings (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-copyStrings --validate --outputencoding binary --outfilename Localizable.strings --outdir /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/he.lproj -- /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/he.lproj/Localizable.strings
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/he.lproj/Localizable.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+CopyStringsFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/en.lproj/Localizable.strings /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/en.lproj/Localizable.strings (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-copyStrings --validate --outputencoding binary --outfilename Localizable.strings --outdir /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/en.lproj -- /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/en.lproj/Localizable.strings
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Localization/en.lproj/Localizable.strings:1:1: note: detected encoding of input file as Unicode (UTF-8) (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+CompileAssetCatalogVariant thinned /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Assets.xcassets (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Assets.xcassets --compile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --filter-for-thinning-device-configuration iPhone18,3 --filter-for-device-os-version 26.0 --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 26.0 --platform iphonesimulator
+/* com.apple.actool.compilation-results */
+/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_generated_info.plist_thinned
+
+
+SwiftDriver Grocery-budget-optimizer normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Grocery_budget_optimizer -Onone -enforce-exclusivity\=checked @/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -F /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache -output-file-map /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer_const_extract_protocols.json -Xcc -iquote -Xcc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-generated-files.hmap -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-own-target-headers.hmap -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-all-target-headers.hmap -Xcc -iquote -Xcc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-project-headers.hmap -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources-normal/arm64 -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/arm64 -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer-Swift.h -working-directory /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ ShoppingListRepositoryProtocol.swift,\ CreateBudgetUseCase.swift,\ GetBudgetSummaryUseCase.swift,\ GetExpiringItemsUseCase.swift,\ TrackExpirationUseCase.swift,\ GetItemPriceHistoryUseCase.swift,\ SearchGroceryItemsUseCase.swift,\ AutoAddPredictedItemsUseCase.swift,\ GetPurchasePredictionsUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/ShoppingListRepositoryProtocol.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Budget/CreateBudgetUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Budget/GetBudgetSummaryUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Expiration/GetExpiringItemsUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Expiration/TrackExpirationUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/GroceryItem/GetItemPriceHistoryUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/GroceryItem/SearchGroceryItemsUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Prediction/AutoAddPredictedItemsUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Prediction/GetPurchasePredictionsUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/ShoppingListRepositoryProtocol.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Budget/CreateBudgetUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Budget/GetBudgetSummaryUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Expiration/GetExpiringItemsUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Expiration/TrackExpirationUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/GroceryItem/GetItemPriceHistoryUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/GroceryItem/SearchGroceryItemsUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Prediction/AutoAddPredictedItemsUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Prediction/GetPurchasePredictionsUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ Grocery_budget_optimizer (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+EmitSwiftModule normal arm64 (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:17:80: warning: main actor-isolated property 'getBudgetSummaryUseCase' can not be referenced from a nonisolated context
+        getBudgetSummary: GetBudgetSummaryUseCaseProtocol = DIContainer.shared.getBudgetSummaryUseCase,
+                                                                               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:45:14: note: property declared here
+    lazy var getBudgetSummaryUseCase: GetBudgetSummaryUseCaseProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:17:73: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        getBudgetSummary: GetBudgetSummaryUseCaseProtocol = DIContainer.shared.getBudgetSummaryUseCase,
+                                                                        ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:18:77: warning: main actor-isolated property 'purchaseRepository' can not be referenced from a nonisolated context
+        purchaseRepository: PurchaseRepositoryProtocol = DIContainer.shared.purchaseRepository,
+                                                                            ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:26:14: note: property declared here
+    lazy var purchaseRepository: PurchaseRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:18:70: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        purchaseRepository: PurchaseRepositoryProtocol = DIContainer.shared.purchaseRepository,
+                                                                     ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:19:73: warning: main actor-isolated property 'budgetRepository' can not be referenced from a nonisolated context
+        budgetRepository: BudgetRepositoryProtocol = DIContainer.shared.budgetRepository
+                                                                        ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:22:14: note: property declared here
+    lazy var budgetRepository: BudgetRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:19:66: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        budgetRepository: BudgetRepositoryProtocol = DIContainer.shared.budgetRepository
+                                                                 ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift:16:83: warning: main actor-isolated property 'groceryItemRepository' can not be referenced from a nonisolated context
+        groceryItemRepository: GroceryItemRepositoryProtocol = DIContainer.shared.groceryItemRepository,
+                                                                                  ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:13:14: note: property declared here
+    lazy var groceryItemRepository: GroceryItemRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift:16:76: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        groceryItemRepository: GroceryItemRepositoryProtocol = DIContainer.shared.groceryItemRepository,
+                                                                           ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift:17:77: warning: main actor-isolated property 'searchGroceryItemsUseCase' can not be referenced from a nonisolated context
+        searchItems: SearchGroceryItemsUseCaseProtocol = DIContainer.shared.searchGroceryItemsUseCase
+                                                                            ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:120:14: note: property declared here
+    lazy var searchGroceryItemsUseCase: SearchGroceryItemsUseCaseProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift:17:70: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        searchItems: SearchGroceryItemsUseCaseProtocol = DIContainer.shared.searchGroceryItemsUseCase
+                                                                     ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:33:94: warning: main actor-isolated property 'getPriceRecommendationsUseCase' can not be referenced from a nonisolated context
+        getPriceRecommendations: GetPriceRecommendationsUseCaseProtocol = DIContainer.shared.getPriceRecommendationsUseCase,
+                                                                                             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:86:14: note: property declared here
+    lazy var getPriceRecommendationsUseCase: GetPriceRecommendationsUseCaseProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:33:87: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        getPriceRecommendations: GetPriceRecommendationsUseCaseProtocol = DIContainer.shared.getPriceRecommendationsUseCase,
+                                                                                      ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:34:85: warning: main actor-isolated property 'shoppingListRepository' can not be referenced from a nonisolated context
+        shoppingListRepository: ShoppingListRepositoryProtocol = DIContainer.shared.shoppingListRepository,
+                                                                                    ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:17:14: note: property declared here
+    lazy var shoppingListRepository: ShoppingListRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:34:78: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        shoppingListRepository: ShoppingListRepositoryProtocol = DIContainer.shared.shoppingListRepository,
+                                                                             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:35:83: warning: main actor-isolated property 'groceryItemRepository' can not be referenced from a nonisolated context
+        groceryItemRepository: GroceryItemRepositoryProtocol = DIContainer.shared.groceryItemRepository
+                                                                                  ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:13:14: note: property declared here
+    lazy var groceryItemRepository: GroceryItemRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:35:76: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        groceryItemRepository: GroceryItemRepositoryProtocol = DIContainer.shared.groceryItemRepository
+                                                                           ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift:15:85: warning: main actor-isolated property 'shoppingListRepository' can not be referenced from a nonisolated context
+        shoppingListRepository: ShoppingListRepositoryProtocol = DIContainer.shared.shoppingListRepository,
+                                                                                    ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:17:14: note: property declared here
+    lazy var shoppingListRepository: ShoppingListRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift:15:78: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        shoppingListRepository: ShoppingListRepositoryProtocol = DIContainer.shared.shoppingListRepository,
+                                                                             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift:16:90: warning: main actor-isolated property 'generateSmartShoppingListUseCase' can not be referenced from a nonisolated context
+        generateSmartList: GenerateSmartShoppingListUseCaseProtocol = DIContainer.shared.generateSmartShoppingListUseCase
+                                                                                         ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:57:14: note: property declared here
+    lazy var generateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift:16:83: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        generateSmartList: GenerateSmartShoppingListUseCaseProtocol = DIContainer.shared.generateSmartShoppingListUseCase
+                                                                                  ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/ViewModels/GroceryItemsViewModel.swift:21:54: warning: call to main actor-isolated initializer 'init()' in a synchronous nonisolated context
+    init(repository: GroceryItemRepositoryProtocol = MockGroceryItemRepository()) {
+                                                     ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockGroceryItemRepository.swift:14:5: note: calls to initializer 'init()' from outside of its actor context are implicitly asynchronous
+    init() {
+    ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockGroceryItemRepository.swift:14:5: note: main actor isolation inferred from conformance to protocol 'GroceryItemRepositoryProtocol'
+    init() {
+    ^
+
+SwiftCompile normal arm64 Compiling\ PurchaseRow.swift,\ QuickActionButton.swift,\ MainTabView.swift,\ BudgetView.swift,\ BudgetViewModel.swift,\ HomeView.swift,\ HomeViewModel.swift,\ ItemsView.swift,\ ItemsViewModel.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/PurchaseRow.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/QuickActionButton.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Navigation/MainTabView.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetView.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Home/HomeView.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Home/HomeViewModel.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsView.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/PurchaseRow.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/QuickActionButton.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Navigation/MainTabView.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetView.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:17:80: warning: main actor-isolated property 'getBudgetSummaryUseCase' can not be referenced from a nonisolated context
+        getBudgetSummary: GetBudgetSummaryUseCaseProtocol = DIContainer.shared.getBudgetSummaryUseCase,
+                                                                               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:45:14: note: property declared here
+    lazy var getBudgetSummaryUseCase: GetBudgetSummaryUseCaseProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:17:73: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        getBudgetSummary: GetBudgetSummaryUseCaseProtocol = DIContainer.shared.getBudgetSummaryUseCase,
+                                                                        ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:18:77: warning: main actor-isolated property 'purchaseRepository' can not be referenced from a nonisolated context
+        purchaseRepository: PurchaseRepositoryProtocol = DIContainer.shared.purchaseRepository,
+                                                                            ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:26:14: note: property declared here
+    lazy var purchaseRepository: PurchaseRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:18:70: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        purchaseRepository: PurchaseRepositoryProtocol = DIContainer.shared.purchaseRepository,
+                                                                     ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:19:73: warning: main actor-isolated property 'budgetRepository' can not be referenced from a nonisolated context
+        budgetRepository: BudgetRepositoryProtocol = DIContainer.shared.budgetRepository
+                                                                        ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:22:14: note: property declared here
+    lazy var budgetRepository: BudgetRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Budget/BudgetViewModel.swift:19:66: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        budgetRepository: BudgetRepositoryProtocol = DIContainer.shared.budgetRepository
+                                                                 ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Home/HomeView.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Home/HomeViewModel.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsView.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift:16:83: warning: main actor-isolated property 'groceryItemRepository' can not be referenced from a nonisolated context
+        groceryItemRepository: GroceryItemRepositoryProtocol = DIContainer.shared.groceryItemRepository,
+                                                                                  ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:13:14: note: property declared here
+    lazy var groceryItemRepository: GroceryItemRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift:16:76: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        groceryItemRepository: GroceryItemRepositoryProtocol = DIContainer.shared.groceryItemRepository,
+                                                                           ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift:17:77: warning: main actor-isolated property 'searchGroceryItemsUseCase' can not be referenced from a nonisolated context
+        searchItems: SearchGroceryItemsUseCaseProtocol = DIContainer.shared.searchGroceryItemsUseCase
+                                                                            ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:120:14: note: property declared here
+    lazy var searchGroceryItemsUseCase: SearchGroceryItemsUseCaseProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Items/ItemsViewModel.swift:17:70: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        searchItems: SearchGroceryItemsUseCaseProtocol = DIContainer.shared.searchGroceryItemsUseCase
+                                                                     ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+
+SwiftCompile normal arm64 Compiling\ SettingsView.swift,\ ShoppingListDetailView.swift,\ ShoppingListDetailViewModel.swift,\ ShoppingListsView.swift,\ ShoppingListsViewModel.swift,\ ContentView.swift,\ ShoppingRecommendationsView.swift,\ GroceryItemsViewModel.swift,\ GeneratedAssetSymbols.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Settings/SettingsView.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailView.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsView.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ContentView.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingRecommendationsView.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/ViewModels/GroceryItemsViewModel.swift /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/Settings/SettingsView.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailView.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:33:94: warning: main actor-isolated property 'getPriceRecommendationsUseCase' can not be referenced from a nonisolated context
+        getPriceRecommendations: GetPriceRecommendationsUseCaseProtocol = DIContainer.shared.getPriceRecommendationsUseCase,
+                                                                                             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:86:14: note: property declared here
+    lazy var getPriceRecommendationsUseCase: GetPriceRecommendationsUseCaseProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:33:87: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        getPriceRecommendations: GetPriceRecommendationsUseCaseProtocol = DIContainer.shared.getPriceRecommendationsUseCase,
+                                                                                      ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:34:85: warning: main actor-isolated property 'shoppingListRepository' can not be referenced from a nonisolated context
+        shoppingListRepository: ShoppingListRepositoryProtocol = DIContainer.shared.shoppingListRepository,
+                                                                                    ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:17:14: note: property declared here
+    lazy var shoppingListRepository: ShoppingListRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:34:78: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        shoppingListRepository: ShoppingListRepositoryProtocol = DIContainer.shared.shoppingListRepository,
+                                                                             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:35:83: warning: main actor-isolated property 'groceryItemRepository' can not be referenced from a nonisolated context
+        groceryItemRepository: GroceryItemRepositoryProtocol = DIContainer.shared.groceryItemRepository
+                                                                                  ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:13:14: note: property declared here
+    lazy var groceryItemRepository: GroceryItemRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListDetailViewModel.swift:35:76: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        groceryItemRepository: GroceryItemRepositoryProtocol = DIContainer.shared.groceryItemRepository
+                                                                           ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsView.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift:15:85: warning: main actor-isolated property 'shoppingListRepository' can not be referenced from a nonisolated context
+        shoppingListRepository: ShoppingListRepositoryProtocol = DIContainer.shared.shoppingListRepository,
+                                                                                    ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:17:14: note: property declared here
+    lazy var shoppingListRepository: ShoppingListRepositoryProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift:15:78: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        shoppingListRepository: ShoppingListRepositoryProtocol = DIContainer.shared.shoppingListRepository,
+                                                                             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift:16:90: warning: main actor-isolated property 'generateSmartShoppingListUseCase' can not be referenced from a nonisolated context
+        generateSmartList: GenerateSmartShoppingListUseCaseProtocol = DIContainer.shared.generateSmartShoppingListUseCase
+                                                                                         ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:57:14: note: property declared here
+    lazy var generateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol = {
+             ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingLists/ShoppingListsViewModel.swift:16:83: warning: main actor-isolated static property 'shared' can not be referenced from a nonisolated context
+        generateSmartList: GenerateSmartShoppingListUseCaseProtocol = DIContainer.shared.generateSmartShoppingListUseCase
+                                                                                  ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift:5:16: note: static property declared here
+    static let shared = DIContainer()
+               ^
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ContentView.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ContentView.swift:112:14: warning: 'onChange(of:perform:)' was deprecated in iOS 17.0: Use `onChange` with a two or zero parameter action closure instead.
+            .onChange(of: viewModel.groceryItems) { _ in
+             ^
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Screens/ShoppingRecommendationsView.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/ViewModels/GroceryItemsViewModel.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/ViewModels/GroceryItemsViewModel.swift:21:54: warning: call to main actor-isolated initializer 'init()' in a synchronous nonisolated context
+    init(repository: GroceryItemRepositoryProtocol = MockGroceryItemRepository()) {
+                                                     ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockGroceryItemRepository.swift:14:5: note: calls to initializer 'init()' from outside of its actor context are implicitly asynchronous
+    init() {
+    ^
+/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockGroceryItemRepository.swift:14:5: note: main actor isolation inferred from conformance to protocol 'GroceryItemRepositoryProtocol'
+    init() {
+    ^
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 Compiling\ MockShoppingListRepository.swift,\ PriceHistoryRepository.swift,\ PurchaseRepository.swift,\ ShoppingListRepository.swift,\ RepositoryError.swift,\ Budget.swift,\ Category.swift,\ ExpirationTracker.swift,\ GroceryItem.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockShoppingListRepository.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/PriceHistoryRepository.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/PurchaseRepository.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/ShoppingListRepository.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/RepositoryError.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/Budget.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/Category.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/ExpirationTracker.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/GroceryItem.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockShoppingListRepository.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/PriceHistoryRepository.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/PurchaseRepository.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/ShoppingListRepository.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/RepositoryError.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/Budget.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/Category.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/ExpirationTracker.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/GroceryItem.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 Compiling\ PurchaseEntity+CoreDataClass.swift,\ PurchaseEntity+CoreDataProperties.swift,\ ShoppingListEntity+CoreDataClass.swift,\ ShoppingListEntity+CoreDataProperties.swift,\ ShoppingListItemEntity+CoreDataClass.swift,\ ShoppingListItemEntity+CoreDataProperties.swift,\ MLCoordinator.swift,\ BudgetRepository.swift,\ MockExpirationTrackerRepository.swift,\ MockGroceryItemRepository.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/PurchaseEntity+CoreDataClass.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/PurchaseEntity+CoreDataProperties.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ShoppingListEntity+CoreDataClass.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ShoppingListEntity+CoreDataProperties.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ShoppingListItemEntity+CoreDataClass.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ShoppingListItemEntity+CoreDataProperties.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/MLModels/MLCoordinator.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/BudgetRepository.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockExpirationTrackerRepository.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockGroceryItemRepository.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/PurchaseEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/PurchaseEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ShoppingListEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ShoppingListEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ShoppingListItemEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ShoppingListItemEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/MLModels/MLCoordinator.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/BudgetRepository.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockExpirationTrackerRepository.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/Repositories/MockGroceryItemRepository.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 Compiling\ GetPriceRecommendationsUseCase.swift,\ RecordPriceUseCase.swift,\ AddItemToShoppingListUseCase.swift,\ CreateShoppingListUseCase.swift,\ GenerateSmartShoppingListUseCase.swift,\ MarkItemAsPurchasedUseCase.swift,\ ExpirationPredictionService.swift,\ PriceOptimizationService.swift,\ PurchasePredictionService.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Price/GetPriceRecommendationsUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Price/RecordPriceUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/ShoppingList/AddItemToShoppingListUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/ShoppingList/CreateShoppingListUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/ShoppingList/GenerateSmartShoppingListUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/ShoppingList/MarkItemAsPurchasedUseCase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/Services/ExpirationPredictionService.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/Services/PriceOptimizationService.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/Services/PurchasePredictionService.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Price/GetPriceRecommendationsUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/Price/RecordPriceUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/ShoppingList/AddItemToShoppingListUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/ShoppingList/CreateShoppingListUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/ShoppingList/GenerateSmartShoppingListUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/UseCases/ShoppingList/MarkItemAsPurchasedUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/Services/ExpirationPredictionService.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/Services/PriceOptimizationService.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/Services/PurchasePredictionService.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 Compiling\ PriceHistory.swift,\ Purchase.swift,\ ShoppingList.swift,\ ShoppingListItem.swift,\ BudgetRepositoryProtocol.swift,\ ExpirationTrackerRepositoryProtocol.swift,\ GroceryItemRepositoryProtocol.swift,\ PriceHistoryRepositoryProtocol.swift,\ PurchaseRepositoryProtocol.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/PriceHistory.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/Purchase.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/ShoppingList.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/ShoppingListItem.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/BudgetRepositoryProtocol.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/ExpirationTrackerRepositoryProtocol.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/GroceryItemRepositoryProtocol.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/PriceHistoryRepositoryProtocol.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/PurchaseRepositoryProtocol.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/PriceHistory.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/Purchase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/ShoppingList.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/Entities/ShoppingListItem.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/BudgetRepositoryProtocol.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/ExpirationTrackerRepositoryProtocol.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/GroceryItemRepositoryProtocol.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/PriceHistoryRepositoryProtocol.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Domain/RepositoryProtocols/PurchaseRepositoryProtocol.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 Compiling\ BudgetEntity+CoreDataProperties.swift,\ CategoryEntity+CoreDataClass.swift,\ CategoryEntity+CoreDataProperties.swift,\ CoreDataStack.swift,\ ExpirationTrackerEntity+CoreDataClass.swift,\ ExpirationTrackerEntity+CoreDataProperties.swift,\ GroceryItemEntity+CoreDataClass.swift,\ GroceryItemEntity+CoreDataProperties.swift,\ PriceHistoryEntity+CoreDataClass.swift,\ PriceHistoryEntity+CoreDataProperties.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/BudgetEntity+CoreDataProperties.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/CategoryEntity+CoreDataClass.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/CategoryEntity+CoreDataProperties.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/CoreDataStack.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ExpirationTrackerEntity+CoreDataClass.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ExpirationTrackerEntity+CoreDataProperties.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/GroceryItemEntity+CoreDataClass.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/GroceryItemEntity+CoreDataProperties.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/PriceHistoryEntity+CoreDataClass.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/PriceHistoryEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/BudgetEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/CategoryEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/CategoryEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/CoreDataStack.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ExpirationTrackerEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/ExpirationTrackerEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/GroceryItemEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/GroceryItemEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/PriceHistoryEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/PriceHistoryEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 Compiling\ Grocery_budget_optimizerApp.swift,\ AppConstants.swift,\ DIContainer.swift,\ Date+Extensions.swift,\ Decimal+Extensions.swift,\ MockDataSeeder.swift,\ LanguageManager.swift,\ LocalizationHelper.swift,\ NotificationManager.swift,\ BudgetEntity+CoreDataClass.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/App/Grocery_budget_optimizerApp.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Constants/AppConstants.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Extensions/Date+Extensions.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Extensions/Decimal+Extensions.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/MockData/MockDataSeeder.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Utilities/LanguageManager.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Utilities/LocalizationHelper.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Utilities/NotificationManager.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/BudgetEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/App/Grocery_budget_optimizerApp.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Constants/AppConstants.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/DependencyInjection/DIContainer.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Extensions/Date+Extensions.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Extensions/Decimal+Extensions.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/MockData/MockDataSeeder.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Utilities/LanguageManager.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Utilities/LocalizationHelper.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Core/Utilities/NotificationManager.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/BudgetEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling BudgetEntity+CoreDataProperties.swift, CategoryEntity+CoreDataClass.swift, CategoryEntity+CoreDataProperties.swift, CoreDataStack.swift, ExpirationTrackerEntity+CoreDataClass.swift, ExpirationTrackerEntity+CoreDataProperties.swift, GroceryItemEntity+CoreDataClass.swift, GroceryItemEntity+CoreDataProperties.swift, PriceHistoryEntity+CoreDataClass.swift, PriceHistoryEntity+CoreDataProperties.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftCompile normal arm64 Compiling\ ShoppingListGeneratorService.swift,\ ExpirationPredictionTrainingData.swift,\ PriceOptimizationTrainingData.swift,\ PurchasePredictionTrainingData.swift,\ ShoppingListTrainingData.swift,\ MLModelManager.swift,\ BudgetSummaryCard.swift,\ ExpiringItemCard.swift,\ PredictionRow.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/Services/ShoppingListGeneratorService.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/TrainingData/ExpirationPredictionTrainingData.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/TrainingData/PriceOptimizationTrainingData.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/TrainingData/PurchasePredictionTrainingData.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/TrainingData/ShoppingListTrainingData.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/MLModelManager.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/BudgetSummaryCard.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/ExpiringItemCard.swift /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/PredictionRow.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/Services/ShoppingListGeneratorService.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/TrainingData/ExpirationPredictionTrainingData.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/TrainingData/PriceOptimizationTrainingData.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/TrainingData/PurchasePredictionTrainingData.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/TrainingData/ShoppingListTrainingData.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/MLModels/MLModelManager.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/BudgetSummaryCard.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/ExpiringItemCard.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftCompile normal arm64 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Presentation/Components/PredictionRow.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling PriceHistory.swift, Purchase.swift, ShoppingList.swift, ShoppingListItem.swift, BudgetRepositoryProtocol.swift, ExpirationTrackerRepositoryProtocol.swift, GroceryItemRepositoryProtocol.swift, PriceHistoryRepositoryProtocol.swift, PurchaseRepositoryProtocol.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftDriverJobDiscovery normal arm64 Compiling PurchaseEntity+CoreDataClass.swift, PurchaseEntity+CoreDataProperties.swift, ShoppingListEntity+CoreDataClass.swift, ShoppingListEntity+CoreDataProperties.swift, ShoppingListItemEntity+CoreDataClass.swift, ShoppingListItemEntity+CoreDataProperties.swift, MLCoordinator.swift, BudgetRepository.swift, MockExpirationTrackerRepository.swift, MockGroceryItemRepository.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ShoppingListRepositoryProtocol.swift, CreateBudgetUseCase.swift, GetBudgetSummaryUseCase.swift, GetExpiringItemsUseCase.swift, TrackExpirationUseCase.swift, GetItemPriceHistoryUseCase.swift, SearchGroceryItemsUseCase.swift, AutoAddPredictedItemsUseCase.swift, GetPurchasePredictionsUseCase.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+LinkAssetCatalog /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Assets.xcassets (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-linkAssetCatalog --thinned /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_output/thinned --thinned-dependencies /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_generated_info.plist_thinned --unthinned /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_output/unthinned --unthinned-dependencies /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_generated_info.plist_unthinned --output /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app --plist-output /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_generated_info.plist
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for Grocery_budget_optimizer (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftDriver\ Compilation\ Requirements Grocery-budget-optimizer normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Grocery_budget_optimizer -Onone -enforce-exclusivity\=checked @/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -F /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache -output-file-map /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer_const_extract_protocols.json -Xcc -iquote -Xcc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-generated-files.hmap -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-own-target-headers.hmap -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-all-target-headers.hmap -Xcc -iquote -Xcc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-project-headers.hmap -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources-normal/arm64 -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/arm64 -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer-Swift.h -working-directory /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer -experimental-emit-module-separately -disable-cmo
+
+ProcessInfoPlistFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Info.plist /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/empty-Grocery-budget-optimizer.plist (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-infoPlistUtility /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/empty-Grocery-budget-optimizer.plist -producttype com.apple.product-type.application -genpkginfo /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/assetcatalog_generated_info.plist -o /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Info.plist
+
+SwiftMergeGeneratedHeaders /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/Grocery_budget_optimizer-Swift.h /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer-Swift.h (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-swiftHeaderTool -arch arm64 /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer-Swift.h -o /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/Grocery_budget_optimizer-Swift.h
+
+Copy /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery_budget_optimizer.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftmodule (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftmodule /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery_budget_optimizer.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery_budget_optimizer.swiftmodule/arm64-apple-ios-simulator.swiftdoc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftdoc (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftdoc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery_budget_optimizer.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery_budget_optimizer.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.abi.json (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.abi.json /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery_budget_optimizer.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery_budget_optimizer.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftsourceinfo (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftsourceinfo /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery_budget_optimizer.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Compiling MockShoppingListRepository.swift, PriceHistoryRepository.swift, PurchaseRepository.swift, ShoppingListRepository.swift, RepositoryError.swift, Budget.swift, Category.swift, ExpirationTracker.swift, GroceryItem.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftDriverJobDiscovery normal arm64 Compiling GetPriceRecommendationsUseCase.swift, RecordPriceUseCase.swift, AddItemToShoppingListUseCase.swift, CreateShoppingListUseCase.swift, GenerateSmartShoppingListUseCase.swift, MarkItemAsPurchasedUseCase.swift, ExpirationPredictionService.swift, PriceOptimizationService.swift, PurchasePredictionService.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftDriverJobDiscovery normal arm64 Compiling Grocery_budget_optimizerApp.swift, AppConstants.swift, DIContainer.swift, Date+Extensions.swift, Decimal+Extensions.swift, MockDataSeeder.swift, LanguageManager.swift, LocalizationHelper.swift, NotificationManager.swift, BudgetEntity+CoreDataClass.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ShoppingListGeneratorService.swift, ExpirationPredictionTrainingData.swift, PriceOptimizationTrainingData.swift, PurchasePredictionTrainingData.swift, ShoppingListTrainingData.swift, MLModelManager.swift, BudgetSummaryCard.swift, ExpiringItemCard.swift, PredictionRow.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftDriverJobDiscovery normal arm64 Compiling PurchaseRow.swift, QuickActionButton.swift, MainTabView.swift, BudgetView.swift, BudgetViewModel.swift, HomeView.swift, HomeViewModel.swift, ItemsView.swift, ItemsViewModel.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettingsView.swift, ShoppingListDetailView.swift, ShoppingListDetailViewModel.swift, ShoppingListsView.swift, ShoppingListsViewModel.swift, ContentView.swift, ShoppingRecommendationsView.swift, GroceryItemsViewModel.swift, GeneratedAssetSymbols.swift (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+SwiftDriver\ Compilation Grocery-budget-optimizer normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Grocery_budget_optimizer -Onone -enforce-exclusivity\=checked @/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -target arm64-apple-ios26.0-simulator -g -module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -F /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -emit-localized-strings -emit-localized-strings-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache -output-file-map /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer_const_extract_protocols.json -Xcc -iquote -Xcc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-generated-files.hmap -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-own-target-headers.hmap -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-all-target-headers.hmap -Xcc -iquote -Xcc /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-project-headers.hmap -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources-normal/arm64 -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/arm64 -Xcc -I/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer-Swift.h -working-directory /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer.debug.dylib normal (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -O0 -L/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -F/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -filelist /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.LinkFileList -install_name @rpath/Grocery-budget-optimizer.debug.dylib -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer.swiftmodule @/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery_budget_optimizer-linker-args.resp -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-ExecutorLinkFileList-normal-arm64.txt (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    construct-stub-executor-link-file-list /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+
+Ld /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer normal (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios26.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -O0 -L/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -F/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.app-Simulated.xcent.der /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer
+
+CopySwiftLibs /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer.debug.dylib --scan-folder /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Frameworks --scan-folder /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/PlugIns --scan-folder /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/SystemExtensions --scan-folder /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Grocery_budget_optimizer --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk --xcode-version 17A400 --platform-family iOS --deployment-target 26.0 --bundle-identifier com.yevgenylevin.animated.Grocery-budget-optimizer --output /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app --target-triple arm64-apple-ios26.0-simulator --binary-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer --dependency-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer_dependency_info.dat --stringsdata-file /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.SwiftFileList --metadata-file-list /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.DependencyMetadataFileList --static-metadata-file-list /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.DependencyStaticMetadataFileList --swift-const-vals-list /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Objects-normal/arm64/Grocery-budget-optimizer.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2025-10-04 13:25:22.687 appintentsmetadataprocessor[2659:2912793] Starting appintentsmetadataprocessor export
+2025-10-04 13:25:22.689 appintentsmetadataprocessor[2659:2912793] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Info.plist --temp-dir-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/ssu --bundle-id com.yevgenylevin.animated.Grocery-budget-optimizer --product-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app --extracted-metadata-path /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Metadata.appintents --metadata-file-list /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/Grocery-budget-optimizer.DependencyMetadataFileList --archive-ssu-assets
+2025-10-04 13:25:22.705 appintentsnltrainingprocessor[2660:2912794] Parsing options for appintentsnltrainingprocessor
+2025-10-04 13:25:22.706 appintentsnltrainingprocessor[2660:2912794] No AppShortcuts found - Skipping.
+
+CodeSign /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer.debug.dylib (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Grocery-budget-optimizer.debug.dylib
+
+CodeSign /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/__preview.dylib (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/__preview.dylib
+
+CodeSign /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app
+
+RegisterExecutionPolicyException /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-RegisterExecutionPolicyException /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app
+
+Validate /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    builtin-validationUtility /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app -shallow-bundle -infoplist-subpath Info.plist
+
+Touch /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer
+    /usr/bin/touch -c /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app
+
+note: Disabling hardened runtime with ad-hoc codesigning. (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+** BUILD SUCCEEDED **
+
