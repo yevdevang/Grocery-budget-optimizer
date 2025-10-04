@@ -205,17 +205,33 @@
 "product.butter" = "חמאה";
 "product.eggs" = "ביצים";
 "product.chicken" = "חזה עוף";
-"product.beef" = "בשר בקר טחון";
+"product.chickenBreast" = "חזה עוף";
+"product.beef" = "בשר טחון";
+"product.groundBeef" = "בשר טחון";
 "product.salmon" = "סלמון";
+"product.tuna" = "טונה";
 "product.bread" = "לחם";
 "product.rice" = "אורז";
 "product.pasta" = "פסטה";
 "product.tomatoes" = "עגבניות";
 "product.lettuce" = "חסה";
 "product.carrots" = "גזר";
+"product.onions" = "בצל";
+"product.potatoes" = "תפוחי אדמה";
+"product.bellPeppers" = "פלפל מתוק";
+"product.broccoli" = "ברוקולי";
+"product.spinach" = "תרד";
+"product.garlic" = "שום";
 "product.apples" = "תפוחים";
 "product.bananas" = "בננות";
 "product.oranges" = "תפוזים";
+"product.oliveOil" = "שמן זית";
+"product.salt" = "מלח";
+"product.pepper" = "פלפל";
+"product.cereal" = "דגני בוקר";
+"product.oats" = "שיבולת שועל";
+"product.honey" = "דבש";
+"product.coffee" = "קפה";
 
 /* Smart List Creation */
 "smartList.budget" = "תקציב";

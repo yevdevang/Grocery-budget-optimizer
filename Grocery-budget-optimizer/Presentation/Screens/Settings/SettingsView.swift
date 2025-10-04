@@ -11,7 +11,7 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section(L10n.Settings.general) {
-                    Stepper("\(L10n.Settings.householdSize): \(householdSize)", value: $householdSize, in: 1...10)
+//                    Stepper("\(L10n.Settings.householdSize): \(householdSize)", value: $householdSize, in: 1...10)
 
 //                    Toggle(L10n.Settings.enableNotifications, isOn: $notificationsEnabled)
                 }
@@ -63,7 +63,7 @@ struct SettingsView: View {
 
                 Section(L10n.Settings.about) {
                     LabeledContent(L10n.Settings.version, value: "1.0.0")
-                    LabeledContent(L10n.Settings.build, value: "100")
+//                    LabeledContent(L10n.Settings.build, value: "100")
 
 //                    Link(destination: URL(string: "https://github.com")!) {
 //                        Label(L10n.Settings.githubRepo, systemImage: "link")

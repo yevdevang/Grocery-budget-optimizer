@@ -27,8 +27,10 @@ class ItemsViewModel: ObservableObject {
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { [weak self] items in
-                    self?.items = items
-                    self?.filteredItems = items
+                    // Sort items by creation date, newest first
+                    let sortedItems = items.sorted { $0.createdAt > $1.createdAt }
+                    self?.items = sortedItems
+                    self?.filteredItems = sortedItems
                     self?.categories = Array(Set(items.map { $0.category })).sorted()
                     self?.isLoading = false
                 }
@@ -45,7 +47,8 @@ class ItemsViewModel: ObservableObject {
                 .sink(
                     receiveCompletion: { _ in },
                     receiveValue: { [weak self] results in
-                        self?.filteredItems = results
+                        // Sort search results by creation date, newest first
+                        self?.filteredItems = results.sorted { $0.createdAt > $1.createdAt }
                     }
                 )
                 .store(in: &cancellables)
@@ -54,7 +57,8 @@ class ItemsViewModel: ObservableObject {
 
     func filterByCategory(_ category: String?) {
         if let category = category {
-            filteredItems = items.filter { $0.category == category }
+            // Filter and sort by creation date, newest first
+            filteredItems = items.filter { $0.category == category }.sorted { $0.createdAt > $1.createdAt }
         } else {
             filteredItems = items
         }
