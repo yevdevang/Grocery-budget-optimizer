@@ -1,0 +1,6 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -scheme Grocery-budget-optimizer -destination "platform=iOS Simulator,name=iPhone 15" clean build
+
+2025-10-03 17:52:58.831 xcodebuild[48829:1923490] Writing error result bundle to /var/folders/0f/qnrf786s1n36ncvg9_8xcnhh0000gn/T/ResultBundle_2025-03-10_17-52-0058.xcresult
+xcodebuild: error: The directory /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer does not contain an Xcode project, workspace or package.
+

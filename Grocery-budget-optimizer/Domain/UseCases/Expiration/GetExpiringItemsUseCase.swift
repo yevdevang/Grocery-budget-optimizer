@@ -86,7 +86,8 @@ class GetExpiringItemsUseCase: GetExpiringItemsUseCaseProtocol {
     }
 }
 
-struct ExpiringItemInfo {
+struct ExpiringItemInfo: Identifiable {
+    var id: UUID { tracker.id }
     let item: GroceryItem
     let tracker: ExpirationTracker
     let daysRemaining: Int
