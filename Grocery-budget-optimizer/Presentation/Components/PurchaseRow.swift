@@ -23,8 +23,8 @@ struct PurchaseRow: View {
 
             Spacer()
 
-            VStack(alignment: .trailing, spacing: 4) {
-                Text(purchase.totalCost, format: .currency(code: "USD"))
+            VStack(alignment: .trailing, spacing: 4) { 
+                CurrencyText(value: purchase.totalCost)
                     .font(.subheadline)
                     .fontWeight(.semibold)
 

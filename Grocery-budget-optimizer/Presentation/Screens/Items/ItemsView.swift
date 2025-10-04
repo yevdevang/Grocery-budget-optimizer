@@ -3,6 +3,7 @@ import SwiftUI
 struct ItemsView: View {
     @StateObject private var viewModel = ItemsViewModel()
     @ObservedObject private var languageManager = LanguageManager.shared
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @State private var searchText = ""
     @State private var selectedCategory: String?
     @State private var showingAddItem = false
@@ -44,6 +45,7 @@ struct ItemsView: View {
                         await viewModel.loadItems()
                     }
                 })
+                .id(currencyManager.currentCurrency.rawValue)
             }
             .task {
                 await viewModel.loadItems()
@@ -102,7 +104,7 @@ struct ItemRow: View {
 
             Spacer()
 
-            Text(item.averagePrice, format: .currency(code: "USD"))
+            CurrencyText(value: item.averagePrice)
                 .font(.subheadline)
                 .fontWeight(.medium)
         }
@@ -137,7 +139,9 @@ struct ItemDetailView: View {
             Section(L10n.Items.details) {
                 LabeledContent(L10n.Items.name, value: localizedProductName(item.name))
                 LabeledContent(L10n.Items.category, value: L10n.Category.localizedName(item.category))
-                LabeledContent(L10n.Items.averagePrice, value: item.averagePrice, format: .currency(code: "USD"))
+                LabeledContent(L10n.Items.averagePrice) {
+                    CurrencyText(value: item.averagePrice)
+                }
             }
 
             Section(L10n.Items.priceHistory) {
@@ -152,6 +156,7 @@ struct ItemDetailView: View {
 struct AddItemView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = AddItemViewModel()
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @FocusState private var focusedField: Field?
     var onItemAdded: (() -> Void)?
     
@@ -198,8 +203,9 @@ struct AddItemView: View {
                 // Pricing Section
                 Section(L10n.AddItem.pricing) {
                     HStack {
-                        Text("$")
+                        Text(currencyManager.currentCurrency.symbol)
                             .foregroundStyle(.secondary)
+                            .id(currencyManager.currentCurrency.rawValue)
                         TextField(L10n.AddItem.averagePrice, text: $viewModel.averagePrice)
                             .focused($focusedField, equals: .price)
                             .keyboardType(.decimalPad)

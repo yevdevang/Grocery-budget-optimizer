@@ -193,6 +193,7 @@ struct HomeView: View {
 
 struct SmartListCreationSheet: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @State private var budgetAmount = ""
     @State private var numberOfDays = 7
     @State private var householdSize = 1
@@ -211,7 +212,7 @@ struct SmartListCreationSheet: View {
             Form {
                 Section(L10n.SmartList.budget) {
                     HStack {
-                        Text("$")
+                        Text(currencyManager.currentCurrency.symbol)
                             .foregroundStyle(.secondary)
                         TextField(L10n.SmartList.enterBudget, text: $budgetAmount)
                             .keyboardType(.decimalPad)
@@ -326,6 +327,7 @@ struct SmartListCreationSheet: View {
 
 struct QuickAddItemSheet: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @State private var name = ""
     @State private var category = "Produce"
     @State private var brand = ""
@@ -362,7 +364,7 @@ struct QuickAddItemSheet: View {
 
                 Section(L10n.AddItem.pricing) {
                     HStack {
-                        Text("$")
+                        Text(currencyManager.currentCurrency.symbol)
                             .foregroundStyle(.secondary)
                         TextField(L10n.AddItem.averagePrice, text: $price)
                             .keyboardType(.decimalPad)
@@ -423,6 +425,7 @@ struct QuickAddItemSheet: View {
 
 struct QuickAddExpenseSheet: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @State private var selectedItem: GroceryItem?
     @State private var showingItemPicker = false
     @State private var quantity = ""
@@ -488,7 +491,7 @@ struct QuickAddExpenseSheet: View {
                     HStack {
                         Text(L10n.AddExpense.pricePerUnit)
                         Spacer()
-                        Text("$")
+                        Text(currencyManager.currentCurrency.symbol)
                             .foregroundStyle(.secondary)
                         TextField("0.00", text: $price)
                             .keyboardType(.decimalPad)
@@ -500,7 +503,7 @@ struct QuickAddExpenseSheet: View {
                         Text(L10n.AddExpense.totalCost)
                             .fontWeight(.medium)
                         Spacer()
-                        Text(totalCost, format: .currency(code: "USD"))
+                        CurrencyText(value: totalCost)
                             .fontWeight(.semibold)
                     }
 
