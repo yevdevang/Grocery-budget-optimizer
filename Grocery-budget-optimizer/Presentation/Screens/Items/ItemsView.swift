@@ -39,7 +39,11 @@ struct ItemsView: View {
                 }
             }
             .sheet(isPresented: $showingAddItem) {
-                AddItemView()
+                AddItemView(onItemAdded: {
+                    Task {
+                        await viewModel.loadItems()
+                    }
+                })
             }
             .task {
                 await viewModel.loadItems()
@@ -147,23 +151,107 @@ struct ItemDetailView: View {
 
 struct AddItemView: View {
     @Environment(\.dismiss) var dismiss
+    @StateObject private var viewModel = AddItemViewModel()
+    @FocusState private var focusedField: Field?
+    var onItemAdded: (() -> Void)?
+    
+    enum Field: Hashable {
+        case name, brand, unit, price, notes
+    }
 
     var body: some View {
         NavigationStack {
             Form {
+                // Item Details Section
                 Section(L10n.AddItem.details) {
-                    Text("Add new item form")
+                    TextField(L10n.AddItem.name, text: $viewModel.name)
+                        .focused($focusedField, equals: .name)
+                        .textContentType(.name)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .brand
+                        }
+                    
+                    Picker(L10n.AddItem.category, selection: $viewModel.selectedCategory) {
+                        ForEach(viewModel.availableCategories, id: \.self) { category in
+                            Text(L10n.Category.localizedName(category))
+                                .tag(category)
+                        }
+                    }
+                    
+                    TextField(L10n.AddItem.brand, text: $viewModel.brand)
+                        .focused($focusedField, equals: .brand)
+                        .textContentType(.organizationName)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .unit
+                        }
+                    
+                    TextField(L10n.AddItem.unit, text: $viewModel.unit)
+                        .focused($focusedField, equals: .unit)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .price
+                        }
+                }
+                
+                // Pricing Section
+                Section(L10n.AddItem.pricing) {
+                    HStack {
+                        Text("$")
+                            .foregroundStyle(.secondary)
+                        TextField(L10n.AddItem.averagePrice, text: $viewModel.averagePrice)
+                            .focused($focusedField, equals: .price)
+                            .keyboardType(.decimalPad)
+                    }
+                }
+                
+                // Additional Info Section
+                Section(L10n.AddItem.additionalInfo) {
+                    TextField(L10n.AddItem.notes, text: $viewModel.notes, axis: .vertical)
+                        .focused($focusedField, equals: .notes)
+                        .lineLimit(3...6)
                 }
             }
             .navigationTitle(L10n.AddItem.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button(L10n.Common.cancel) { dismiss() }
+                    Button(L10n.Common.cancel) {
+                        dismiss()
+                    }
                 }
+                
                 ToolbarItem(placement: .confirmationAction) {
-                    Button(L10n.Common.add) { dismiss() }
+                    Button(L10n.Common.add) {
+                        Task {
+                            if await viewModel.saveItem() {
+                                onItemAdded?()
+                                dismiss()
+                            }
+                        }
+                    }
+                    .disabled(!viewModel.isFormValid || viewModel.isLoading)
                 }
+            }
+            .alert("Error", isPresented: $viewModel.showError) {
+                Button(L10n.Common.ok, role: .cancel) { }
+            } message: {
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                }
+            }
+            .overlay {
+                if viewModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .scaleEffect(1.5)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.black.opacity(0.2))
+                }
+            }
+            .onAppear {
+                focusedField = .name
             }
         }
     }
