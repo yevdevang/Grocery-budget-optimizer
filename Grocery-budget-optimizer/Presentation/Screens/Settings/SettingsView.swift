@@ -13,7 +13,7 @@ struct SettingsView: View {
                 Section(L10n.Settings.general) {
                     Stepper("\(L10n.Settings.householdSize): \(householdSize)", value: $householdSize, in: 1...10)
 
-                    Toggle(L10n.Settings.enableNotifications, isOn: $notificationsEnabled)
+//                    Toggle(L10n.Settings.enableNotifications, isOn: $notificationsEnabled)
                 }
 
                 Section(L10n.Settings.preferences) {
@@ -33,19 +33,19 @@ struct SettingsView: View {
                     Toggle(L10n.Settings.darkMode, isOn: $darkModeEnabled)
                 }
 
-                Section(L10n.Settings.mlModels) {
-                    NavigationLink {
-                        MLModelSettingsView()
-                    } label: {
-                        Label(L10n.Settings.mlSettings, systemImage: "brain")
-                    }
-
-                    Button {
-                        warmupModels()
-                    } label: {
-                        Label(L10n.Settings.warmupModels, systemImage: "flame")
-                    }
-                }
+//                Section(L10n.Settings.mlModels) {
+//                    NavigationLink {
+//                        MLModelSettingsView()
+//                    } label: {
+//                        Label(L10n.Settings.mlSettings, systemImage: "brain")
+//                    }
+//
+//                    Button {
+//                        warmupModels()
+//                    } label: {
+//                        Label(L10n.Settings.warmupModels, systemImage: "flame")
+//                    }
+//                }
 
                 Section(L10n.Settings.data) {
                     NavigationLink {
@@ -54,23 +54,24 @@ struct SettingsView: View {
                         Label(L10n.Settings.dataManagement, systemImage: "externaldrive")
                     }
 
-                    Button(role: .destructive) {
-                        clearCache()
-                    } label: {
-                        Label(L10n.Settings.clearCache, systemImage: "trash")
-                    }
+//                    Button(role: .destructive) {
+//                        clearCache()
+//                    } label: {
+//                        Label(L10n.Settings.clearCache, systemImage: "trash")
+//                    }
                 }
 
                 Section(L10n.Settings.about) {
                     LabeledContent(L10n.Settings.version, value: "1.0.0")
                     LabeledContent(L10n.Settings.build, value: "100")
 
-                    Link(destination: URL(string: "https://github.com")!) {
-                        Label(L10n.Settings.githubRepo, systemImage: "link")
-                    }
+//                    Link(destination: URL(string: "https://github.com")!) {
+//                        Label(L10n.Settings.githubRepo, systemImage: "link")
+//                    }
                 }
             }
             .navigationTitle(L10n.Settings.title)
+            .preferredColorScheme(darkModeEnabled ? .dark : .light)
         }
     }
 
