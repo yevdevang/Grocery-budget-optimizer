@@ -5,6 +5,7 @@ struct SettingsView: View {
     @AppStorage("notifications") private var notificationsEnabled = true
     @AppStorage("darkMode") private var darkModeEnabled = false
     @ObservedObject private var languageManager = LanguageManager.shared
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @State private var showingLanguagePicker = false
 
     var body: some View {
@@ -24,6 +25,17 @@ struct SettingsView: View {
                             Label(L10n.Settings.language, systemImage: "globe")
                             Spacer()
                             Text("\(languageManager.currentLanguage.flag) \(languageManager.currentLanguage.displayName)")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    
+                    NavigationLink {
+                        CurrencyPickerView()
+                    } label: {
+                        HStack {
+                            Label(L10n.Settings.currency, systemImage: "dollarsign.circle")
+                            Spacer()
+                            Text("\(currencyManager.currentCurrency.flag) \(currencyManager.currentCurrency.displayName)")
                                 .foregroundStyle(.secondary)
                         }
                     }
@@ -204,6 +216,51 @@ struct LanguagePickerView: View {
             }
         }
         .navigationTitle(L10n.Settings.language)
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct CurrencyPickerView: View {
+    @ObservedObject private var currencyManager: CurrencyManager = .shared
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        List {
+            ForEach(Currency.allCases) { currency in
+                Button(action: {
+                    currencyManager.currentCurrency = currency
+                    // Give a moment for the change to register, then dismiss
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        dismiss()
+                    }
+                }) {
+                    HStack {
+                        Text(currency.flag)
+                            .font(.title2)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(currency.displayName)
+                                .font(.headline)
+
+                            Text(currency.symbol + " (" + currency.code + ")")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Spacer()
+
+                        if currencyManager.currentCurrency == currency {
+                            Image(systemName: "checkmark")
+                                .foregroundStyle(.blue)
+                                .fontWeight(.semibold)
+                        }
+                    }
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .navigationTitle(L10n.Settings.currency)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

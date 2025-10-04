@@ -26,7 +26,7 @@ struct PredictionRow: View {
             Spacer()
 
             VStack(alignment: .trailing, spacing: 4) {
-                Text(prediction.item.averagePrice, format: .currency(code: "USD"))
+                CurrencyText(value: prediction.item.averagePrice)
                     .font(.subheadline)
                     .fontWeight(.semibold)
 

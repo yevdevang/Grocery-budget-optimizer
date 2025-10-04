@@ -10,34 +10,34 @@ struct BudgetSummaryCard: View {
 
             HStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Total")
+                    Text(L10n.Budget.amount)
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text(summary.budget.amount, format: .currency(code: "USD"))
+                    CurrencyText(value: summary.budget.amount)
                         .font(.title3)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                 }
 
                 Spacer()
 
                 VStack(alignment: .trailing, spacing: 4) {
-                    Text("Spent")
+                    Text(L10n.Budget.spent)
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text(summary.totalSpent, format: .currency(code: "USD"))
+                    CurrencyText(value: summary.totalSpent)
                         .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundStyle(summary.percentageUsed > 80 ? .red : .primary)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.orange)
                 }
 
-                VStack(alignment: .trailing, spacing: 4) {
-                    Text("Remaining")
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(L10n.Budget.remaining)
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text(summary.remainingAmount, format: .currency(code: "USD"))
+                    CurrencyText(value: summary.remainingAmount)
                         .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundStyle(summary.remainingAmount > 0 ? .green : .red)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(summary.remainingAmount >= 0 ? .green : .red)
                 }
             }
 
