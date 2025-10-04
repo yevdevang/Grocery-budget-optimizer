@@ -51,6 +51,8 @@ class LanguageManager: ObservableObject {
         didSet {
             saveLanguage()
             updateAppLanguage()
+            // Force UI update
+            objectWillChange.send()
         }
     }
 
@@ -90,9 +92,12 @@ class LanguageManager: ObservableObject {
     func localizedString(_ key: String, comment: String = "") -> String {
         guard let path = Bundle.main.path(forResource: currentLanguage.rawValue, ofType: "lproj"),
               let bundle = Bundle(path: path) else {
+            print("⚠️ Could not load bundle for language: \(currentLanguage.rawValue)")
             return NSLocalizedString(key, comment: comment)
         }
-        return bundle.localizedString(forKey: key, value: nil, table: nil)
+        let localizedString = bundle.localizedString(forKey: key, value: nil, table: nil)
+        print("🌍 Localized '\(key)' to '\(localizedString)' for \(currentLanguage.rawValue)")
+        return localizedString
     }
 }
 
