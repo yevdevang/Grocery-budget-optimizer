@@ -86,7 +86,7 @@
 "budget.duration" = "Длительность";
 "budget.startDate" = "Дата начала";
 "budget.endDate" = "Дата окончания";
-"budget.durationDays" = "Длительность";
+"budget.durationDays" = "дней";
 "budget.categoryNote" = "Бюджеты по категориям можно добавить после создания основного бюджета";
 
 /* Shopping Lists */
@@ -126,16 +126,52 @@
 
 /* Settings */
 "settings.title" = "Настройки";
+"settings.general" = "Общие";
+"settings.householdSize" = "Размер семьи";
+"settings.enableNotifications" = "Включить уведомления";
+"settings.appearance" = "Внешний вид";
+"settings.darkMode" = "Темный режим";
+"settings.mlModels" = "ML модели";
+"settings.mlSettings" = "Настройки ML";
+"settings.warmupModels" = "Прогрев моделей";
+"settings.data" = "Данные";
+"settings.dataManagement" = "Управление данными";
+"settings.clearCache" = "Очистить кэш";
+"settings.about" = "О приложении";
+"settings.version" = "Версия";
+"settings.build" = "Сборка";
+"settings.githubRepo" = "GitHub репозиторий";
 "settings.account" = "Аккаунт";
 "settings.profile" = "Профиль";
 "settings.preferences" = "Предпочтения";
 "settings.language" = "Язык";
 "settings.currency" = "Валюта";
 "settings.notifications" = "Уведомления";
-"settings.about" = "О приложении";
-"settings.version" = "Версия";
 "settings.privacy" = "Политика конфиденциальности";
 "settings.terms" = "Условия использования";
+
+/* ML Model Settings */
+"settings.predictionSettings" = "Настройки прогнозирования";
+"settings.confidenceThreshold" = "Порог уверенности";
+"settings.confidenceDescription" = "Минимальный уровень уверенности для прогнозов";
+"settings.models" = "Модели";
+"settings.shoppingListGenerator" = "Генератор списка покупок";
+"settings.purchasePredictor" = "Предсказатель покупок";
+"settings.priceOptimizer" = "Оптимизатор цен";
+"settings.expirationPredictor" = "Предсказатель срока годности";
+"settings.modelActive" = "Активна";
+
+/* Data Management */
+"settings.export" = "Экспорт";
+"settings.exportAllData" = "Экспортировать все данные";
+"settings.import" = "Импорт";
+"settings.importData" = "Импортировать данные";
+"settings.dangerZone" = "Опасная зона";
+"settings.dangerWarning" = "Это действие нельзя отменить";
+"settings.deleteAllData" = "Удалить все данные";
+
+/* Language Picker */
+"settings.rightToLeft" = "Справа налево";
 
 /* Categories */
 "category.produce" = "Овощи и фрукты";

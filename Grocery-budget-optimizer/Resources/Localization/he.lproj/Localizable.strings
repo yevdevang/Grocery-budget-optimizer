@@ -86,7 +86,7 @@
 "budget.duration" = "משך";
 "budget.startDate" = "תאריך התחלה";
 "budget.endDate" = "תאריך סיום";
-"budget.durationDays" = "משך";
+"budget.durationDays" = "ימים";
 "budget.categoryNote" = "ניתן להוסיף תקציבים ספציפיים לקטגוריה לאחר יצירת התקציב הראשי";
 
 /* Shopping Lists */
@@ -126,16 +126,52 @@
 
 /* Settings */
 "settings.title" = "הגדרות";
+"settings.general" = "כללי";
+"settings.householdSize" = "גודל משק הבית";
+"settings.enableNotifications" = "הפעל התראות";
+"settings.appearance" = "מראה";
+"settings.darkMode" = "מצב כהה";
+"settings.mlModels" = "מודלי ML";
+"settings.mlSettings" = "הגדרות ML";
+"settings.warmupModels" = "חימום מודלים";
+"settings.data" = "נתונים";
+"settings.dataManagement" = "ניהול נתונים";
+"settings.clearCache" = "נקה מטמון";
+"settings.about" = "אודות";
+"settings.version" = "גרסה";
+"settings.build" = "בניה";
+"settings.githubRepo" = "מאגר GitHub";
 "settings.account" = "חשבון";
 "settings.profile" = "פרופיל";
 "settings.preferences" = "העדפות";
 "settings.language" = "שפה";
 "settings.currency" = "מטבע";
 "settings.notifications" = "התראות";
-"settings.about" = "אודות";
-"settings.version" = "גרסה";
 "settings.privacy" = "מדיניות פרטיות";
 "settings.terms" = "תנאי שימוש";
+
+/* ML Model Settings */
+"settings.predictionSettings" = "הגדרות חיזוי";
+"settings.confidenceThreshold" = "סף ביטחון";
+"settings.confidenceDescription" = "רמת ביטחון מינימלית לחיזויים";
+"settings.models" = "מודלים";
+"settings.shoppingListGenerator" = "מחולל רשימת קניות";
+"settings.purchasePredictor" = "מנבא קניות";
+"settings.priceOptimizer" = "מייעל מחירים";
+"settings.expirationPredictor" = "מנבא תפוגה";
+"settings.modelActive" = "פעיל";
+
+/* Data Management */
+"settings.export" = "ייצוא";
+"settings.exportAllData" = "ייצא את כל הנתונים";
+"settings.import" = "ייבוא";
+"settings.importData" = "ייבא נתונים";
+"settings.dangerZone" = "אזור מסוכן";
+"settings.dangerWarning" = "לא ניתן לבטל פעולה זו";
+"settings.deleteAllData" = "מחק את כל הנתונים";
+
+/* Language Picker */
+"settings.rightToLeft" = "ימין לשמאל";
 
 /* Categories */
 "category.produce" = "פירות וירקות";

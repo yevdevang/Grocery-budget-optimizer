@@ -86,7 +86,7 @@
 "budget.duration" = "Duration";
 "budget.startDate" = "Start Date";
 "budget.endDate" = "End Date";
-"budget.durationDays" = "Duration";
+"budget.durationDays" = "days";
 "budget.categoryNote" = "Category-specific budgets can be added after creating the main budget";
 
 /* Shopping Lists */
@@ -126,16 +126,52 @@
 
 /* Settings */
 "settings.title" = "Settings";
+"settings.general" = "General";
+"settings.householdSize" = "Household Size";
+"settings.enableNotifications" = "Enable Notifications";
+"settings.appearance" = "Appearance";
+"settings.darkMode" = "Dark Mode";
+"settings.mlModels" = "ML Models";
+"settings.mlSettings" = "ML Settings";
+"settings.warmupModels" = "Warmup Models";
+"settings.data" = "Data";
+"settings.dataManagement" = "Data Management";
+"settings.clearCache" = "Clear Cache";
+"settings.about" = "About";
+"settings.version" = "Version";
+"settings.build" = "Build";
+"settings.githubRepo" = "GitHub Repository";
 "settings.account" = "Account";
 "settings.profile" = "Profile";
 "settings.preferences" = "Preferences";
 "settings.language" = "Language";
 "settings.currency" = "Currency";
 "settings.notifications" = "Notifications";
-"settings.about" = "About";
-"settings.version" = "Version";
 "settings.privacy" = "Privacy Policy";
 "settings.terms" = "Terms of Service";
+
+/* ML Model Settings */
+"settings.predictionSettings" = "Prediction Settings";
+"settings.confidenceThreshold" = "Confidence Threshold";
+"settings.confidenceDescription" = "Minimum confidence level for predictions";
+"settings.models" = "Models";
+"settings.shoppingListGenerator" = "Shopping List Generator";
+"settings.purchasePredictor" = "Purchase Predictor";
+"settings.priceOptimizer" = "Price Optimizer";
+"settings.expirationPredictor" = "Expiration Predictor";
+"settings.modelActive" = "Active";
+
+/* Data Management */
+"settings.export" = "Export";
+"settings.exportAllData" = "Export All Data";
+"settings.import" = "Import";
+"settings.importData" = "Import Data";
+"settings.dangerZone" = "Danger Zone";
+"settings.dangerWarning" = "This action cannot be undone";
+"settings.deleteAllData" = "Delete All Data";
+
+/* Language Picker */
+"settings.rightToLeft" = "Right-to-Left";
 
 /* Categories */
 "category.produce" = "Produce";

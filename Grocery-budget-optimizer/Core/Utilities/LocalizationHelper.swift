@@ -171,16 +171,52 @@ enum L10n {
     // MARK: - Settings
     enum Settings {
         static var title: String { localized("settings.title", comment: "Settings title") }
+        static var general: String { localized("settings.general", comment: "General") }
+        static var householdSize: String { localized("settings.householdSize", comment: "Household Size") }
+        static var enableNotifications: String { localized("settings.enableNotifications", comment: "Enable Notifications") }
+        static var appearance: String { localized("settings.appearance", comment: "Appearance") }
+        static var darkMode: String { localized("settings.darkMode", comment: "Dark Mode") }
+        static var mlModels: String { localized("settings.mlModels", comment: "ML Models") }
+        static var mlSettings: String { localized("settings.mlSettings", comment: "ML Settings") }
+        static var warmupModels: String { localized("settings.warmupModels", comment: "Warmup Models") }
+        static var data: String { localized("settings.data", comment: "Data") }
+        static var dataManagement: String { localized("settings.dataManagement", comment: "Data Management") }
+        static var clearCache: String { localized("settings.clearCache", comment: "Clear Cache") }
+        static var about: String { localized("settings.about", comment: "About") }
+        static var version: String { localized("settings.version", comment: "Version") }
+        static var build: String { localized("settings.build", comment: "Build") }
+        static var githubRepo: String { localized("settings.githubRepo", comment: "GitHub Repository") }
         static var account: String { localized("settings.account", comment: "Account") }
         static var profile: String { localized("settings.profile", comment: "Profile") }
         static var preferences: String { localized("settings.preferences", comment: "Preferences") }
         static var language: String { localized("settings.language", comment: "Language") }
         static var currency: String { localized("settings.currency", comment: "Currency") }
         static var notifications: String { localized("settings.notifications", comment: "Notifications") }
-        static var about: String { localized("settings.about", comment: "About") }
-        static var version: String { localized("settings.version", comment: "Version") }
         static var privacy: String { localized("settings.privacy", comment: "Privacy") }
         static var terms: String { localized("settings.terms", comment: "Terms") }
+        
+        // ML Model Settings
+        static var predictionSettings: String { localized("settings.predictionSettings", comment: "Prediction Settings") }
+        static var confidenceThreshold: String { localized("settings.confidenceThreshold", comment: "Confidence Threshold") }
+        static var confidenceDescription: String { localized("settings.confidenceDescription", comment: "Minimum confidence level for predictions") }
+        static var models: String { localized("settings.models", comment: "Models") }
+        static var shoppingListGenerator: String { localized("settings.shoppingListGenerator", comment: "Shopping List Generator") }
+        static var purchasePredictor: String { localized("settings.purchasePredictor", comment: "Purchase Predictor") }
+        static var priceOptimizer: String { localized("settings.priceOptimizer", comment: "Price Optimizer") }
+        static var expirationPredictor: String { localized("settings.expirationPredictor", comment: "Expiration Predictor") }
+        static var modelActive: String { localized("settings.modelActive", comment: "Active") }
+        
+        // Data Management
+        static var export: String { localized("settings.export", comment: "Export") }
+        static var exportAllData: String { localized("settings.exportAllData", comment: "Export All Data") }
+        static var `import`: String { localized("settings.import", comment: "Import") }
+        static var importData: String { localized("settings.importData", comment: "Import Data") }
+        static var dangerZone: String { localized("settings.dangerZone", comment: "Danger Zone") }
+        static var dangerWarning: String { localized("settings.dangerWarning", comment: "This action cannot be undone") }
+        static var deleteAllData: String { localized("settings.deleteAllData", comment: "Delete All Data") }
+        
+        // Language Picker
+        static var rightToLeft: String { localized("settings.rightToLeft", comment: "Right-to-Left") }
     }
 
     // MARK: - Categories

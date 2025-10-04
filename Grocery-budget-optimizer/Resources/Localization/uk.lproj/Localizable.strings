@@ -86,7 +86,7 @@
 "budget.duration" = "Тривалість";
 "budget.startDate" = "Дата початку";
 "budget.endDate" = "Дата закінчення";
-"budget.durationDays" = "Тривалість";
+"budget.durationDays" = "днів";
 "budget.categoryNote" = "Бюджети за категоріями можна додати після створення основного бюджету";
 
 /* Shopping Lists */
@@ -126,16 +126,52 @@
 
 /* Settings */
 "settings.title" = "Налаштування";
+"settings.general" = "Загальні";
+"settings.householdSize" = "Розмір родини";
+"settings.enableNotifications" = "Увімкнути сповіщення";
+"settings.appearance" = "Зовнішній вигляд";
+"settings.darkMode" = "Темний режим";
+"settings.mlModels" = "ML моделі";
+"settings.mlSettings" = "Налаштування ML";
+"settings.warmupModels" = "Прогрів моделей";
+"settings.data" = "Дані";
+"settings.dataManagement" = "Управління даними";
+"settings.clearCache" = "Очистити кеш";
+"settings.about" = "Про додаток";
+"settings.version" = "Версія";
+"settings.build" = "Збірка";
+"settings.githubRepo" = "GitHub репозиторій";
 "settings.account" = "Акаунт";
 "settings.profile" = "Профіль";
 "settings.preferences" = "Налаштування";
 "settings.language" = "Мова";
 "settings.currency" = "Валюта";
 "settings.notifications" = "Сповіщення";
-"settings.about" = "Про додаток";
-"settings.version" = "Версія";
 "settings.privacy" = "Політика конфіденційності";
 "settings.terms" = "Умови використання";
+
+/* ML Model Settings */
+"settings.predictionSettings" = "Налаштування прогнозування";
+"settings.confidenceThreshold" = "Поріг впевненості";
+"settings.confidenceDescription" = "Мінімальний рівень впевненості для прогнозів";
+"settings.models" = "Моделі";
+"settings.shoppingListGenerator" = "Генератор списку покупок";
+"settings.purchasePredictor" = "Передбачувач покупок";
+"settings.priceOptimizer" = "Оптимізатор цін";
+"settings.expirationPredictor" = "Передбачувач терміну придатності";
+"settings.modelActive" = "Активна";
+
+/* Data Management */
+"settings.export" = "Експорт";
+"settings.exportAllData" = "Експортувати всі дані";
+"settings.import" = "Імпорт";
+"settings.importData" = "Імпортувати дані";
+"settings.dangerZone" = "Небезпечна зона";
+"settings.dangerWarning" = "Цю дію неможливо скасувати";
+"settings.deleteAllData" = "Видалити всі дані";
+
+/* Language Picker */
+"settings.rightToLeft" = "Справа наліво";
 
 /* Categories */
 "category.produce" = "Овочі та фрукти";
