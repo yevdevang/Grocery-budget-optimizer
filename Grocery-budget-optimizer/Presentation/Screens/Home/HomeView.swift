@@ -602,31 +602,49 @@ struct ItemPickerSheet: View {
 
     var body: some View {
         NavigationStack {
-            List(filteredItems) { item in
-                Button(action: {
-                    selectedItem = item
-                    dismiss()
-                }) {
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(item.name)
-                                .font(.headline)
-                                .foregroundStyle(.primary)
-                            Text(item.category)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
+            Group {
+                if items.isEmpty {
+                    VStack(spacing: 20) {
+                        Image(systemName: "cube.box")
+                            .font(.system(size: 60))
+                            .foregroundStyle(.gray)
+                        Text("No Items Available")
+                            .font(.headline)
+                        Text("Please add items first using the 'Add Item' button on the Home screen")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    List(filteredItems) { item in
+                        Button(action: {
+                            selectedItem = item
+                            dismiss()
+                        }) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(item.name)
+                                        .font(.headline)
+                                        .foregroundStyle(.primary)
+                                    Text(item.category)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
 
-                        Spacer()
+                                Spacer()
 
-                        if selectedItem?.id == item.id {
-                            Image(systemName: "checkmark")
-                                .foregroundStyle(.blue)
+                                if selectedItem?.id == item.id {
+                                    Image(systemName: "checkmark")
+                                        .foregroundStyle(.blue)
+                                }
+                            }
                         }
                     }
+                    .searchable(text: $searchText, prompt: "Search items")
                 }
             }
-            .searchable(text: $searchText, prompt: "Search items")
             .navigationTitle("Select Item")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
