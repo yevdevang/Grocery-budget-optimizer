@@ -10,9 +10,12 @@ import CoreData
 
 @main
 struct Grocery_budget_optimizerApp: App {
-
     init() {
         print("🚀 App launching...")
+
+        // Initialize language manager (will load saved language)
+        _ = LanguageManager.shared
+
         // Seed mock data
         MockDataSeeder.shared.seedMockData()
 
@@ -20,6 +23,7 @@ struct Grocery_budget_optimizerApp: App {
         MLCoordinator.shared.warmupModels()
 
         print("✅ App initialized successfully")
+        print("🌍 Language: \(LanguageManager.shared.currentLanguage.displayName)")
     }
 
     var body: some Scene {

@@ -4,6 +4,8 @@ struct SettingsView: View {
     @AppStorage("householdSize") private var householdSize = 1
     @AppStorage("notifications") private var notificationsEnabled = true
     @AppStorage("darkMode") private var darkModeEnabled = false
+    @ObservedObject private var languageManager = LanguageManager.shared
+    @State private var showingLanguagePicker = false
 
     var body: some View {
         NavigationStack {
@@ -12,6 +14,19 @@ struct SettingsView: View {
                     Stepper("Household Size: \(householdSize)", value: $householdSize, in: 1...10)
 
                     Toggle("Enable Notifications", isOn: $notificationsEnabled)
+                }
+
+                Section(L10n.Settings.preferences) {
+                    NavigationLink {
+                        LanguagePickerView()
+                    } label: {
+                        HStack {
+                            Label(L10n.Settings.language, systemImage: "globe")
+                            Spacer()
+                            Text("\(languageManager.currentLanguage.flag) \(languageManager.currentLanguage.displayName)")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
                 }
 
                 Section("Appearance") {
@@ -142,6 +157,53 @@ struct DataManagementView: View {
 
     private func deleteAllData() {
         // Delete all data logic
+    }
+}
+
+struct LanguagePickerView: View {
+    @ObservedObject private var languageManager = LanguageManager.shared
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        List {
+            ForEach(Language.allCases) { language in
+                Button(action: {
+                    languageManager.currentLanguage = language
+                    // Give a moment for the change to register, then dismiss
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        dismiss()
+                    }
+                }) {
+                    HStack {
+                        Text(language.flag)
+                            .font(.title2)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(language.displayName)
+                                .font(.headline)
+
+                            if language.isRTL {
+                                Text("Right-to-Left")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+
+                        Spacer()
+
+                        if languageManager.currentLanguage == language {
+                            Image(systemName: "checkmark")
+                                .foregroundStyle(.blue)
+                                .fontWeight(.semibold)
+                        }
+                    }
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .navigationTitle(L10n.Settings.language)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
