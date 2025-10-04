@@ -1,0 +1,156 @@
+/* Common */
+"common.cancel" = "Cancel";
+"common.save" = "Save";
+"common.create" = "Create";
+"common.add" = "Add";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
+"common.done" = "Done";
+"common.close" = "Close";
+"common.ok" = "OK";
+
+/* Tab Bar */
+"tab.home" = "Home";
+"tab.lists" = "Lists";
+"tab.items" = "Items";
+"tab.budget" = "Budget";
+"tab.settings" = "Settings";
+
+/* Home Screen */
+"home.greeting.morning" = "Good Morning";
+"home.greeting.afternoon" = "Good Afternoon";
+"home.greeting.evening" = "Good Evening";
+"home.quickActions" = "Quick Actions";
+"home.smartList" = "Smart List";
+"home.addItem" = "Add Item";
+"home.addExpense" = "Add Expense";
+"home.viewStats" = "View Stats";
+"home.expiringItems" = "Expiring Soon";
+"home.predictions" = "Predicted Needs";
+"home.recentActivity" = "Recent Activity";
+"home.noExpiring" = "No items expiring soon";
+"home.noPredictions" = "No predictions available";
+"home.noActivity" = "No recent purchases";
+
+/* Add Item */
+"addItem.title" = "Add Item";
+"addItem.details" = "Item Details";
+"addItem.name" = "Item name";
+"addItem.category" = "Category";
+"addItem.brand" = "Brand (optional)";
+"addItem.unit" = "Unit (e.g., 1 lb, 12 oz)";
+"addItem.pricing" = "Pricing";
+"addItem.averagePrice" = "Average price";
+"addItem.additionalInfo" = "Additional Info";
+"addItem.notes" = "Notes (optional)";
+
+/* Add Expense */
+"addExpense.title" = "Add Expense";
+"addExpense.item" = "Item";
+"addExpense.selectItem" = "Select Item";
+"addExpense.purchaseDetails" = "Purchase Details";
+"addExpense.quantity" = "Quantity";
+"addExpense.pricePerUnit" = "Price per unit";
+"addExpense.totalCost" = "Total Cost";
+"addExpense.purchaseDate" = "Purchase Date";
+"addExpense.storeName" = "Store Name (optional)";
+
+/* Item Picker */
+"itemPicker.title" = "Select Item";
+"itemPicker.search" = "Search items";
+"itemPicker.noItems" = "No Items Available";
+"itemPicker.noItemsMessage" = "Please add items first using the 'Add Item' button on the Home screen";
+
+/* Budget */
+"budget.title" = "Budget";
+"budget.overview" = "Budget Overview";
+"budget.amount" = "Budget";
+"budget.spent" = "Spent";
+"budget.remaining" = "Remaining";
+"budget.used" = "Used";
+"budget.daysLeft" = "days left";
+"budget.spendingByCategory" = "Spending by Category";
+"budget.dailySpending" = "Daily Spending";
+"budget.categoryBreakdown" = "Category Breakdown";
+"budget.noData" = "No spending data yet";
+"budget.noCategoryData" = "No category data yet";
+"budget.addExpensesMessage" = "Add expenses to see category breakdown.";
+"budget.addExpensesTrends" = "Add expenses to see daily trends.";
+"budget.noBudget" = "No Active Budget";
+"budget.createButton" = "Create Budget";
+"budget.exceedWarning" = "Projected to exceed budget by";
+"budget.createTitle" = "Create Budget";
+"budget.information" = "Budget Information";
+"budget.name" = "Budget Name";
+"budget.totalAmount" = "Total Amount";
+"budget.duration" = "Duration";
+"budget.startDate" = "Start Date";
+"budget.endDate" = "End Date";
+"budget.durationDays" = "Duration";
+"budget.categoryNote" = "Category-specific budgets can be added after creating the main budget";
+
+/* Shopping Lists */
+"lists.title" = "Shopping Lists";
+"lists.smartList" = "Smart List (AI)";
+"lists.manualList" = "Manual List";
+"lists.active" = "Active Lists";
+"lists.completed" = "Completed";
+"lists.noLists" = "No Shopping Lists";
+"lists.createMessage" = "Create a smart list powered by AI or start from scratch";
+"lists.createSmartButton" = "Create Smart List";
+"lists.items" = "items";
+"lists.newList" = "New Shopping List";
+"lists.listDetails" = "List Details";
+"lists.listName" = "List Name";
+"lists.budgetAmount" = "Budget Amount";
+"lists.addItemsNote" = "You can add items to this list after creating it";
+"lists.smartTitle" = "Create Smart List";
+"lists.aiPowered" = "AI-Powered Recommendations";
+"lists.aiDescription" = "Our AI will analyze your purchase history and predict what you need to buy, optimizing for your budget";
+"lists.generating" = "Generating smart list...";
+"lists.generate" = "Generate";
+
+/* Items */
+"items.title" = "Items";
+"items.search" = "Search items";
+"items.all" = "All";
+"items.noItems" = "No Items";
+"items.addItemsMessage" = "Add items to track your groceries and manage your budget effectively";
+"items.addButton" = "Add Item";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.account" = "Account";
+"settings.profile" = "Profile";
+"settings.preferences" = "Preferences";
+"settings.language" = "Language";
+"settings.currency" = "Currency";
+"settings.notifications" = "Notifications";
+"settings.about" = "About";
+"settings.version" = "Version";
+"settings.privacy" = "Privacy Policy";
+"settings.terms" = "Terms of Service";
+
+/* Categories */
+"category.produce" = "Produce";
+"category.dairy" = "Dairy";
+"category.meatSeafood" = "Meat & Seafood";
+"category.pantry" = "Pantry";
+"category.beverages" = "Beverages";
+"category.frozen" = "Frozen";
+"category.bakery" = "Bakery";
+"category.other" = "Other";
+
+/* Error Messages */
+"error.loadingItems" = "Error loading items";
+"error.savingPurchase" = "Error saving purchase";
+"error.creatingBudget" = "Error creating budget";
+"error.creatingList" = "Error creating list";
+"error.generatingSmartList" = "Error generating smart list";
+
+/* Success Messages */
+"success.itemAdded" = "Item added successfully";
+"success.purchaseSaved" = "Purchase saved successfully";
+"success.budgetCreated" = "Budget created successfully";
+"success.listCreated" = "Shopping list created successfully";
+"success.smartListGenerated" = "Smart shopping list generated successfully";

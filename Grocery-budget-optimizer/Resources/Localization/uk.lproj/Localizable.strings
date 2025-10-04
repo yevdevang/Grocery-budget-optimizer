@@ -1,0 +1,156 @@
+/* Common */
+"common.cancel" = "Скасувати";
+"common.save" = "Зберегти";
+"common.create" = "Створити";
+"common.add" = "Додати";
+"common.delete" = "Видалити";
+"common.edit" = "Редагувати";
+"common.done" = "Готово";
+"common.close" = "Закрити";
+"common.ok" = "OK";
+
+/* Tab Bar */
+"tab.home" = "Головна";
+"tab.lists" = "Списки";
+"tab.items" = "Товари";
+"tab.budget" = "Бюджет";
+"tab.settings" = "Налаштування";
+
+/* Home Screen */
+"home.greeting.morning" = "Доброго ранку";
+"home.greeting.afternoon" = "Доброго дня";
+"home.greeting.evening" = "Доброго вечора";
+"home.quickActions" = "Швидкі дії";
+"home.smartList" = "Розумний список";
+"home.addItem" = "Додати товар";
+"home.addExpense" = "Додати витрату";
+"home.viewStats" = "Статистика";
+"home.expiringItems" = "Закінчується термін";
+"home.predictions" = "Прогнозовані покупки";
+"home.recentActivity" = "Остання активність";
+"home.noExpiring" = "Немає товарів з закінчується терміном";
+"home.noPredictions" = "Немає прогнозів";
+"home.noActivity" = "Немає останніх покупок";
+
+/* Add Item */
+"addItem.title" = "Додати товар";
+"addItem.details" = "Інформація про товар";
+"addItem.name" = "Назва товару";
+"addItem.category" = "Категорія";
+"addItem.brand" = "Бренд (необов'язково)";
+"addItem.unit" = "Одиниця виміру (наприклад, 1 кг, 500 г)";
+"addItem.pricing" = "Ціна";
+"addItem.averagePrice" = "Середня ціна";
+"addItem.additionalInfo" = "Додаткова інформація";
+"addItem.notes" = "Примітки (необов'язково)";
+
+/* Add Expense */
+"addExpense.title" = "Додати витрату";
+"addExpense.item" = "Товар";
+"addExpense.selectItem" = "Вибрати товар";
+"addExpense.purchaseDetails" = "Деталі покупки";
+"addExpense.quantity" = "Кількість";
+"addExpense.pricePerUnit" = "Ціна за одиницю";
+"addExpense.totalCost" = "Загальна вартість";
+"addExpense.purchaseDate" = "Дата покупки";
+"addExpense.storeName" = "Назва магазину (необов'язково)";
+
+/* Item Picker */
+"itemPicker.title" = "Вибрати товар";
+"itemPicker.search" = "Пошук товарів";
+"itemPicker.noItems" = "Немає доступних товарів";
+"itemPicker.noItemsMessage" = "Будь ласка, спочатку додайте товари, використовуючи кнопку 'Додати товар' на головній сторінці";
+
+/* Budget */
+"budget.title" = "Бюджет";
+"budget.overview" = "Огляд бюджету";
+"budget.amount" = "Бюджет";
+"budget.spent" = "Витрачено";
+"budget.remaining" = "Залишилось";
+"budget.used" = "Використано";
+"budget.daysLeft" = "днів залишилось";
+"budget.spendingByCategory" = "Витрати за категоріями";
+"budget.dailySpending" = "Щоденні витрати";
+"budget.categoryBreakdown" = "Розподіл за категоріями";
+"budget.noData" = "Немає даних про витрати";
+"budget.noCategoryData" = "Немає даних за категоріями";
+"budget.addExpensesMessage" = "Додайте витрати для перегляду розподілу за категоріями.";
+"budget.addExpensesTrends" = "Додайте витрати для перегляду щоденних трендів.";
+"budget.noBudget" = "Немає активного бюджету";
+"budget.createButton" = "Створити бюджет";
+"budget.exceedWarning" = "Прогнозується перевищення бюджету на";
+"budget.createTitle" = "Створити бюджет";
+"budget.information" = "Інформація про бюджет";
+"budget.name" = "Назва бюджету";
+"budget.totalAmount" = "Загальна сума";
+"budget.duration" = "Тривалість";
+"budget.startDate" = "Дата початку";
+"budget.endDate" = "Дата закінчення";
+"budget.durationDays" = "Тривалість";
+"budget.categoryNote" = "Бюджети за категоріями можна додати після створення основного бюджету";
+
+/* Shopping Lists */
+"lists.title" = "Списки покупок";
+"lists.smartList" = "Розумний список (AI)";
+"lists.manualList" = "Звичайний список";
+"lists.active" = "Активні списки";
+"lists.completed" = "Завершені";
+"lists.noLists" = "Немає списків покупок";
+"lists.createMessage" = "Створіть розумний список на основі AI або створіть свій список";
+"lists.createSmartButton" = "Створити розумний список";
+"lists.items" = "товарів";
+"lists.newList" = "Новий список покупок";
+"lists.listDetails" = "Деталі списку";
+"lists.listName" = "Назва списку";
+"lists.budgetAmount" = "Сума бюджету";
+"lists.addItemsNote" = "Ви можете додати товари до цього списку після його створення";
+"lists.smartTitle" = "Створити розумний список";
+"lists.aiPowered" = "Рекомендації на основі AI";
+"lists.aiDescription" = "Наш AI проаналізує вашу історію покупок і передбачить, що вам потрібно купити, оптимізуючи під ваш бюджет";
+"lists.generating" = "Створення розумного списку...";
+"lists.generate" = "Створити";
+
+/* Items */
+"items.title" = "Товари";
+"items.search" = "Пошук товарів";
+"items.all" = "Всі";
+"items.noItems" = "Немає товарів";
+"items.addItemsMessage" = "Додайте товари для відстеження продуктів та ефективного управління бюджетом";
+"items.addButton" = "Додати товар";
+
+/* Settings */
+"settings.title" = "Налаштування";
+"settings.account" = "Акаунт";
+"settings.profile" = "Профіль";
+"settings.preferences" = "Налаштування";
+"settings.language" = "Мова";
+"settings.currency" = "Валюта";
+"settings.notifications" = "Сповіщення";
+"settings.about" = "Про додаток";
+"settings.version" = "Версія";
+"settings.privacy" = "Політика конфіденційності";
+"settings.terms" = "Умови використання";
+
+/* Categories */
+"category.produce" = "Овочі та фрукти";
+"category.dairy" = "Молочні продукти";
+"category.meatSeafood" = "М'ясо та морепродукти";
+"category.pantry" = "Бакалія";
+"category.beverages" = "Напої";
+"category.frozen" = "Заморожені продукти";
+"category.bakery" = "Випічка";
+"category.other" = "Інше";
+
+/* Error Messages */
+"error.loadingItems" = "Помилка завантаження товарів";
+"error.savingPurchase" = "Помилка збереження покупки";
+"error.creatingBudget" = "Помилка створення бюджету";
+"error.creatingList" = "Помилка створення списку";
+"error.generatingSmartList" = "Помилка створення розумного списку";
+
+/* Success Messages */
+"success.itemAdded" = "Товар успішно додано";
+"success.purchaseSaved" = "Покупка успішно збережена";
+"success.budgetCreated" = "Бюджет успішно створено";
+"success.listCreated" = "Список покупок успішно створено";
+"success.smartListGenerated" = "Розумний список успішно створено";

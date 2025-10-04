@@ -7,31 +7,31 @@ struct MainTabView: View {
         TabView(selection: $selectedTab) {
             HomeView(selectedTab: $selectedTab)
                 .tabItem {
-                    Label("Home", systemImage: "house.fill")
+                    Label(L10n.Tab.home, systemImage: "house.fill")
                 }
                 .tag(0)
 
             ShoppingListsView()
                 .tabItem {
-                    Label("Lists", systemImage: "cart.fill")
+                    Label(L10n.Tab.lists, systemImage: "cart.fill")
                 }
                 .tag(1)
 
             ItemsView()
                 .tabItem {
-                    Label("Items", systemImage: "cube.box.fill")
+                    Label(L10n.Tab.items, systemImage: "cube.box.fill")
                 }
                 .tag(2)
 
             BudgetView()
                 .tabItem {
-                    Label("Budget", systemImage: "chart.pie.fill")
+                    Label(L10n.Tab.budget, systemImage: "chart.pie.fill")
                 }
                 .tag(3)
 
             SettingsView()
                 .tabItem {
-                    Label("Settings", systemImage: "gearshape.fill")
+                    Label(L10n.Tab.settings, systemImage: "gearshape.fill")
                 }
                 .tag(4)
         }
