@@ -17,7 +17,8 @@
 "tab.settings" = "Налаштування";
 
 /* Home Screen */
-"home.greeting.morning" = "Доброго ранку";
+"home.title" = "Оптимізатор бюджету на продукти";
+"home.subtitle" = "Розумні покупки починаються тут";
 "home.greeting.afternoon" = "Доброго дня";
 "home.greeting.evening" = "Доброго вечора";
 "home.quickActions" = "Швидкі дії";
@@ -215,3 +216,24 @@
 "product.apples" = "Яблука";
 "product.bananas" = "Банани";
 "product.oranges" = "Апельсини";
+
+/* Smart List Creation */
+"smartList.budget" = "Бюджет";
+"smartList.enterBudget" = "Введіть суму бюджету";
+"smartList.duration" = "Тривалість";
+"smartList.numberOfDays" = "Кількість днів";
+"smartList.threeDays" = "3 дні";
+"smartList.sevenDays" = "7 днів";
+"smartList.fourteenDays" = "14 днів";
+"smartList.thirtyDays" = "30 днів";
+"smartList.household" = "Домогосподарство";
+"smartList.householdSize" = "Розмір сім'ї";
+"smartList.dietaryPreferences" = "Дієтичні вподобання";
+"smartList.preferVegetarian" = "Віддавати перевагу вегетаріанському";
+"smartList.preferOrganic" = "Віддавати перевагу органічному";
+"smartList.avoidDairy" = "Уникати молочних продуктів";
+"smartList.generating" = "Генерація...";
+"smartList.generateButton" = "Створити розумний список";
+"smartList.createTitle" = "Створити розумний список";
+"smartList.error" = "Помилка";
+"smartList.errorMessage" = "Сталася помилка при створенні списку";

@@ -17,7 +17,8 @@
 "tab.settings" = "Settings";
 
 /* Home Screen */
-"home.greeting.morning" = "Good Morning";
+"home.title" = "Grocery Budget Optimizer";
+"home.subtitle" = "Smart shopping starts here";
 "home.greeting.afternoon" = "Good Afternoon";
 "home.greeting.evening" = "Good Evening";
 "home.quickActions" = "Quick Actions";
@@ -215,3 +216,24 @@
 "product.apples" = "Apples";
 "product.bananas" = "Bananas";
 "product.oranges" = "Oranges";
+
+/* Smart List Creation */
+"smartList.budget" = "Budget";
+"smartList.enterBudget" = "Enter budget amount";
+"smartList.duration" = "Duration";
+"smartList.numberOfDays" = "Number of Days";
+"smartList.threeDays" = "3 days";
+"smartList.sevenDays" = "7 days";
+"smartList.fourteenDays" = "14 days";
+"smartList.thirtyDays" = "30 days";
+"smartList.household" = "Household";
+"smartList.householdSize" = "Household Size";
+"smartList.dietaryPreferences" = "Dietary Preferences";
+"smartList.preferVegetarian" = "Prefer Vegetarian";
+"smartList.preferOrganic" = "Prefer Organic";
+"smartList.avoidDairy" = "Avoid Dairy";
+"smartList.generating" = "Generating...";
+"smartList.generateButton" = "Generate Smart List";
+"smartList.createTitle" = "Create Smart List";
+"smartList.error" = "Error";
+"smartList.errorMessage" = "An error occurred while generating the list";

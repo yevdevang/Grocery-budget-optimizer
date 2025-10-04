@@ -17,7 +17,8 @@
 "tab.settings" = "הגדרות";
 
 /* Home Screen */
-"home.greeting.morning" = "בוקר טוב";
+"home.title" = "אופטימיזציה תקציב מכולת";
+"home.subtitle" = "קניות חכמות מתחילות כאן";
 "home.greeting.afternoon" = "צהריים טובים";
 "home.greeting.evening" = "ערב טוב";
 "home.quickActions" = "פעולות מהירות";
@@ -215,3 +216,24 @@
 "product.apples" = "תפוחים";
 "product.bananas" = "בננות";
 "product.oranges" = "תפוזים";
+
+/* Smart List Creation */
+"smartList.budget" = "תקציב";
+"smartList.enterBudget" = "הזן סכום תקציב";
+"smartList.duration" = "משך זמן";
+"smartList.numberOfDays" = "מספר ימים";
+"smartList.threeDays" = "3 ימים";
+"smartList.sevenDays" = "7 ימים";
+"smartList.fourteenDays" = "14 ימים";
+"smartList.thirtyDays" = "30 ימים";
+"smartList.household" = "משק בית";
+"smartList.householdSize" = "גודל משק הבית";
+"smartList.dietaryPreferences" = "העדפות תזונתיות";
+"smartList.preferVegetarian" = "העדף צמחוני";
+"smartList.preferOrganic" = "העדף אורגני";
+"smartList.avoidDairy" = "הימנע ממוצרי חלב";
+"smartList.generating" = "מייצר...";
+"smartList.generateButton" = "צור רשימה חכמה";
+"smartList.createTitle" = "צור רשימה חכמה";
+"smartList.error" = "שגיאה";
+"smartList.errorMessage" = "אירעה שגיאה בעת יצירת הרשימה";

@@ -17,7 +17,8 @@
 "tab.settings" = "Настройки";
 
 /* Home Screen */
-"home.greeting.morning" = "Доброе утро";
+"home.title" = "Оптимизатор бюджета на продукты";
+"home.subtitle" = "Умные покупки начинаются здесь";
 "home.greeting.afternoon" = "Добрый день";
 "home.greeting.evening" = "Добрый вечер";
 "home.quickActions" = "Быстрые действия";
@@ -215,3 +216,24 @@
 "product.apples" = "Яблоки";
 "product.bananas" = "Бананы";
 "product.oranges" = "Апельсины";
+
+/* Smart List Creation */
+"smartList.budget" = "Бюджет";
+"smartList.enterBudget" = "Введите сумму бюджета";
+"smartList.duration" = "Длительность";
+"smartList.numberOfDays" = "Количество дней";
+"smartList.threeDays" = "3 дня";
+"smartList.sevenDays" = "7 дней";
+"smartList.fourteenDays" = "14 дней";
+"smartList.thirtyDays" = "30 дней";
+"smartList.household" = "Домохозяйство";
+"smartList.householdSize" = "Размер семьи";
+"smartList.dietaryPreferences" = "Диетические предпочтения";
+"smartList.preferVegetarian" = "Предпочитать вегетарианское";
+"smartList.preferOrganic" = "Предпочитать органическое";
+"smartList.avoidDairy" = "Избегать молочных продуктов";
+"smartList.generating" = "Генерация...";
+"smartList.generateButton" = "Создать умный список";
+"smartList.createTitle" = "Создать умный список";
+"smartList.error" = "Ошибка";
+"smartList.errorMessage" = "Произошла ошибка при создании списка";

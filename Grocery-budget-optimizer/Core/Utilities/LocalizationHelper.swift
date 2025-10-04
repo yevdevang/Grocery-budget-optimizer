@@ -230,6 +230,29 @@ enum L10n {
         static var bakery: String { localized("category.bakery", comment: "Bakery") }
         static var other: String { localized("category.other", comment: "Other") }
     }
+
+    // MARK: - Smart List Creation
+    enum SmartList {
+        static var budget: String { localized("smartList.budget", comment: "Budget") }
+        static var enterBudget: String { localized("smartList.enterBudget", comment: "Enter budget amount") }
+        static var duration: String { localized("smartList.duration", comment: "Duration") }
+        static var numberOfDays: String { localized("smartList.numberOfDays", comment: "Number of Days") }
+        static var threeDays: String { localized("smartList.threeDays", comment: "3 days") }
+        static var sevenDays: String { localized("smartList.sevenDays", comment: "7 days") }
+        static var fourteenDays: String { localized("smartList.fourteenDays", comment: "14 days") }
+        static var thirtyDays: String { localized("smartList.thirtyDays", comment: "30 days") }
+        static var household: String { localized("smartList.household", comment: "Household") }
+        static var householdSize: String { localized("smartList.householdSize", comment: "Household Size") }
+        static var dietaryPreferences: String { localized("smartList.dietaryPreferences", comment: "Dietary Preferences") }
+        static var preferVegetarian: String { localized("smartList.preferVegetarian", comment: "Prefer Vegetarian") }
+        static var preferOrganic: String { localized("smartList.preferOrganic", comment: "Prefer Organic") }
+        static var avoidDairy: String { localized("smartList.avoidDairy", comment: "Avoid Dairy") }
+        static var generating: String { localized("smartList.generating", comment: "Generating...") }
+        static var generateButton: String { localized("smartList.generateButton", comment: "Generate Smart List") }
+        static var createTitle: String { localized("smartList.createTitle", comment: "Create Smart List") }
+        static var error: String { localized("smartList.error", comment: "Error") }
+        static var errorMessage: String { localized("smartList.errorMessage", comment: "Error message") }
+    }
 }
 
 // Extension to get localized category name

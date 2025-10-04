@@ -43,6 +43,7 @@ struct HomeView: View {
                 .padding()
             }
             .navigationTitle(L10n.Home.title)
+            .navigationBarTitleDisplayMode(.inline)
             .refreshable {
                 await viewModel.refresh()
             }
@@ -208,33 +209,33 @@ struct SmartListCreationSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Budget") {
+                Section(L10n.SmartList.budget) {
                     HStack {
                         Text("$")
                             .foregroundStyle(.secondary)
-                        TextField("Enter budget amount", text: $budgetAmount)
+                        TextField(L10n.SmartList.enterBudget, text: $budgetAmount)
                             .keyboardType(.decimalPad)
                     }
                 }
 
-                Section("Duration") {
-                    Picker("Number of Days", selection: $numberOfDays) {
-                        Text("3 days").tag(3)
-                        Text("7 days").tag(7)
-                        Text("14 days").tag(14)
-                        Text("30 days").tag(30)
+                Section(L10n.SmartList.duration) {
+                    Picker(L10n.SmartList.numberOfDays, selection: $numberOfDays) {
+                        Text(L10n.SmartList.threeDays).tag(3)
+                        Text(L10n.SmartList.sevenDays).tag(7)
+                        Text(L10n.SmartList.fourteenDays).tag(14)
+                        Text(L10n.SmartList.thirtyDays).tag(30)
                     }
                     .pickerStyle(.segmented)
                 }
 
-                Section("Household") {
-                    Stepper("Household Size: \(householdSize)", value: $householdSize, in: 1...10)
+                Section(L10n.SmartList.household) {
+                    Stepper("\(L10n.SmartList.householdSize): \(householdSize)", value: $householdSize, in: 1...10)
                 }
 
-                Section("Dietary Preferences") {
-                    Toggle("Prefer Vegetarian", isOn: $preferVegetarian)
-                    Toggle("Prefer Organic", isOn: $preferOrganic)
-                    Toggle("Avoid Dairy", isOn: $avoidDairy)
+                Section(L10n.SmartList.dietaryPreferences) {
+                    Toggle(L10n.SmartList.preferVegetarian, isOn: $preferVegetarian)
+                    Toggle(L10n.SmartList.preferOrganic, isOn: $preferOrganic)
+                    Toggle(L10n.SmartList.avoidDairy, isOn: $avoidDairy)
                 }
 
                 Section {
@@ -245,7 +246,7 @@ struct SmartListCreationSheet: View {
                                 ProgressView()
                                     .padding(.trailing, 8)
                             }
-                            Text(isGenerating ? "Generating..." : "Generate Smart List")
+                            Text(isGenerating ? L10n.SmartList.generating : L10n.SmartList.generateButton)
                                 .fontWeight(.semibold)
                             Spacer()
                         }
@@ -253,17 +254,17 @@ struct SmartListCreationSheet: View {
                     .disabled(budgetAmount.isEmpty || isGenerating)
                 }
             }
-            .navigationTitle("Create Smart List")
+            .navigationTitle(L10n.SmartList.createTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.Common.cancel) { dismiss() }
                 }
             }
-            .alert("Error", isPresented: $showingError) {
-                Button("OK", role: .cancel) { }
+            .alert(L10n.SmartList.error, isPresented: $showingError) {
+                Button(L10n.Common.ok, role: .cancel) { }
             } message: {
-                Text(errorMessage ?? "An error occurred while generating the list")
+                Text(errorMessage ?? L10n.SmartList.errorMessage)
             }
         }
     }
@@ -377,7 +378,7 @@ struct QuickAddItemSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.Common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(L10n.Common.add) {
@@ -608,9 +609,9 @@ struct ItemPickerSheet: View {
                         Image(systemName: "cube.box")
                             .font(.system(size: 60))
                             .foregroundStyle(.gray)
-                        Text("No Items Available")
+                        Text(L10n.ItemPicker.noItems)
                             .font(.headline)
-                        Text("Please add items first using the 'Add Item' button on the Home screen")
+                        Text(L10n.ItemPicker.noItemsMessage)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
@@ -642,14 +643,14 @@ struct ItemPickerSheet: View {
                             }
                         }
                     }
-                    .searchable(text: $searchText, prompt: "Search items")
+                    .searchable(text: $searchText, prompt: L10n.ItemPicker.search)
                 }
             }
-            .navigationTitle("Select Item")
+            .navigationTitle(L10n.ItemPicker.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.Common.cancel) { dismiss() }
                 }
             }
         }
