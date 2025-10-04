@@ -134,17 +134,24 @@ struct BudgetView: View {
             Text("Spending by Category")
                 .font(.headline)
 
-            Chart {
-                ForEach(Array(summary.spendingByCategory.sorted(by: { $0.value > $1.value })), id: \.key) { category, amount in
-                    SectorMark(
-                        angle: .value("Amount", Double(truncating: amount as NSDecimalNumber)),
-                        innerRadius: .ratio(0.6),
-                        angularInset: 2
-                    )
-                    .foregroundStyle(by: .value("Category", category))
+            if !summary.spendingByCategory.isEmpty {
+                Chart {
+                    ForEach(Array(summary.spendingByCategory.sorted(by: { $0.value > $1.value })), id: \.key) { category, amount in
+                        SectorMark(
+                            angle: .value("Amount", Double(truncating: amount as NSDecimalNumber)),
+                            innerRadius: .ratio(0.6),
+                            angularInset: 2
+                        )
+                        .foregroundStyle(by: .value("Category", category))
+                    }
                 }
+                .frame(height: 250)
+            } else {
+                Text("No spending data yet. Add expenses to see category breakdown.")
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding()
             }
-            .frame(height: 250)
         }
         .padding()
         .background(Color(.secondarySystemBackground))
@@ -172,7 +179,7 @@ struct BudgetView: View {
                 }
                 .frame(height: 200)
             } else {
-                Text("No spending data available")
+                Text("No spending data yet. Add expenses to see daily trends.")
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()
@@ -188,18 +195,25 @@ struct BudgetView: View {
             Text("Category Breakdown")
                 .font(.headline)
 
-            ForEach(Array(summary.spendingByCategory.sorted(by: { $0.value > $1.value })), id: \.key) { category, amount in
-                HStack {
-                    Text(category)
-                        .font(.subheadline)
+            if !summary.spendingByCategory.isEmpty {
+                ForEach(Array(summary.spendingByCategory.sorted(by: { $0.value > $1.value })), id: \.key) { category, amount in
+                    HStack {
+                        Text(category)
+                            .font(.subheadline)
 
-                    Spacer()
+                        Spacer()
 
-                    Text(amount, format: .currency(code: "USD"))
-                        .font(.subheadline)
-                        .fontWeight(.medium)
+                        Text(amount, format: .currency(code: "USD"))
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                    }
+                    .padding(.vertical, 4)
                 }
-                .padding(.vertical, 4)
+            } else {
+                Text("No category data yet")
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding()
             }
         }
         .padding()
