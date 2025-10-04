@@ -1,0 +1,239 @@
+/* Common */
+"common.cancel" = "ביטול";
+"common.save" = "שמירה";
+"common.create" = "יצירה";
+"common.add" = "הוספה";
+"common.delete" = "מחיקה";
+"common.edit" = "עריכה";
+"common.done" = "סיום";
+"common.close" = "סגירה";
+"common.ok" = "אישור";
+
+/* Tab Bar */
+"tab.home" = "בית";
+"tab.lists" = "רשימות";
+"tab.items" = "מוצרים";
+"tab.budget" = "תקציב";
+"tab.settings" = "הגדרות";
+
+/* Home Screen */
+"home.title" = "אופטימיזציה תקציב מכולת";
+"home.subtitle" = "קניות חכמות מתחילות כאן";
+"home.greeting.afternoon" = "צהריים טובים";
+"home.greeting.evening" = "ערב טוב";
+"home.quickActions" = "פעולות מהירות";
+"home.smartList" = "רשימה חכמה";
+"home.addItem" = "הוסף מוצר";
+"home.addExpense" = "הוסף הוצאה";
+"home.viewStats" = "צפה בסטטיסטיקה";
+"home.expiringItems" = "מוצרים שפג תוקפם בקרוב";
+"home.predictions" = "צרכים צפויים";
+"home.recentActivity" = "פעילות אחרונה";
+"home.noExpiring" = "אין מוצרים שפג תוקפם בקרוב";
+"home.noPredictions" = "אין תחזיות זמינות";
+"home.noActivity" = "אין רכישות אחרונות";
+
+/* Add Item */
+"addItem.title" = "הוסף מוצר";
+"addItem.details" = "פרטי מוצר";
+"addItem.name" = "שם המוצר";
+"addItem.category" = "קטגוריה";
+"addItem.brand" = "מותג (אופציונלי)";
+"addItem.unit" = "יחידת מידה (לדוגמה, 1 ק\"ג, 500 גר')";
+"addItem.pricing" = "תמחור";
+"addItem.averagePrice" = "מחיר ממוצע";
+"addItem.additionalInfo" = "מידע נוסף";
+"addItem.notes" = "הערות (אופציונלי)";
+
+/* Add Expense */
+"addExpense.title" = "הוסף הוצאה";
+"addExpense.item" = "מוצר";
+"addExpense.selectItem" = "בחר מוצר";
+"addExpense.purchaseDetails" = "פרטי רכישה";
+"addExpense.quantity" = "כמות";
+"addExpense.pricePerUnit" = "מחיר ליחידה";
+"addExpense.totalCost" = "עלות כוללת";
+"addExpense.purchaseDate" = "תאריך רכישה";
+"addExpense.storeName" = "שם החנות (אופציונלי)";
+
+/* Item Picker */
+"itemPicker.title" = "בחר מוצר";
+"itemPicker.search" = "חפש מוצרים";
+"itemPicker.noItems" = "אין מוצרים זמינים";
+"itemPicker.noItemsMessage" = "אנא הוסף מוצרים תחילה באמצעות כפתור 'הוסף מוצר' במסך הבית";
+
+/* Budget */
+"budget.title" = "תקציב";
+"budget.overview" = "סקירת תקציב";
+"budget.amount" = "תקציב";
+"budget.spent" = "הוצא";
+"budget.remaining" = "נותר";
+"budget.used" = "בשימוש";
+"budget.daysLeft" = "ימים נותרו";
+"budget.spendingByCategory" = "הוצאות לפי קטגוריה";
+"budget.dailySpending" = "הוצאות יומיות";
+"budget.categoryBreakdown" = "פירוט לפי קטגוריה";
+"budget.noData" = "אין עדיין נתוני הוצאות";
+"budget.noCategoryData" = "אין עדיין נתוני קטגוריה";
+"budget.addExpensesMessage" = "הוסף הוצאות כדי לראות פירוט לפי קטגוריה.";
+"budget.addExpensesTrends" = "הוסף הוצאות כדי לראות מגמות יומיות.";
+"budget.noBudget" = "אין תקציב פעיל";
+"budget.createButton" = "צור תקציב";
+"budget.exceedWarning" = "צפוי לחרוג מהתקציב ב";
+"budget.createTitle" = "צור תקציב";
+"budget.information" = "מידע על התקציב";
+"budget.name" = "שם התקציב";
+"budget.totalAmount" = "סכום כולל";
+"budget.duration" = "משך";
+"budget.startDate" = "תאריך התחלה";
+"budget.endDate" = "תאריך סיום";
+"budget.durationDays" = "ימים";
+"budget.categoryNote" = "ניתן להוסיף תקציבים ספציפיים לקטגוריה לאחר יצירת התקציב הראשי";
+
+/* Shopping Lists */
+"lists.title" = "רשימות קניות";
+"lists.smartList" = "רשימה חכמה (AI)";
+"lists.manualList" = "רשימה רגילה";
+"lists.active" = "רשימות פעילות";
+"lists.completed" = "הושלמו";
+"lists.noLists" = "אין רשימות קניות";
+"lists.createMessage" = "צור רשימה חכמה מבוססת AI או התחל מאפס";
+"lists.createSmartButton" = "צור רשימה חכמה";
+"lists.items" = "פריטים";
+"lists.newList" = "רשימת קניות חדשה";
+"lists.listDetails" = "פרטי רשימה";
+"lists.listName" = "שם הרשימה";
+"lists.budgetAmount" = "סכום תקציב";
+"lists.addItemsNote" = "תוכל להוסיף פריטים לרשימה זו לאחר יצירתה";
+"lists.smartTitle" = "צור רשימה חכמה";
+"lists.aiPowered" = "המלצות מבוססות AI";
+"lists.aiDescription" = "ה-AI שלנו ינתח את היסטוריית הקניות שלך ויחזה מה אתה צריך לקנות, תוך אופטימיזציה לתקציב שלך";
+"lists.generating" = "יוצר רשימה חכמה...";
+"lists.generate" = "צור";
+
+/* Items */
+"items.title" = "מוצרים";
+"items.search" = "חפש מוצרים";
+"items.all" = "הכל";
+"items.noItems" = "אין מוצרים";
+"items.addItemsMessage" = "הוסף מוצרים כדי לעקוב אחר המצרכים שלך ולנהל את התקציב שלך ביעילות";
+"items.addButton" = "הוסף מוצר";
+"items.details" = "פרטים";
+"items.name" = "שם";
+"items.category" = "קטגוריה";
+"items.averagePrice" = "מחיר ממוצע";
+"items.priceHistory" = "היסטוריית מחירים";
+"items.priceHistoryPlaceholder" = "כאן יהיה גרף היסטוריית המחירים";
+
+/* Settings */
+"settings.title" = "הגדרות";
+"settings.general" = "כללי";
+"settings.householdSize" = "גודל משק הבית";
+"settings.enableNotifications" = "הפעל התראות";
+"settings.appearance" = "מראה";
+"settings.darkMode" = "מצב כהה";
+"settings.mlModels" = "מודלי ML";
+"settings.mlSettings" = "הגדרות ML";
+"settings.warmupModels" = "חימום מודלים";
+"settings.data" = "נתונים";
+"settings.dataManagement" = "ניהול נתונים";
+"settings.clearCache" = "נקה מטמון";
+"settings.about" = "אודות";
+"settings.version" = "גרסה";
+"settings.build" = "בניה";
+"settings.githubRepo" = "מאגר GitHub";
+"settings.account" = "חשבון";
+"settings.profile" = "פרופיל";
+"settings.preferences" = "העדפות";
+"settings.language" = "שפה";
+"settings.currency" = "מטבע";
+"settings.notifications" = "התראות";
+"settings.privacy" = "מדיניות פרטיות";
+"settings.terms" = "תנאי שימוש";
+
+/* ML Model Settings */
+"settings.predictionSettings" = "הגדרות חיזוי";
+"settings.confidenceThreshold" = "סף ביטחון";
+"settings.confidenceDescription" = "רמת ביטחון מינימלית לחיזויים";
+"settings.models" = "מודלים";
+"settings.shoppingListGenerator" = "מחולל רשימת קניות";
+"settings.purchasePredictor" = "מנבא קניות";
+"settings.priceOptimizer" = "מייעל מחירים";
+"settings.expirationPredictor" = "מנבא תפוגה";
+"settings.modelActive" = "פעיל";
+
+/* Data Management */
+"settings.export" = "ייצוא";
+"settings.exportAllData" = "ייצא את כל הנתונים";
+"settings.import" = "ייבוא";
+"settings.importData" = "ייבא נתונים";
+"settings.dangerZone" = "אזור מסוכן";
+"settings.dangerWarning" = "לא ניתן לבטל פעולה זו";
+"settings.deleteAllData" = "מחק את כל הנתונים";
+
+/* Language Picker */
+"settings.rightToLeft" = "ימין לשמאל";
+
+/* Categories */
+"category.produce" = "פירות וירקות";
+"category.dairy" = "מוצרי חלב";
+"category.meatSeafood" = "בשר ודגים";
+"category.pantry" = "מזווה";
+"category.beverages" = "משקאות";
+"category.frozen" = "מוצרים קפואים";
+"category.bakery" = "מאפייה";
+"category.other" = "אחר";
+
+/* Error Messages */
+"error.loadingItems" = "שגיאה בטעינת מוצרים";
+"error.savingPurchase" = "שגיאה בשמירת רכישה";
+"error.creatingBudget" = "שגיאה ביצירת תקציב";
+"error.creatingList" = "שגיאה ביצירת רשימה";
+"error.generatingSmartList" = "שגיאה ביצירת רשימה חכמה";
+
+/* Success Messages */
+"success.itemAdded" = "המוצר נוסף בהצלחה";
+"success.purchaseSaved" = "הרכישה נשמרה בהצלחה";
+"success.budgetCreated" = "התקציב נוצר בהצלחה";
+"success.listCreated" = "רשימת הקניות נוצרה בהצלחה";
+"success.smartListGenerated" = "הרשימה החכמה נוצרה בהצלחה";
+
+/* Product Names */
+"product.milk" = "חלב";
+"product.cheese" = "גבינה";
+"product.yogurt" = "יוגורט";
+"product.butter" = "חמאה";
+"product.eggs" = "ביצים";
+"product.chicken" = "חזה עוף";
+"product.beef" = "בשר בקר טחון";
+"product.salmon" = "סלמון";
+"product.bread" = "לחם";
+"product.rice" = "אורז";
+"product.pasta" = "פסטה";
+"product.tomatoes" = "עגבניות";
+"product.lettuce" = "חסה";
+"product.carrots" = "גזר";
+"product.apples" = "תפוחים";
+"product.bananas" = "בננות";
+"product.oranges" = "תפוזים";
+
+/* Smart List Creation */
+"smartList.budget" = "תקציב";
+"smartList.enterBudget" = "הזן סכום תקציב";
+"smartList.duration" = "משך זמן";
+"smartList.numberOfDays" = "מספר ימים";
+"smartList.threeDays" = "3 ימים";
+"smartList.sevenDays" = "7 ימים";
+"smartList.fourteenDays" = "14 ימים";
+"smartList.thirtyDays" = "30 ימים";
+"smartList.household" = "משק בית";
+"smartList.householdSize" = "גודל משק הבית";
+"smartList.dietaryPreferences" = "העדפות תזונתיות";
+"smartList.preferVegetarian" = "העדף צמחוני";
+"smartList.preferOrganic" = "העדף אורגני";
+"smartList.avoidDairy" = "הימנע ממוצרי חלב";
+"smartList.generating" = "מייצר...";
+"smartList.generateButton" = "צור רשימה חכמה";
+"smartList.createTitle" = "צור רשימה חכמה";
+"smartList.error" = "שגיאה";
+"smartList.errorMessage" = "אירעה שגיאה בעת יצירת הרשימה";

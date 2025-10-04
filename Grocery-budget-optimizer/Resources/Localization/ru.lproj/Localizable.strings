@@ -1,0 +1,239 @@
+/* Common */
+"common.cancel" = "Отмена";
+"common.save" = "Сохранить";
+"common.create" = "Создать";
+"common.add" = "Добавить";
+"common.delete" = "Удалить";
+"common.edit" = "Изменить";
+"common.done" = "Готово";
+"common.close" = "Закрыть";
+"common.ok" = "ОК";
+
+/* Tab Bar */
+"tab.home" = "Главная";
+"tab.lists" = "Списки";
+"tab.items" = "Товары";
+"tab.budget" = "Бюджет";
+"tab.settings" = "Настройки";
+
+/* Home Screen */
+"home.title" = "Оптимизатор бюджета на продукты";
+"home.subtitle" = "Умные покупки начинаются здесь";
+"home.greeting.afternoon" = "Добрый день";
+"home.greeting.evening" = "Добрый вечер";
+"home.quickActions" = "Быстрые действия";
+"home.smartList" = "Умный список";
+"home.addItem" = "Добавить товар";
+"home.addExpense" = "Добавить расход";
+"home.viewStats" = "Статистика";
+"home.expiringItems" = "Скоро истекает срок";
+"home.predictions" = "Прогнозируемые покупки";
+"home.recentActivity" = "Недавняя активность";
+"home.noExpiring" = "Нет товаров с истекающим сроком";
+"home.noPredictions" = "Нет прогнозов";
+"home.noActivity" = "Нет недавних покупок";
+
+/* Add Item */
+"addItem.title" = "Добавить товар";
+"addItem.details" = "Информация о товаре";
+"addItem.name" = "Название товара";
+"addItem.category" = "Категория";
+"addItem.brand" = "Бренд (необязательно)";
+"addItem.unit" = "Единица измерения (например, 1 кг, 500 г)";
+"addItem.pricing" = "Цена";
+"addItem.averagePrice" = "Средняя цена";
+"addItem.additionalInfo" = "Дополнительная информация";
+"addItem.notes" = "Примечания (необязательно)";
+
+/* Add Expense */
+"addExpense.title" = "Добавить расход";
+"addExpense.item" = "Товар";
+"addExpense.selectItem" = "Выбрать товар";
+"addExpense.purchaseDetails" = "Детали покупки";
+"addExpense.quantity" = "Количество";
+"addExpense.pricePerUnit" = "Цена за единицу";
+"addExpense.totalCost" = "Общая стоимость";
+"addExpense.purchaseDate" = "Дата покупки";
+"addExpense.storeName" = "Название магазина (необязательно)";
+
+/* Item Picker */
+"itemPicker.title" = "Выбрать товар";
+"itemPicker.search" = "Поиск товаров";
+"itemPicker.noItems" = "Нет доступных товаров";
+"itemPicker.noItemsMessage" = "Пожалуйста, сначала добавьте товары, используя кнопку 'Добавить товар' на главной странице";
+
+/* Budget */
+"budget.title" = "Бюджет";
+"budget.overview" = "Обзор бюджета";
+"budget.amount" = "Бюджет";
+"budget.spent" = "Потрачено";
+"budget.remaining" = "Осталось";
+"budget.used" = "Использовано";
+"budget.daysLeft" = "дней осталось";
+"budget.spendingByCategory" = "Расходы по категориям";
+"budget.dailySpending" = "Ежедневные расходы";
+"budget.categoryBreakdown" = "Разбивка по категориям";
+"budget.noData" = "Нет данных о расходах";
+"budget.noCategoryData" = "Нет данных по категориям";
+"budget.addExpensesMessage" = "Добавьте расходы для просмотра разбивки по категориям.";
+"budget.addExpensesTrends" = "Добавьте расходы для просмотра ежедневных трендов.";
+"budget.noBudget" = "Нет активного бюджета";
+"budget.createButton" = "Создать бюджет";
+"budget.exceedWarning" = "Прогнозируется превышение бюджета на";
+"budget.createTitle" = "Создать бюджет";
+"budget.information" = "Информация о бюджете";
+"budget.name" = "Название бюджета";
+"budget.totalAmount" = "Общая сумма";
+"budget.duration" = "Длительность";
+"budget.startDate" = "Дата начала";
+"budget.endDate" = "Дата окончания";
+"budget.durationDays" = "дней";
+"budget.categoryNote" = "Бюджеты по категориям можно добавить после создания основного бюджета";
+
+/* Shopping Lists */
+"lists.title" = "Списки покупок";
+"lists.smartList" = "Умный список (AI)";
+"lists.manualList" = "Обычный список";
+"lists.active" = "Активные списки";
+"lists.completed" = "Завершённые";
+"lists.noLists" = "Нет списков покупок";
+"lists.createMessage" = "Создайте умный список на основе AI или создайте свой список";
+"lists.createSmartButton" = "Создать умный список";
+"lists.items" = "товаров";
+"lists.newList" = "Новый список покупок";
+"lists.listDetails" = "Детали списка";
+"lists.listName" = "Название списка";
+"lists.budgetAmount" = "Сумма бюджета";
+"lists.addItemsNote" = "Вы можете добавить товары в этот список после его создания";
+"lists.smartTitle" = "Создать умный список";
+"lists.aiPowered" = "Рекомендации на основе AI";
+"lists.aiDescription" = "Наш AI проанализирует вашу историю покупок и предскажет, что вам нужно купить, оптимизируя под ваш бюджет";
+"lists.generating" = "Создание умного списка...";
+"lists.generate" = "Создать";
+
+/* Items */
+"items.title" = "Товары";
+"items.search" = "Поиск товаров";
+"items.all" = "Все";
+"items.noItems" = "Нет товаров";
+"items.addItemsMessage" = "Добавьте товары для отслеживания продуктов и эффективного управления бюджетом";
+"items.addButton" = "Добавить товар";
+"items.details" = "Детали";
+"items.name" = "Название";
+"items.category" = "Категория";
+"items.averagePrice" = "Средняя цена";
+"items.priceHistory" = "История цен";
+"items.priceHistoryPlaceholder" = "Здесь будет график истории цен";
+
+/* Settings */
+"settings.title" = "Настройки";
+"settings.general" = "Общие";
+"settings.householdSize" = "Размер семьи";
+"settings.enableNotifications" = "Включить уведомления";
+"settings.appearance" = "Внешний вид";
+"settings.darkMode" = "Темный режим";
+"settings.mlModels" = "ML модели";
+"settings.mlSettings" = "Настройки ML";
+"settings.warmupModels" = "Прогрев моделей";
+"settings.data" = "Данные";
+"settings.dataManagement" = "Управление данными";
+"settings.clearCache" = "Очистить кэш";
+"settings.about" = "О приложении";
+"settings.version" = "Версия";
+"settings.build" = "Сборка";
+"settings.githubRepo" = "GitHub репозиторий";
+"settings.account" = "Аккаунт";
+"settings.profile" = "Профиль";
+"settings.preferences" = "Предпочтения";
+"settings.language" = "Язык";
+"settings.currency" = "Валюта";
+"settings.notifications" = "Уведомления";
+"settings.privacy" = "Политика конфиденциальности";
+"settings.terms" = "Условия использования";
+
+/* ML Model Settings */
+"settings.predictionSettings" = "Настройки прогнозирования";
+"settings.confidenceThreshold" = "Порог уверенности";
+"settings.confidenceDescription" = "Минимальный уровень уверенности для прогнозов";
+"settings.models" = "Модели";
+"settings.shoppingListGenerator" = "Генератор списка покупок";
+"settings.purchasePredictor" = "Предсказатель покупок";
+"settings.priceOptimizer" = "Оптимизатор цен";
+"settings.expirationPredictor" = "Предсказатель срока годности";
+"settings.modelActive" = "Активна";
+
+/* Data Management */
+"settings.export" = "Экспорт";
+"settings.exportAllData" = "Экспортировать все данные";
+"settings.import" = "Импорт";
+"settings.importData" = "Импортировать данные";
+"settings.dangerZone" = "Опасная зона";
+"settings.dangerWarning" = "Это действие нельзя отменить";
+"settings.deleteAllData" = "Удалить все данные";
+
+/* Language Picker */
+"settings.rightToLeft" = "Справа налево";
+
+/* Categories */
+"category.produce" = "Овощи и фрукты";
+"category.dairy" = "Молочные продукты";
+"category.meatSeafood" = "Мясо и морепродукты";
+"category.pantry" = "Бакалея";
+"category.beverages" = "Напитки";
+"category.frozen" = "Замороженные продукты";
+"category.bakery" = "Выпечка";
+"category.other" = "Другое";
+
+/* Error Messages */
+"error.loadingItems" = "Ошибка загрузки товаров";
+"error.savingPurchase" = "Ошибка сохранения покупки";
+"error.creatingBudget" = "Ошибка создания бюджета";
+"error.creatingList" = "Ошибка создания списка";
+"error.generatingSmartList" = "Ошибка создания умного списка";
+
+/* Success Messages */
+"success.itemAdded" = "Товар успешно добавлен";
+"success.purchaseSaved" = "Покупка успешно сохранена";
+"success.budgetCreated" = "Бюджет успешно создан";
+"success.listCreated" = "Список покупок успешно создан";
+"success.smartListGenerated" = "Умный список успешно создан";
+
+/* Product Names */
+"product.milk" = "Молоко";
+"product.cheese" = "Сыр";
+"product.yogurt" = "Йогурт";
+"product.butter" = "Масло";
+"product.eggs" = "Яйца";
+"product.chicken" = "Куриная грудка";
+"product.beef" = "Говяжий фарш";
+"product.salmon" = "Лосось";
+"product.bread" = "Хлеб";
+"product.rice" = "Рис";
+"product.pasta" = "Паста";
+"product.tomatoes" = "Помидоры";
+"product.lettuce" = "Салат";
+"product.carrots" = "Морковь";
+"product.apples" = "Яблоки";
+"product.bananas" = "Бананы";
+"product.oranges" = "Апельсины";
+
+/* Smart List Creation */
+"smartList.budget" = "Бюджет";
+"smartList.enterBudget" = "Введите сумму бюджета";
+"smartList.duration" = "Длительность";
+"smartList.numberOfDays" = "Количество дней";
+"smartList.threeDays" = "3 дня";
+"smartList.sevenDays" = "7 дней";
+"smartList.fourteenDays" = "14 дней";
+"smartList.thirtyDays" = "30 дней";
+"smartList.household" = "Домохозяйство";
+"smartList.householdSize" = "Размер семьи";
+"smartList.dietaryPreferences" = "Диетические предпочтения";
+"smartList.preferVegetarian" = "Предпочитать вегетарианское";
+"smartList.preferOrganic" = "Предпочитать органическое";
+"smartList.avoidDairy" = "Избегать молочных продуктов";
+"smartList.generating" = "Генерация...";
+"smartList.generateButton" = "Создать умный список";
+"smartList.createTitle" = "Создать умный список";
+"smartList.error" = "Ошибка";
+"smartList.errorMessage" = "Произошла ошибка при создании списка";

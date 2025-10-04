@@ -14,20 +14,20 @@ struct ShoppingListsView: View {
                     listContent
                 }
             }
-            .navigationTitle("Shopping Lists")
+            .navigationTitle(L10n.Lists.title)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Menu {
                         Button {
                             viewModel.createSmartList()
                         } label: {
-                            Label("Smart List (AI)", systemImage: "sparkles")
+                            Label(L10n.Lists.smartList, systemImage: "sparkles")
                         }
 
                         Button {
                             showingCreateSheet = true
                         } label: {
-                            Label("Manual List", systemImage: "plus")
+                            Label(L10n.Lists.manualList, systemImage: "plus")
                         }
                     } label: {
                         Image(systemName: "plus.circle.fill")
@@ -57,7 +57,7 @@ struct ShoppingListsView: View {
 
     private var listContent: some View {
         List {
-            Section("Active Lists") {
+            Section(L10n.Lists.active) {
                 ForEach(viewModel.activeLists) { list in
                     NavigationLink {
                         ShoppingListDetailView(list: list)
@@ -71,7 +71,7 @@ struct ShoppingListsView: View {
             }
 
             if !viewModel.completedLists.isEmpty {
-                Section("Completed") {
+                Section(L10n.Lists.completed) {
                     ForEach(viewModel.completedLists) { list in
                         NavigationLink {
                             ShoppingListDetailView(list: list)
@@ -90,11 +90,11 @@ struct ShoppingListsView: View {
                 .font(.system(size: 80))
                 .foregroundStyle(.gray.gradient)
 
-            Text("No Shopping Lists")
+            Text(L10n.Lists.noLists)
                 .font(.title2)
                 .fontWeight(.semibold)
 
-            Text("Create a smart list powered by AI or start from scratch")
+            Text(L10n.Lists.createMessage)
                 .font(.body)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -103,7 +103,7 @@ struct ShoppingListsView: View {
             Button {
                 viewModel.createSmartList()
             } label: {
-                Label("Create Smart List", systemImage: "sparkles")
+                Label(L10n.Lists.createSmartButton, systemImage: "sparkles")
                     .font(.headline)
                     .foregroundStyle(.white)
                     .padding()
@@ -133,7 +133,7 @@ struct ShoppingListRow: View {
             }
 
             HStack {
-                Label("\(list.items.count) items", systemImage: "list.bullet")
+                Label("\(list.items.count) \(L10n.Lists.items)", systemImage: "list.bullet")
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
@@ -294,13 +294,13 @@ struct CreateSmartListView: View {
                     Section {
                         HStack {
                             ProgressView()
-                            Text("Generating smart list...")
+                            Text(L10n.Lists.generating)
                                 .foregroundStyle(.secondary)
                         }
                     }
                 }
             }
-            .navigationTitle("Create Smart List")
+            .navigationTitle(L10n.Lists.smartTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -309,7 +309,7 @@ struct CreateSmartListView: View {
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Generate") {
+                    Button(L10n.Lists.generate) {
                         generateList()
                     }
                     .disabled(!isFormValid || isLoading)

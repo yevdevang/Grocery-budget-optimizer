@@ -27,7 +27,7 @@ struct BudgetView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Budget")
+            .navigationTitle(L10n.Budget.title)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -65,19 +65,19 @@ struct BudgetView: View {
 
             HStack(spacing: 30) {
                 budgetStatItem(
-                    title: "Budget",
+                    title: L10n.Budget.amount,
                     value: summary.budget.amount,
                     color: .blue
                 )
 
                 budgetStatItem(
-                    title: "Spent",
+                    title: L10n.Budget.spent,
                     value: summary.totalSpent,
                     color: .orange
                 )
 
                 budgetStatItem(
-                    title: "Remaining",
+                    title: L10n.Budget.remaining,
                     value: summary.remainingAmount,
                     color: summary.remainingAmount > 0 ? .green : .red
                 )
@@ -86,13 +86,13 @@ struct BudgetView: View {
             // Progress
             VStack(spacing: 8) {
                 HStack {
-                    Text("\(Int(summary.percentageUsed))% Used")
+                    Text("\(Int(summary.percentageUsed))% \(L10n.Budget.used)")
                         .font(.subheadline)
                         .fontWeight(.medium)
 
                     Spacer()
 
-                    Text("\(summary.daysRemaining) days left")
+                    Text("\(summary.daysRemaining) \(L10n.Budget.daysLeft)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -105,7 +105,7 @@ struct BudgetView: View {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.orange)
-                    Text("Projected to exceed budget by \((summary.projectedTotal - summary.budget.amount), format: .currency(code: "USD"))")
+                    Text("\(L10n.Budget.exceedWarning) \((summary.projectedTotal - summary.budget.amount), format: .currency(code: "USD"))")
                         .font(.subheadline)
                 }
                 .padding()
@@ -131,7 +131,7 @@ struct BudgetView: View {
 
     private func spendingByCategoryChart(summary: BudgetSummary) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Spending by Category")
+            Text(L10n.Budget.spendingByCategory)
                 .font(.headline)
 
             if !summary.spendingByCategory.isEmpty {
@@ -147,7 +147,7 @@ struct BudgetView: View {
                 }
                 .frame(height: 250)
             } else {
-                Text("No spending data yet. Add expenses to see category breakdown.")
+                Text(L10n.Budget.addExpensesMessage)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()
@@ -160,7 +160,7 @@ struct BudgetView: View {
 
     private var dailySpendingChart: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Daily Spending")
+            Text(L10n.Budget.dailySpending)
                 .font(.headline)
 
             if !viewModel.dailySpending.isEmpty {
@@ -179,7 +179,7 @@ struct BudgetView: View {
                 }
                 .frame(height: 200)
             } else {
-                Text("No spending data yet. Add expenses to see daily trends.")
+                Text(L10n.Budget.addExpensesTrends)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()
@@ -192,7 +192,7 @@ struct BudgetView: View {
 
     private func categoryBreakdownList(summary: BudgetSummary) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Category Breakdown")
+            Text(L10n.Budget.categoryBreakdown)
                 .font(.headline)
 
             if !summary.spendingByCategory.isEmpty {
@@ -210,7 +210,7 @@ struct BudgetView: View {
                     .padding(.vertical, 4)
                 }
             } else {
-                Text("No category data yet")
+                Text(L10n.Budget.noCategoryData)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()
@@ -227,11 +227,11 @@ struct BudgetView: View {
                 .font(.system(size: 80))
                 .foregroundStyle(.gray.gradient)
 
-            Text("No Active Budget")
+            Text(L10n.Budget.noBudget)
                 .font(.title2)
                 .fontWeight(.semibold)
 
-            Button("Create Budget") {
+            Button(L10n.Budget.createButton) {
                 viewModel.showCreateBudget()
             }
             .buttonStyle(.borderedProminent)
@@ -261,48 +261,48 @@ struct CreateBudgetSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Budget Information") {
-                    TextField("Budget Name", text: $budgetName)
+                Section(L10n.Budget.information) {
+                    TextField(L10n.Budget.name, text: $budgetName)
                         .textInputAutocapitalization(.words)
 
                     HStack {
                         Text("$")
                             .foregroundStyle(.secondary)
-                        TextField("Total Amount", text: $budgetAmount)
+                        TextField(L10n.Budget.totalAmount, text: $budgetAmount)
                             .keyboardType(.decimalPad)
                     }
                 }
 
-                Section("Duration") {
-                    DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
-                    DatePicker("End Date", selection: $endDate, in: startDate..., displayedComponents: .date)
+                Section(L10n.Budget.duration) {
+                    DatePicker(L10n.Budget.startDate, selection: $startDate, displayedComponents: .date)
+                    DatePicker(L10n.Budget.endDate, selection: $endDate, in: startDate..., displayedComponents: .date)
 
                     if endDate > startDate {
                         let days = Calendar.current.dateComponents([.day], from: startDate, to: endDate).day ?? 0
                         HStack {
-                            Text("Duration")
+                            Text(L10n.Budget.duration)
                                 .foregroundStyle(.secondary)
                             Spacer()
-                            Text("\(days) days")
+                            Text("\(days) \(L10n.Budget.durationDays)")
                                 .fontWeight(.medium)
                         }
                     }
                 }
 
                 Section {
-                    Text("Category-specific budgets can be added after creating the main budget")
+                    Text(L10n.Budget.categoryNote)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
             }
-            .navigationTitle("Create Budget")
+            .navigationTitle(L10n.Budget.createTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.Common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Create") {
+                    Button(L10n.Common.create) {
                         createBudget()
                     }
                     .disabled(!isFormValid || isLoading)

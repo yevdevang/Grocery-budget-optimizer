@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import SwiftUI
 
 @MainActor
 class HomeViewModel: ObservableObject {
@@ -34,9 +35,9 @@ class HomeViewModel: ObservableObject {
     var greeting: String {
         let hour = Calendar.current.component(.hour, from: Date())
         switch hour {
-        case 0..<12: return "Good Morning"
-        case 12..<17: return "Good Afternoon"
-        default: return "Good Evening"
+        case 0..<12: return L10n.Home.Greeting.morning
+        case 12..<17: return L10n.Home.Greeting.afternoon
+        default: return L10n.Home.Greeting.evening
         }
     }
 

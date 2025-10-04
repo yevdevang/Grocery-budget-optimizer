@@ -42,7 +42,8 @@ struct HomeView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Grocery Optimizer")
+            .navigationTitle(L10n.Home.title)
+            .navigationBarTitleDisplayMode(.inline)
             .refreshable {
                 await viewModel.refresh()
             }
@@ -72,7 +73,7 @@ struct HomeView: View {
                     .font(.title2)
                     .fontWeight(.bold)
 
-                Text("Let's optimize your groceries")
+                Text(L10n.Home.subtitle)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -91,7 +92,7 @@ struct HomeView: View {
 
     private var quickActionsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Quick Actions")
+            Text(L10n.Home.quickActions)
                 .font(.headline)
                 .padding(.horizontal)
 
@@ -101,7 +102,7 @@ struct HomeView: View {
             ], spacing: 12) {
                 QuickActionButton(
                     icon: "sparkles",
-                    title: "Smart List",
+                    title: L10n.Home.smartList,
                     color: .blue
                 ) {
                     viewModel.createSmartList()
@@ -109,7 +110,7 @@ struct HomeView: View {
 
                 QuickActionButton(
                     icon: "plus.circle",
-                    title: "Add Item",
+                    title: L10n.Home.addItem,
                     color: .green
                 ) {
                     viewModel.showAddItem()
@@ -117,7 +118,7 @@ struct HomeView: View {
 
                 QuickActionButton(
                     icon: "dollarsign.circle",
-                    title: "Add Expense",
+                    title: L10n.Home.addExpense,
                     color: .orange
                 ) {
                     viewModel.showAddExpense()
@@ -125,7 +126,7 @@ struct HomeView: View {
 
                 QuickActionButton(
                     icon: "chart.bar",
-                    title: "View Stats",
+                    title: L10n.Home.viewStats,
                     color: .purple
                 ) {
                     selectedTab = 3  // Navigate to Budget tab
@@ -139,7 +140,7 @@ struct HomeView: View {
             HStack {
                 Image(systemName: "exclamationmark.triangle.fill")
                     .foregroundStyle(.orange)
-                Text("Expiring Soon")
+                Text(L10n.Home.expiringItems)
                     .font(.headline)
                 Spacer()
             }
@@ -161,7 +162,7 @@ struct HomeView: View {
             HStack {
                 Image(systemName: "brain.head.profile")
                     .foregroundStyle(.blue)
-                Text("You Might Need")
+                Text(L10n.Home.predictions)
                     .font(.headline)
                 Spacer()
             }
@@ -176,7 +177,7 @@ struct HomeView: View {
 
     private var recentActivitySection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Recent Activity")
+            Text(L10n.Home.recentActivity)
                 .font(.headline)
                 .padding(.horizontal)
 
@@ -208,33 +209,33 @@ struct SmartListCreationSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Budget") {
+                Section(L10n.SmartList.budget) {
                     HStack {
                         Text("$")
                             .foregroundStyle(.secondary)
-                        TextField("Enter budget amount", text: $budgetAmount)
+                        TextField(L10n.SmartList.enterBudget, text: $budgetAmount)
                             .keyboardType(.decimalPad)
                     }
                 }
 
-                Section("Duration") {
-                    Picker("Number of Days", selection: $numberOfDays) {
-                        Text("3 days").tag(3)
-                        Text("7 days").tag(7)
-                        Text("14 days").tag(14)
-                        Text("30 days").tag(30)
+                Section(L10n.SmartList.duration) {
+                    Picker(L10n.SmartList.numberOfDays, selection: $numberOfDays) {
+                        Text(L10n.SmartList.threeDays).tag(3)
+                        Text(L10n.SmartList.sevenDays).tag(7)
+                        Text(L10n.SmartList.fourteenDays).tag(14)
+                        Text(L10n.SmartList.thirtyDays).tag(30)
                     }
                     .pickerStyle(.segmented)
                 }
 
-                Section("Household") {
-                    Stepper("Household Size: \(householdSize)", value: $householdSize, in: 1...10)
+                Section(L10n.SmartList.household) {
+                    Stepper("\(L10n.SmartList.householdSize): \(householdSize)", value: $householdSize, in: 1...10)
                 }
 
-                Section("Dietary Preferences") {
-                    Toggle("Prefer Vegetarian", isOn: $preferVegetarian)
-                    Toggle("Prefer Organic", isOn: $preferOrganic)
-                    Toggle("Avoid Dairy", isOn: $avoidDairy)
+                Section(L10n.SmartList.dietaryPreferences) {
+                    Toggle(L10n.SmartList.preferVegetarian, isOn: $preferVegetarian)
+                    Toggle(L10n.SmartList.preferOrganic, isOn: $preferOrganic)
+                    Toggle(L10n.SmartList.avoidDairy, isOn: $avoidDairy)
                 }
 
                 Section {
@@ -245,7 +246,7 @@ struct SmartListCreationSheet: View {
                                 ProgressView()
                                     .padding(.trailing, 8)
                             }
-                            Text(isGenerating ? "Generating..." : "Generate Smart List")
+                            Text(isGenerating ? L10n.SmartList.generating : L10n.SmartList.generateButton)
                                 .fontWeight(.semibold)
                             Spacer()
                         }
@@ -253,17 +254,17 @@ struct SmartListCreationSheet: View {
                     .disabled(budgetAmount.isEmpty || isGenerating)
                 }
             }
-            .navigationTitle("Create Smart List")
+            .navigationTitle(L10n.SmartList.createTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.Common.cancel) { dismiss() }
                 }
             }
-            .alert("Error", isPresented: $showingError) {
-                Button("OK", role: .cancel) { }
+            .alert(L10n.SmartList.error, isPresented: $showingError) {
+                Button(L10n.Common.ok, role: .cancel) { }
             } message: {
-                Text(errorMessage ?? "An error occurred while generating the list")
+                Text(errorMessage ?? L10n.SmartList.errorMessage)
             }
         }
     }
@@ -345,42 +346,42 @@ struct QuickAddItemSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Item Details") {
-                    TextField("Item name", text: $name)
+                Section(L10n.AddItem.details) {
+                    TextField(L10n.AddItem.name, text: $name)
 
-                    Picker("Category", selection: $category) {
+                    Picker(L10n.AddItem.category, selection: $category) {
                         ForEach(categories, id: \.self) { category in
-                            Text(category).tag(category)
+                            Text(L10n.Category.localizedName(category)).tag(category)
                         }
                     }
 
-                    TextField("Brand (optional)", text: $brand)
+                    TextField(L10n.AddItem.brand, text: $brand)
 
-                    TextField("Unit (e.g., 1 lb, 12 oz)", text: $unit)
+                    TextField(L10n.AddItem.unit, text: $unit)
                 }
 
-                Section("Pricing") {
+                Section(L10n.AddItem.pricing) {
                     HStack {
                         Text("$")
                             .foregroundStyle(.secondary)
-                        TextField("Average price", text: $price)
+                        TextField(L10n.AddItem.averagePrice, text: $price)
                             .keyboardType(.decimalPad)
                     }
                 }
 
-                Section("Additional Info") {
-                    TextField("Notes (optional)", text: $notes, axis: .vertical)
+                Section(L10n.AddItem.additionalInfo) {
+                    TextField(L10n.AddItem.notes, text: $notes, axis: .vertical)
                         .lineLimit(3...6)
                 }
             }
-            .navigationTitle("Add Item")
+            .navigationTitle(L10n.AddItem.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.Common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {
+                    Button(L10n.Common.add) {
                         addItem()
                     }
                     .disabled(!isFormValid || isLoading)
@@ -452,10 +453,10 @@ struct QuickAddExpenseSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Item") {
+                Section(L10n.AddExpense.item) {
                     Button(action: { showingItemPicker = true }) {
                         HStack {
-                            Text("Select Item")
+                            Text(L10n.AddExpense.selectItem)
                                 .foregroundStyle(selectedItem == nil ? .secondary : .primary)
                             Spacer()
                             if let item = selectedItem {
@@ -470,9 +471,9 @@ struct QuickAddExpenseSheet: View {
                     }
                 }
 
-                Section("Purchase Details") {
+                Section(L10n.AddExpense.purchaseDetails) {
                     HStack {
-                        Text("Quantity")
+                        Text(L10n.AddExpense.quantity)
                         Spacer()
                         TextField("0", text: $quantity)
                             .keyboardType(.decimalPad)
@@ -485,7 +486,7 @@ struct QuickAddExpenseSheet: View {
                     }
 
                     HStack {
-                        Text("Price per unit")
+                        Text(L10n.AddExpense.pricePerUnit)
                         Spacer()
                         Text("$")
                             .foregroundStyle(.secondary)
@@ -496,26 +497,26 @@ struct QuickAddExpenseSheet: View {
                     }
 
                     HStack {
-                        Text("Total Cost")
+                        Text(L10n.AddExpense.totalCost)
                             .fontWeight(.medium)
                         Spacer()
                         Text(totalCost, format: .currency(code: "USD"))
                             .fontWeight(.semibold)
                     }
 
-                    DatePicker("Purchase Date", selection: $purchaseDate, displayedComponents: .date)
+                    DatePicker(L10n.AddExpense.purchaseDate, selection: $purchaseDate, displayedComponents: .date)
 
-                    TextField("Store Name (optional)", text: $storeName)
+                    TextField(L10n.AddExpense.storeNameOptional, text: $storeName)
                 }
             }
-            .navigationTitle("Add Expense")
+            .navigationTitle(L10n.AddItem.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.Common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
+                    Button(L10n.Common.save) {
                         savePurchase()
                     }
                     .disabled(!isFormValid || isLoading)
@@ -608,9 +609,9 @@ struct ItemPickerSheet: View {
                         Image(systemName: "cube.box")
                             .font(.system(size: 60))
                             .foregroundStyle(.gray)
-                        Text("No Items Available")
+                        Text(L10n.ItemPicker.noItems)
                             .font(.headline)
-                        Text("Please add items first using the 'Add Item' button on the Home screen")
+                        Text(L10n.ItemPicker.noItemsMessage)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
@@ -642,14 +643,14 @@ struct ItemPickerSheet: View {
                             }
                         }
                     }
-                    .searchable(text: $searchText, prompt: "Search items")
+                    .searchable(text: $searchText, prompt: L10n.ItemPicker.search)
                 }
             }
-            .navigationTitle("Select Item")
+            .navigationTitle(L10n.ItemPicker.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(L10n.Common.cancel) { dismiss() }
                 }
             }
         }
