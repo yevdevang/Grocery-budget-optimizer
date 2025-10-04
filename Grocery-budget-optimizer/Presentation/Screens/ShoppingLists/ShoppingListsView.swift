@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 struct ShoppingListsView: View {
     @StateObject private var viewModel = ShoppingListsViewModel()
@@ -35,7 +36,18 @@ struct ShoppingListsView: View {
                 }
             }
             .sheet(isPresented: $showingCreateSheet) {
-                CreateShoppingListView()
+                CreateShoppingListView(onCreated: {
+                    Task {
+                        await viewModel.loadLists()
+                    }
+                })
+            }
+            .sheet(isPresented: $viewModel.showingSmartListSheet) {
+                CreateSmartListView(onCreated: {
+                    Task {
+                        await viewModel.loadLists()
+                    }
+                })
             }
             .task {
                 await viewModel.loadLists()
@@ -140,15 +152,45 @@ struct ShoppingListRow: View {
     }
 }
 
-// Placeholder view for creating a shopping list
 struct CreateShoppingListView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var listName = ""
+    @State private var budgetAmount = ""
+    @State private var isLoading = false
+    @State private var cancellables = Set<AnyCancellable>()
+
+    let onCreated: (() -> Void)?
+
+    private let repository = DIContainer.shared.shoppingListRepository
+
+    init(onCreated: (() -> Void)? = nil) {
+        self.onCreated = onCreated
+    }
+
+    private var isFormValid: Bool {
+        !listName.trimmingCharacters(in: .whitespaces).isEmpty &&
+        !budgetAmount.trimmingCharacters(in: .whitespaces).isEmpty
+    }
 
     var body: some View {
         NavigationStack {
             Form {
                 Section("List Details") {
-                    Text("Create Shopping List Form")
+                    TextField("List Name", text: $listName)
+                        .textInputAutocapitalization(.words)
+
+                    HStack {
+                        Text("$")
+                            .foregroundStyle(.secondary)
+                        TextField("Budget Amount", text: $budgetAmount)
+                            .keyboardType(.decimalPad)
+                    }
+                }
+
+                Section {
+                    Text("You can add items to this list after creating it")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
             }
             .navigationTitle("New Shopping List")
@@ -161,11 +203,155 @@ struct CreateShoppingListView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Create") {
-                        dismiss()
+                        createList()
                     }
+                    .disabled(!isFormValid || isLoading)
                 }
             }
         }
+    }
+
+    private func createList() {
+        guard let budget = Decimal(string: budgetAmount) else { return }
+        isLoading = true
+
+        let list = ShoppingList(
+            name: listName.trimmingCharacters(in: .whitespaces),
+            budgetAmount: budget
+        )
+
+        repository.createShoppingList(list)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [self] completion in
+                    isLoading = false
+                    if case .failure(let error) = completion {
+                        print("❌ Error creating list: \(error)")
+                    }
+                },
+                receiveValue: { [self] _ in
+                    print("✅ Shopping list created successfully")
+                    onCreated?()
+                    dismiss()
+                }
+            )
+            .store(in: &cancellables)
+    }
+}
+
+struct CreateSmartListView: View {
+    @Environment(\.dismiss) var dismiss
+    @State private var listName = "Smart Shopping List"
+    @State private var budgetAmount = ""
+    @State private var isLoading = false
+    @State private var cancellables = Set<AnyCancellable>()
+
+    let onCreated: (() -> Void)?
+
+    private let generateSmartList = DIContainer.shared.generateSmartShoppingListUseCase
+    private let repository = DIContainer.shared.shoppingListRepository
+
+    init(onCreated: (() -> Void)? = nil) {
+        self.onCreated = onCreated
+    }
+
+    private var isFormValid: Bool {
+        !budgetAmount.trimmingCharacters(in: .whitespaces).isEmpty
+    }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("List Details") {
+                    TextField("List Name", text: $listName)
+                        .textInputAutocapitalization(.words)
+
+                    HStack {
+                        Text("$")
+                            .foregroundStyle(.secondary)
+                        TextField("Budget Amount", text: $budgetAmount)
+                            .keyboardType(.decimalPad)
+                    }
+                }
+
+                Section {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Image(systemName: "sparkles")
+                                .foregroundStyle(.blue)
+                            Text("AI-Powered Recommendations")
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                        }
+
+                        Text("Our AI will analyze your purchase history and predict what you need to buy, optimizing for your budget")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                if isLoading {
+                    Section {
+                        HStack {
+                            ProgressView()
+                            Text("Generating smart list...")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Create Smart List")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Generate") {
+                        generateList()
+                    }
+                    .disabled(!isFormValid || isLoading)
+                }
+            }
+        }
+    }
+
+    private func generateList() {
+        guard let budget = Decimal(string: budgetAmount) else { return }
+        isLoading = true
+
+        // Use default preferences and 7 days prediction
+        let preferences: [String: Double] = [:]  // Empty means balanced across all categories
+        let days = 7  // Generate list for one week
+
+        generateSmartList.execute(budget: budget, preferences: preferences, days: days)
+            .receive(on: DispatchQueue.main)
+            .flatMap { [self] generatedList -> AnyPublisher<ShoppingList, Error> in
+                // Update name if user changed it
+                var list = generatedList
+                if !listName.isEmpty && listName != "Smart Shopping List" {
+                    list.name = listName.trimmingCharacters(in: .whitespaces)
+                }
+
+                // Save to repository
+                return self.repository.createShoppingList(list)
+            }
+            .sink(
+                receiveCompletion: { [self] completion in
+                    isLoading = false
+                    if case .failure(let error) = completion {
+                        print("❌ Error generating smart list: \(error)")
+                    }
+                },
+                receiveValue: { [self] _ in
+                    print("✅ Smart shopping list generated successfully")
+                    onCreated?()
+                    dismiss()
+                }
+            )
+            .store(in: &cancellables)
     }
 }
 

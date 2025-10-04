@@ -5,6 +5,7 @@ import Combine
 class ShoppingListsViewModel: ObservableObject {
     @Published var shoppingLists: [ShoppingList] = []
     @Published var isLoading = false
+    @Published var showingSmartListSheet = false
 
     private let shoppingListRepository: ShoppingListRepositoryProtocol
     private let generateSmartList: GenerateSmartShoppingListUseCaseProtocol
@@ -41,8 +42,7 @@ class ShoppingListsViewModel: ObservableObject {
     }
 
     func createSmartList() {
-        // Show smart list creation sheet
-        // This would typically navigate to a new view with budget/preferences input
+        showingSmartListSheet = true
     }
 
     func deleteLists(at indexSet: IndexSet, from lists: [ShoppingList]) {
