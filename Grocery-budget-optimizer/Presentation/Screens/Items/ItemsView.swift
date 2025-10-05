@@ -1,5 +1,9 @@
 import SwiftUI
 
+#if canImport(UIKit)
+import UIKit
+#endif
+
 struct ItemsView: View {
     @StateObject private var viewModel = ItemsViewModel()
     @ObservedObject private var languageManager = LanguageManager.shared
@@ -84,14 +88,24 @@ struct ItemRow: View {
 
     var body: some View {
         HStack {
-            // Image placeholder
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color.gray.opacity(0.2))
-                .frame(width: 50, height: 50)
-                .overlay {
-                    Image(systemName: "cube.box")
-                        .foregroundStyle(.gray)
-                }
+            // Product Image
+            if let imageData = item.imageData,
+               let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+            } else {
+                // Image placeholder
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.gray.opacity(0.2))
+                    .frame(width: 50, height: 50)
+                    .overlay {
+                        Image(systemName: "cube.box")
+                            .foregroundStyle(.gray)
+                    }
+            }
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(localizedProductName(item.name))

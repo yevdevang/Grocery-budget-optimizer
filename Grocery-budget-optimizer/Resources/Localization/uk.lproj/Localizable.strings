@@ -19,10 +19,12 @@
 /* Home Screen */
 "home.title" = "Оптимізатор бюджету на продукти";
 "home.subtitle" = "Розумні покупки починаються тут";
+"home.greeting.morning" = "Доброго ранку";
 "home.greeting.afternoon" = "Доброго дня";
 "home.greeting.evening" = "Доброго вечора";
 "home.quickActions" = "Швидкі дії";
 "home.smartList" = "Розумний список";
+"home.scanProduct" = "Сканувати товар";
 "home.addItem" = "Додати товар";
 "home.addExpense" = "Додати витрату";
 "home.viewStats" = "Статистика";
@@ -253,3 +255,17 @@
 "smartList.createTitle" = "Створити розумний список";
 "smartList.error" = "Помилка";
 "smartList.errorMessage" = "Сталася помилка при створенні списку";
+
+/* Scanner */
+"scanner.title" = "Сканувати штрих-код";
+"scanner.instruction" = "Вирівняйте штрих-код у рамці";
+"scanner.productInfo" = "Інформація про товар";
+"scanner.productDetails" = "Деталі товару";
+"scanner.barcode" = "Штрих-код";
+"scanner.nutritionalInfo" = "Харчова цінність";
+"scanner.addToItems" = "Додати до моїх товарів";
+"scanner.error.title" = "Помилка сканера";
+"scanner.error.message" = "Не вдалося отримати доступ до камери або відсканувати штрих-код";
+"scanner.error.cameraPermission" = "Для сканування штрих-кодів потрібен дозвіл на камеру. Будь ласка, увімкніть його в налаштуваннях.";
+"scanner.error.productNotFound" = "Товар не знайдено в базі даних";
+

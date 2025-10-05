@@ -50,6 +50,7 @@ enum L10n {
 
         static var quickActions: String { localized("home.quickActions", comment: "Quick Actions section") }
         static var smartList: String { localized("home.smartList", comment: "Smart List action") }
+        static var scanProduct: String { localized("home.scanProduct", comment: "Scan Product action") }
         static var addItem: String { localized("home.addItem", comment: "Add Item action") }
         static var addExpense: String { localized("home.addExpense", comment: "Add Expense action") }
         static var viewStats: String { localized("home.viewStats", comment: "View Stats action") }
@@ -229,6 +230,24 @@ enum L10n {
         static var frozen: String { localized("category.frozen", comment: "Frozen") }
         static var bakery: String { localized("category.bakery", comment: "Bakery") }
         static var other: String { localized("category.other", comment: "Other") }
+    }
+
+    // MARK: - Scanner
+    enum Scanner {
+        static var title: String { localized("scanner.title", comment: "Scanner title") }
+        static var instruction: String { localized("scanner.instruction", comment: "Scan instruction") }
+        static var productInfo: String { localized("scanner.productInfo", comment: "Product Info") }
+        static var productDetails: String { localized("scanner.productDetails", comment: "Product Details") }
+        static var barcode: String { localized("scanner.barcode", comment: "Barcode") }
+        static var nutritionalInfo: String { localized("scanner.nutritionalInfo", comment: "Nutritional Info") }
+        static var addToItems: String { localized("scanner.addToItems", comment: "Add to Items") }
+
+        enum Error {
+            static var title: String { localized("scanner.error.title", comment: "Scanner Error title") }
+            static var message: String { localized("scanner.error.message", comment: "Scanner Error message") }
+            static var cameraPermission: String { localized("scanner.error.cameraPermission", comment: "Camera Permission error") }
+            static var productNotFound: String { localized("scanner.error.productNotFound", comment: "Product Not Found error") }
+        }
     }
 
     // MARK: - Smart List Creation

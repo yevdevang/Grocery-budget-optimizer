@@ -19,10 +19,12 @@
 /* Home Screen */
 "home.title" = "Grocery Budget Optimizer";
 "home.subtitle" = "Smart shopping starts here";
+"home.greeting.morning" = "Good Morning";
 "home.greeting.afternoon" = "Good Afternoon";
 "home.greeting.evening" = "Good Evening";
 "home.quickActions" = "Quick Actions";
 "home.smartList" = "Smart List";
+"home.scanProduct" = "Scan Product";
 "home.addItem" = "Add Item";
 "home.addExpense" = "Add Expense";
 "home.viewStats" = "View Stats";
@@ -253,3 +255,17 @@
 "smartList.createTitle" = "Create Smart List";
 "smartList.error" = "Error";
 "smartList.errorMessage" = "An error occurred while generating the list";
+
+/* Scanner */
+"scanner.title" = "Scan Barcode";
+"scanner.instruction" = "Align barcode within the frame";
+"scanner.productInfo" = "Product Information";
+"scanner.productDetails" = "Product Details";
+"scanner.barcode" = "Barcode";
+"scanner.nutritionalInfo" = "Nutritional Information";
+"scanner.addToItems" = "Add to My Items";
+"scanner.error.title" = "Scanner Error";
+"scanner.error.message" = "Unable to access camera or scan barcode";
+"scanner.error.cameraPermission" = "Camera permission is required to scan barcodes. Please enable it in Settings.";
+"scanner.error.productNotFound" = "Product not found in database";
+

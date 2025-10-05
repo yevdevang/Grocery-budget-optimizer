@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CB98CCDF2E927D3300DF0CFA /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = CB98CCDE2E927D3300DF0CFA /* CodeScanner */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		CB98C5A72E8EE31B00DF0CFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB98CCDF2E927D3300DF0CFA /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = "Grocery-budget-optimizer";
 			packageProductDependencies = (
+				CB98CCDE2E927D3300DF0CFA /* CodeScanner */,
 			);
 			productName = "Grocery-budget-optimizer";
 			productReference = CB98C5992E8EE31900DF0CFA /* Grocery-budget-optimizer.app */;
@@ -198,6 +204,9 @@
 			);
 			mainGroup = CB98C5902E8EE31900DF0CFA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CB98CCDD2E927D3300DF0CFA /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CB98C59A2E8EE31900DF0CFA /* Products */;
 			projectDirPath = "";
@@ -401,6 +410,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan product barcodes and help you add items quickly to your shopping list.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -445,6 +455,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan product barcodes and help you add items quickly to your shopping list.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -618,6 +629,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CB98CCDD2E927D3300DF0CFA /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CB98CCDE2E927D3300DF0CFA /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB98CCDD2E927D3300DF0CFA /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CB98C5912E8EE31900DF0CFA /* Project object */;
 }

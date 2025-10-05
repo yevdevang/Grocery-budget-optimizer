@@ -19,10 +19,12 @@
 /* Home Screen */
 "home.title" = "אופטימיזציה תקציב מכולת";
 "home.subtitle" = "קניות חכמות מתחילות כאן";
+"home.greeting.morning" = "בוקר טוב";
 "home.greeting.afternoon" = "צהריים טובים";
 "home.greeting.evening" = "ערב טוב";
 "home.quickActions" = "פעולות מהירות";
 "home.smartList" = "רשימה חכמה";
+"home.scanProduct" = "סרוק מוצר";
 "home.addItem" = "הוסף מוצר";
 "home.addExpense" = "הוסף הוצאה";
 "home.viewStats" = "צפה בסטטיסטיקה";
@@ -253,3 +255,17 @@
 "smartList.createTitle" = "צור רשימה חכמה";
 "smartList.error" = "שגיאה";
 "smartList.errorMessage" = "אירעה שגיאה בעת יצירת הרשימה";
+
+/* Scanner */
+"scanner.title" = "סרוק ברקוד";
+"scanner.instruction" = "יישר את הברקוד בתוך המסגרת";
+"scanner.productInfo" = "מידע על המוצר";
+"scanner.productDetails" = "פרטי המוצר";
+"scanner.barcode" = "ברקוד";
+"scanner.nutritionalInfo" = "מידע תזונתי";
+"scanner.addToItems" = "הוסף למוצרים שלי";
+"scanner.error.title" = "שגיאת סורק";
+"scanner.error.message" = "לא ניתן לגשת למצלמה או לסרוק ברקוד";
+"scanner.error.cameraPermission" = "נדרשת הרשאת מצלמה לסריקת ברקודים. אנא הפעל אותה בהגדרות.";
+"scanner.error.productNotFound" = "המוצר לא נמצא במסד הנתונים";
+

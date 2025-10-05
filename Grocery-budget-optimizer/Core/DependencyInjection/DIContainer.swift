@@ -11,7 +11,7 @@ class DIContainer {
 
     // MARK: - Repositories
     lazy var groceryItemRepository: GroceryItemRepositoryProtocol = {
-        MockGroceryItemRepository()
+        GroceryItemRepository(coreDataStack: CoreDataStack.shared)
     }()
 
     lazy var shoppingListRepository: ShoppingListRepositoryProtocol = {
@@ -33,6 +33,11 @@ class DIContainer {
     lazy var expirationTrackerRepository: ExpirationTrackerRepositoryProtocol = {
         // Create a mock repository for now
         MockExpirationTrackerRepository()
+    }()
+
+    // MARK: - Network Services
+    lazy var openFoodFactsService: OpenFoodFactsServiceProtocol = {
+        OpenFoodFactsService()
     }()
 
     // MARK: - ML Services
@@ -126,6 +131,11 @@ class DIContainer {
             shoppingListRepository: shoppingListRepository,
             groceryItemRepository: groceryItemRepository
         )
+    }()
+
+    // Product Scanning Use Cases
+    lazy var scanProductUseCase: ScanProductUseCaseProtocol = {
+        ScanProductUseCase(openFoodFactsService: openFoodFactsService)
     }()
 
     // MARK: - Private Setup Methods

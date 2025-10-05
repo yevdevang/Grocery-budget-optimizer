@@ -37,9 +37,9 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
     ) -> AnyPublisher<ShoppingList, Error> {
         print("🎯 GenerateSmartShoppingListUseCase.execute() called with budget: \(budget)")
 
-        // Step 1: Get purchase history
+        // Step 1: Get RECENT purchase history (last 14 days only to avoid over-filtering)
         let endDate = Date()
-        let startDate = Calendar.current.date(byAdding: .day, value: -90, to: endDate) ?? endDate
+        let startDate = Calendar.current.date(byAdding: .day, value: -14, to: endDate) ?? endDate
 
         return purchaseRepository.fetchPurchases(from: startDate, to: endDate)
             .flatMap { [weak self] purchases -> AnyPublisher<[GroceryItem], Error> in
@@ -47,10 +47,15 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
                     return Fail(error: MLIntegrationError.unknown).eraseToAnyPublisher()
                 }
 
-                print("📊 Found \(purchases.count) purchases in history")
+                print("📊 Found \(purchases.count) purchases in last 14 days")
                 // Get unique grocery items from purchases
                 let itemIds = Set(purchases.map { $0.groceryItemId })
-                return self.fetchGroceryItems(ids: Array(itemIds))
+                
+                // Limit to most recent 10 unique items to avoid over-filtering
+                let limitedItemIds = Array(itemIds).prefix(10)
+                print("🔍 Using \(limitedItemIds.count) unique items from recent purchases")
+                
+                return self.fetchGroceryItems(ids: Array(limitedItemIds))
             }
             .flatMap { [weak self] items -> AnyPublisher<[ShoppingListRecommendation], Error> in
                 guard let self = self else {
@@ -125,14 +130,36 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
                 }
 
                 print("📦 Fetched \(allItems.count) items from grocery repository")
-                let itemMap = Dictionary(uniqueKeysWithValues: allItems.map { ($0.name, $0) })
+
+                if allItems.isEmpty {
+                    print("⚠️ WARNING: No grocery items in database! This will prevent matching.")
+                    print("⚠️ The app may need to be deleted and reinstalled to trigger seeding.")
+                }
+
+                // Create dictionary, handling duplicate names by keeping the first occurrence
+                var itemMap: [String: GroceryItem] = [:]
+                for item in allItems {
+                    if itemMap[item.name] == nil {
+                        itemMap[item.name] = item
+                    } else {
+                        print("⚠️ Duplicate item name found: '\(item.name)' - keeping first occurrence")
+                    }
+                }
+
+                print("📋 Available items in database: \(itemMap.keys.sorted())")
+                print("🎯 ML Recommendations:")
+                recommendations.forEach { rec in
+                    print("  - '\(rec.itemName)' (qty: \(rec.quantity), price: \(rec.estimatedPrice))")
+                }
 
                 let shoppingListItems = recommendations.compactMap { rec -> ShoppingListItem? in
                     guard let groceryItem = itemMap[rec.itemName] else {
                         print("⚠️ Could not find grocery item for recommendation: '\(rec.itemName)'")
+                        print("   Available items: \(itemMap.keys.sorted().joined(separator: ", "))")
                         return nil
                     }
 
+                    print("✅ Matched recommendation '\(rec.itemName)' to grocery item")
                     return ShoppingListItem(
                         groceryItemId: groceryItem.id,
                         quantity: rec.quantity,

@@ -7,7 +7,8 @@ struct HomeView: View {
         getBudgetSummary: DIContainer.shared.getBudgetSummaryUseCase,
         getExpiringItems: DIContainer.shared.getExpiringItemsUseCase,
         getPredictions: DIContainer.shared.getPurchasePredictionsUseCase,
-        purchaseRepository: DIContainer.shared.purchaseRepository
+        purchaseRepository: DIContainer.shared.purchaseRepository,
+        scanProductUseCase: DIContainer.shared.scanProductUseCase
     )
 
     var body: some View {
@@ -63,6 +64,19 @@ struct HomeView: View {
                     }
                 })
             }
+            .sheet(isPresented: $viewModel.showingScanner) {
+                BarcodeScannerView(
+                    onBarcodeScanned: { barcode in
+                        viewModel.handleScannedBarcode(barcode)
+                    },
+                    onTestProductSelected: { name, barcode in
+                        viewModel.handleTestProduct(name: name, barcode: barcode)
+                    }
+                )
+            }
+            .sheet(item: $viewModel.scannedProduct) { productInfo in
+                ScannedProductDetailView(productInfo: productInfo)
+            }
         }
     }
 
@@ -106,6 +120,14 @@ struct HomeView: View {
                     color: .blue
                 ) {
                     viewModel.createSmartList()
+                }
+
+                QuickActionButton(
+                    icon: "barcode.viewfinder",
+                    title: L10n.Home.scanProduct,
+                    color: .cyan
+                ) {
+                    viewModel.showScanner()
                 }
 
                 QuickActionButton(

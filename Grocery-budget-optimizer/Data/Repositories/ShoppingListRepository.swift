@@ -217,9 +217,12 @@ class ShoppingListRepository: ShoppingListRepositoryProtocol {
     // MARK: - Mapping
 
     private func mapToDomain(_ entity: ShoppingListEntity) -> ShoppingList {
-        let items = (entity.items as? Set<ShoppingListItemEntity>)?
-            .map { itemEntity in
-                ShoppingListItem(
+        print("🔄 mapToDomain: Mapping entity '\(entity.name ?? "Unknown")' with \(entity.items?.count ?? 0) items")
+
+        let items: [ShoppingListItem] = (entity.items as? Set<ShoppingListItemEntity>)?
+            .map { itemEntity -> ShoppingListItem in
+                print("  - Item ID: \(itemEntity.id?.uuidString.prefix(8) ?? "nil"), GroceryItem: \(itemEntity.groceryItem?.name ?? "nil")")
+                return ShoppingListItem(
                     id: itemEntity.id ?? UUID(),
                     groceryItemId: itemEntity.groceryItem?.id ?? UUID(),
                     quantity: itemEntity.quantity as Decimal? ?? 0,
@@ -229,6 +232,8 @@ class ShoppingListRepository: ShoppingListRepositoryProtocol {
                     actualPrice: itemEntity.actualPrice as Decimal?
                 )
             } ?? []
+
+        print("🔄 mapToDomain: Returning ShoppingList with \(items.count) items")
 
         return ShoppingList(
             id: entity.id ?? UUID(),
