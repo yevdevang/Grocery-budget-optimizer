@@ -1,4 +1,4 @@
 Command line invocation:
     /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Grocery-budget-optimizer.xcodeproj -scheme Grocery-budget-optimizer -destination "platform=iOS Simulator,name=iPhone 15" clean build
 
-2025-10-04 14:41:40.399 xcodebuild[24826:3063503] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+2025-10-05 07:51:08.779 xcodebuild[85592:3488384] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.

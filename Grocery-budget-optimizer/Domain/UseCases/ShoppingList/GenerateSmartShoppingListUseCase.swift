@@ -35,6 +35,7 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
         preferences: [String: Double],
         days: Int
     ) -> AnyPublisher<ShoppingList, Error> {
+        print("🎯 GenerateSmartShoppingListUseCase.execute() called with budget: \(budget)")
 
         // Step 1: Get purchase history
         let endDate = Date()
@@ -46,6 +47,7 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
                     return Fail(error: MLIntegrationError.unknown).eraseToAnyPublisher()
                 }
 
+                print("📊 Found \(purchases.count) purchases in history")
                 // Get unique grocery items from purchases
                 let itemIds = Set(purchases.map { $0.groceryItemId })
                 return self.fetchGroceryItems(ids: Array(itemIds))
@@ -55,12 +57,14 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
                     return Fail(error: MLIntegrationError.unknown).eraseToAnyPublisher()
                 }
 
+                print("🛒 Retrieved \(items.count) grocery items from purchase history")
                 // Step 2: Generate recommendations using ML
                 let householdSize = UserDefaults.standard.integer(forKey: "householdSize")
 
                 // Convert GroceryItem to item names
                 let itemNames = items.map { $0.name }
 
+                print("🤖 Calling ML generator with \(itemNames.count) previous purchases, budget: \(budget)")
                 let result = self.shoppingListGenerator.generateShoppingList(
                     budget: budget,
                     householdSize: max(1, householdSize),
@@ -70,10 +74,12 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
 
                 switch result {
                 case .success(let recommendations):
+                    print("✅ ML generator returned \(recommendations.count) recommendations")
                     return Just(recommendations)
                         .setFailureType(to: Error.self)
                         .eraseToAnyPublisher()
                 case .failure(let error):
+                    print("❌ ML generator failed: \(error)")
                     return Fail(error: error).eraseToAnyPublisher()
                 }
             }
@@ -111,16 +117,21 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
         days: Int
     ) -> AnyPublisher<ShoppingList, Error> {
 
+        print("🔄 Converting \(recommendations.count) recommendations to shopping list")
         return groceryItemRepository.fetchAllItems()
             .flatMap { [weak self] allItems -> AnyPublisher<ShoppingList, Error> in
                 guard let self = self else {
                     return Fail(error: MLIntegrationError.unknown).eraseToAnyPublisher()
                 }
 
+                print("📦 Fetched \(allItems.count) items from grocery repository")
                 let itemMap = Dictionary(uniqueKeysWithValues: allItems.map { ($0.name, $0) })
 
                 let shoppingListItems = recommendations.compactMap { rec -> ShoppingListItem? in
-                    guard let groceryItem = itemMap[rec.itemName] else { return nil }
+                    guard let groceryItem = itemMap[rec.itemName] else {
+                        print("⚠️ Could not find grocery item for recommendation: '\(rec.itemName)'")
+                        return nil
+                    }
 
                     return ShoppingListItem(
                         groceryItemId: groceryItem.id,
@@ -128,6 +139,8 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
                         estimatedPrice: rec.estimatedPrice
                     )
                 }
+
+                print("✅ Matched \(shoppingListItems.count) out of \(recommendations.count) recommendations to grocery items")
 
                 let shoppingList = ShoppingList(
                     id: UUID(),
@@ -140,6 +153,7 @@ class GenerateSmartShoppingListUseCase: GenerateSmartShoppingListUseCaseProtocol
                     completedAt: nil
                 )
 
+                print("💾 Saving shopping list with \(shoppingList.items.count) items")
                 return self.shoppingListRepository.createShoppingList(shoppingList)
             }
             .eraseToAnyPublisher()

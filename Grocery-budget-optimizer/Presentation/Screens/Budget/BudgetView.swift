@@ -4,6 +4,7 @@ import Combine
 
 struct BudgetView: View {
     @StateObject private var viewModel = BudgetViewModel()
+    @ObservedObject private var currencyManager = CurrencyManager.shared
 
     var body: some View {
         NavigationStack {
@@ -105,8 +106,11 @@ struct BudgetView: View {
                 HStack {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.orange)
-                    Text("\(L10n.Budget.exceedWarning) \((summary.projectedTotal - summary.budget.amount), format: .currency(code: "USD"))")
-                        .font(.subheadline)
+                    HStack(spacing: 4) {
+                        Text(L10n.Budget.exceedWarning)
+                        CurrencyText(value: summary.projectedTotal - summary.budget.amount)
+                    }
+                    .font(.subheadline)
                 }
                 .padding()
                 .background(Color.orange.opacity(0.1))
@@ -123,10 +127,11 @@ struct BudgetView: View {
             Text(title)
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            Text(value, format: .currency(code: "USD"))
+            CurrencyText(value: value)
                 .font(.headline)
                 .foregroundStyle(color)
         }
+        .id(currencyManager.currentCurrency.rawValue)
     }
 
     private func spendingByCategoryChart(summary: BudgetSummary) -> some View {
@@ -203,11 +208,12 @@ struct BudgetView: View {
 
                         Spacer()
 
-                        Text(amount, format: .currency(code: "USD"))
+                        CurrencyText(value: amount)
                             .font(.subheadline)
                             .fontWeight(.medium)
                     }
                     .padding(.vertical, 4)
+                    .id("\(category)-\(currencyManager.currentCurrency.rawValue)")
                 }
             } else {
                 Text(L10n.Budget.noCategoryData)
@@ -241,6 +247,7 @@ struct BudgetView: View {
 
 struct CreateBudgetSheet: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @State private var budgetName = ""
     @State private var budgetAmount = ""
     @State private var startDate = Date()
@@ -266,7 +273,7 @@ struct CreateBudgetSheet: View {
                         .textInputAutocapitalization(.words)
 
                     HStack {
-                        Text("$")
+                        Text(currencyManager.currentCurrency.symbol)
                             .foregroundStyle(.secondary)
                         TextField(L10n.Budget.totalAmount, text: $budgetAmount)
                             .keyboardType(.decimalPad)
