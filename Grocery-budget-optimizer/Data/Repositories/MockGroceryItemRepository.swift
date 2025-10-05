@@ -124,4 +124,19 @@ class MockGroceryItemRepository: GroceryItemRepositoryProtocol {
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
+    
+    // API-based methods (mocked)
+    func refreshItemsFromAPI(category: String?) -> AnyPublisher<[GroceryItem], Error> {
+        // Mock implementation: just return existing items filtered by category
+        if let category = category {
+            return fetchItems(byCategory: category)
+        } else {
+            return fetchAllItems()
+        }
+    }
+    
+    func searchAndSaveProducts(query: String, saveResults: Bool) -> AnyPublisher<[GroceryItem], Error> {
+        // Mock implementation: just search existing items
+        return searchItems(query: query)
+    }
 }

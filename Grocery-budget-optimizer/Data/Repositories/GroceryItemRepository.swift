@@ -12,10 +12,16 @@ import Combine
 class GroceryItemRepository: GroceryItemRepositoryProtocol {
     private let coreDataStack: CoreDataStack
     private let context: NSManagedObjectContext
+    private let openFoodFactsService: OpenFoodFactsServiceProtocol
+    private var cancellables = Set<AnyCancellable>()
 
-    init(coreDataStack: CoreDataStack = .shared) {
+    init(
+        coreDataStack: CoreDataStack = .shared,
+        openFoodFactsService: OpenFoodFactsServiceProtocol = OpenFoodFactsService()
+    ) {
         self.coreDataStack = coreDataStack
         self.context = coreDataStack.viewContext
+        self.openFoodFactsService = openFoodFactsService
 
         // Seed initial items if needed
         seedInitialItemsIfNeeded()
@@ -266,13 +272,9 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
             let count = try context.count(for: request)
             print("📊 Found \(count) items in database")
             
-            // If we have items but not the expected 30, force reseed
-            if count > 0 && count < 30 {
-                print("⚠️ Database corrupted! Found \(count) items instead of 30. Force reseeding...")
-                forceReseed()
-            } else if count == 0 {
-                print("🌱 Seeding initial grocery items...")
-                seedInitialItems()
+            if count == 0 {
+                print("🌱 Seeding initial grocery items from API...")
+                seedInitialItemsFromAPI()
             } else {
                 print("✅ Database already seeded with \(count) items")
             }
@@ -281,25 +283,77 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
         }
     }
     
-    private func forceReseed() {
-        // Delete all existing items
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = GroceryItemEntity.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+    private func seedInitialItemsFromAPI() {
+        print("🌐 Starting to fetch products from Open Food Facts API...")
         
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-            print("🗑️ Deleted all existing items")
+        // Categories to fetch from API
+        let categories = [
+            "dairy-products",
+            "fruits",
+            "vegetables", 
+            "meats",
+            "beverages",
+            "cereals-and-potatoes",
+            "snacks"
+        ]
+        
+        var allItems: [GroceryItem] = []
+        let group = DispatchGroup()
+        
+        // Fetch products from each category
+        for category in categories {
+            group.enter()
             
-            // Now seed fresh
-            seedInitialItems()
-        } catch {
-            print("❌ Failed to force reseed: \(error)")
+            openFoodFactsService.fetchProductsByCategory(category: category, page: 1, pageSize: 10)
+                .sink(
+                    receiveCompletion: { completion in
+                        if case .failure(let error) = completion {
+                            print("❌ Failed to fetch \(category): \(error.localizedDescription)")
+                        }
+                        group.leave()
+                    },
+                    receiveValue: { items in
+                        print("✅ Fetched \(items.count) items from category: \(category)")
+                        allItems.append(contentsOf: items)
+                    }
+                )
+                .store(in: &cancellables)
+        }
+        
+        // Wait for all API calls to complete, then save to database
+        group.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
+            
+            if allItems.isEmpty {
+                print("⚠️ No items fetched from API, falling back to hardcoded data")
+                self.seedFallbackItems()
+                return
+            }
+            
+            print("💾 Saving \(allItems.count) items to database...")
+            
+            for item in allItems {
+                let entity = GroceryItemEntity(context: self.context)
+                self.mapToEntity(item, entity: entity)
+            }
+            
+            do {
+                try self.context.save()
+                print("✅ Successfully seeded \(allItems.count) grocery items from API")
+            } catch {
+                print("❌ Failed to save items from API: \(error)")
+                // Clear any partial saves
+                self.context.rollback()
+                // Fall back to hardcoded data
+                self.seedFallbackItems()
+            }
         }
     }
-
-    private func seedInitialItems() {
-        let initialItems = [
+    
+    private func seedFallbackItems() {
+        print("🔄 Using fallback hardcoded data...")
+        
+        let fallbackItems = [
             // Dairy
             GroceryItem(name: "Milk", category: "Dairy", unit: "1 gallon", averagePrice: 3.50),
             GroceryItem(name: "Cheese", category: "Dairy", unit: "1 lb", averagePrice: 4.99),
@@ -313,44 +367,77 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
             GroceryItem(name: "Bananas", category: "Produce", unit: "1 lb", averagePrice: 1.49),
             GroceryItem(name: "Carrots", category: "Produce", unit: "1 lb", averagePrice: 1.79),
             GroceryItem(name: "Onions", category: "Produce", unit: "1 lb", averagePrice: 1.99),
-            GroceryItem(name: "Potatoes", category: "Produce", unit: "5 lb", averagePrice: 2.49),
-            GroceryItem(name: "Bell Peppers", category: "Produce", unit: "1 lb", averagePrice: 3.99),
-            GroceryItem(name: "Broccoli", category: "Produce", unit: "1 lb", averagePrice: 2.99),
-            GroceryItem(name: "Spinach", category: "Produce", unit: "1 bunch", averagePrice: 2.49),
-            GroceryItem(name: "Garlic", category: "Produce", unit: "1 bulb", averagePrice: 0.99),
 
             // Meat & Seafood
             GroceryItem(name: "Chicken Breast", category: "Meat & Seafood", unit: "1 lb", averagePrice: 6.99),
             GroceryItem(name: "Ground Beef", category: "Meat & Seafood", unit: "1 lb", averagePrice: 5.99),
             GroceryItem(name: "Salmon", category: "Meat & Seafood", unit: "1 lb", averagePrice: 12.99),
-            GroceryItem(name: "Tuna", category: "Meat & Seafood", unit: "5 oz can", averagePrice: 2.99),
 
             // Pantry
             GroceryItem(name: "Bread", category: "Pantry", unit: "1 loaf", averagePrice: 2.49),
             GroceryItem(name: "Rice", category: "Pantry", unit: "2 lb", averagePrice: 3.99),
             GroceryItem(name: "Pasta", category: "Pantry", unit: "1 lb", averagePrice: 1.99),
             GroceryItem(name: "Eggs", category: "Pantry", unit: "1 dozen", averagePrice: 3.49),
-            GroceryItem(name: "Olive Oil", category: "Pantry", unit: "16 oz", averagePrice: 6.99),
-            GroceryItem(name: "Salt", category: "Pantry", unit: "26 oz", averagePrice: 1.99),
-            GroceryItem(name: "Pepper", category: "Pantry", unit: "2 oz", averagePrice: 2.99),
-            GroceryItem(name: "Cereal", category: "Pantry", unit: "18 oz", averagePrice: 4.99),
-            GroceryItem(name: "Oats", category: "Pantry", unit: "42 oz", averagePrice: 3.49),
-            GroceryItem(name: "Honey", category: "Pantry", unit: "12 oz", averagePrice: 5.99),
 
             // Beverages
-            GroceryItem(name: "Coffee", category: "Beverages", unit: "12 oz", averagePrice: 8.99)
+            GroceryItem(name: "Coffee", category: "Beverages", unit: "12 oz", averagePrice: 8.99),
+            GroceryItem(name: "Orange Juice", category: "Beverages", unit: "64 oz", averagePrice: 4.99)
         ]
 
-        for item in initialItems {
+        for item in fallbackItems {
             let entity = GroceryItemEntity(context: context)
             mapToEntity(item, entity: entity)
         }
 
         do {
             try context.save()
-            print("✅ Successfully seeded \(initialItems.count) grocery items")
+            print("✅ Successfully seeded \(fallbackItems.count) fallback grocery items")
         } catch {
-            print("❌ Failed to seed grocery items: \(error)")
+            print("❌ Failed to seed fallback grocery items: \(error)")
         }
+    }
+    
+    // MARK: - Public API Methods
+    
+    /// Refresh items from API for a specific category
+    func refreshItemsFromAPI(category: String? = nil) -> AnyPublisher<[GroceryItem], Error> {
+        if let category = category {
+            return openFoodFactsService.fetchProductsByCategory(category: category, page: 1, pageSize: 20)
+        } else {
+            // Fetch from multiple categories
+            let categories = ["dairy-products", "fruits", "vegetables", "meats", "beverages"]
+            let publishers = categories.map { cat in
+                openFoodFactsService.fetchProductsByCategory(category: cat, page: 1, pageSize: 10)
+            }
+            
+            return Publishers.MergeMany(publishers)
+                .collect()
+                .map { arrays in
+                    arrays.flatMap { $0 }
+                }
+                .eraseToAnyPublisher()
+        }
+    }
+    
+    /// Search for products on Open Food Facts and optionally save them
+    func searchAndSaveProducts(query: String, saveResults: Bool = false) -> AnyPublisher<[GroceryItem], Error> {
+        openFoodFactsService.searchProducts(query: query, page: 1, pageSize: 20)
+            .handleEvents(receiveOutput: { [weak self] items in
+                guard let self = self, saveResults else { return }
+                
+                // Save the found items to database
+                for item in items {
+                    let entity = GroceryItemEntity(context: self.context)
+                    self.mapToEntity(item, entity: entity)
+                }
+                
+                do {
+                    try self.context.save()
+                    print("✅ Saved \(items.count) items from search to database")
+                } catch {
+                    print("❌ Failed to save search results: \(error)")
+                }
+            })
+            .eraseToAnyPublisher()
     }
 }
