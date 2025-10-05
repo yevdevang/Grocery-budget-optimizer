@@ -49,8 +49,11 @@ struct ShoppingListsView: View {
                     }
                 })
             }
-            .task {
-                await viewModel.loadLists()
+            .onAppear {
+                print("🎬 ShoppingListsView appeared - loading lists")
+                Task {
+                    await viewModel.loadLists()
+                }
             }
         }
     }
@@ -66,7 +69,9 @@ struct ShoppingListsView: View {
                     }
                 }
                 .onDelete { indexSet in
-                    viewModel.deleteLists(at: indexSet, from: viewModel.activeLists)
+                    Task {
+                        await viewModel.deleteLists(at: indexSet, from: viewModel.activeLists)
+                    }
                 }
             }
 
@@ -117,6 +122,7 @@ struct ShoppingListsView: View {
 
 struct ShoppingListRow: View {
     let list: ShoppingList
+    @ObservedObject private var currencyManager = CurrencyManager.shared
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -139,7 +145,7 @@ struct ShoppingListRow: View {
 
                 Spacer()
 
-                Text(list.budgetAmount, format: .currency(code: "USD"))
+                CurrencyText(value: list.budgetAmount)
                     .font(.subheadline)
                     .fontWeight(.medium)
             }
@@ -154,6 +160,7 @@ struct ShoppingListRow: View {
 
 struct CreateShoppingListView: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @State private var listName = ""
     @State private var budgetAmount = ""
     @State private var isLoading = false
@@ -180,7 +187,7 @@ struct CreateShoppingListView: View {
                         .textInputAutocapitalization(.words)
 
                     HStack {
-                        Text("$")
+                        Text(currencyManager.currentCurrency.symbol)
                             .foregroundStyle(.secondary)
                         TextField("Budget Amount", text: $budgetAmount)
                             .keyboardType(.decimalPad)
@@ -241,6 +248,7 @@ struct CreateShoppingListView: View {
 
 struct CreateSmartListView: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @State private var listName = "Smart Shopping List"
     @State private var budgetAmount = ""
     @State private var isLoading = false
@@ -267,7 +275,7 @@ struct CreateSmartListView: View {
                         .textInputAutocapitalization(.words)
 
                     HStack {
-                        Text("$")
+                        Text(currencyManager.currentCurrency.symbol)
                             .foregroundStyle(.secondary)
                         TextField("Budget Amount", text: $budgetAmount)
                             .keyboardType(.decimalPad)
@@ -322,33 +330,32 @@ struct CreateSmartListView: View {
         guard let budget = Decimal(string: budgetAmount) else { return }
         isLoading = true
 
+        print("🚀 CreateSmartListView: Starting list generation with budget \(budget)")
+
         // Use default preferences and 7 days prediction
         let preferences: [String: Double] = [:]  // Empty means balanced across all categories
         let days = 7  // Generate list for one week
 
         generateSmartList.execute(budget: budget, preferences: preferences, days: days)
             .receive(on: DispatchQueue.main)
-            .flatMap { [self] generatedList -> AnyPublisher<ShoppingList, Error> in
-                // Update name if user changed it
-                var list = generatedList
-                if !listName.isEmpty && listName != "Smart Shopping List" {
-                    list.name = listName.trimmingCharacters(in: .whitespaces)
-                }
-
-                // Save to repository
-                return self.repository.createShoppingList(list)
-            }
             .sink(
                 receiveCompletion: { [self] completion in
+                    print("🔄 CreateSmartListView: Received completion: \(completion)")
                     isLoading = false
-                    if case .failure(let error) = completion {
-                        print("❌ Error generating smart list: \(error)")
+                    switch completion {
+                    case .finished:
+                        print("✅ CreateSmartListView: Smart shopping list generated successfully")
+                        onCreated?()
+                        dismiss()
+                    case .failure(let error):
+                        print("❌ CreateSmartListView: Error generating smart list: \(error)")
+                        print("❌ CreateSmartListView: Error details: \(String(describing: error))")
+                        // Still dismiss on error for now
+                        dismiss()
                     }
                 },
-                receiveValue: { [self] _ in
-                    print("✅ Smart shopping list generated successfully")
-                    onCreated?()
-                    dismiss()
+                receiveValue: { list in
+                    print("📦 CreateSmartListView: Received list value: \(list.name) with \(list.items.count) items")
                 }
             )
             .store(in: &cancellables)

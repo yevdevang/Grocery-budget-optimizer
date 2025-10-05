@@ -83,7 +83,7 @@
         <attribute name="isPurchased" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="purchasedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="quantity" attributeType="Decimal" defaultValueString="0"/>
-        <relationship name="groceryItem" maxCount="1" deletionRule="Nullify" destinationEntity="GroceryItemEntity" inverseName="shoppingListItems" inverseEntity="GroceryItemEntity"/>
+        <relationship name="groceryItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroceryItemEntity" inverseName="shoppingListItems" inverseEntity="GroceryItemEntity"/>
         <relationship name="shoppingList" maxCount="1" deletionRule="Cascade" destinationEntity="ShoppingListEntity" inverseName="items" inverseEntity="ShoppingListEntity"/>
     </entity>
 </model>

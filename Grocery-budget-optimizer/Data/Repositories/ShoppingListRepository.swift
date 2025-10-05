@@ -12,7 +12,8 @@ class ShoppingListRepository: ShoppingListRepositoryProtocol {
     }
 
     func createShoppingList(_ list: ShoppingList) -> AnyPublisher<ShoppingList, Error> {
-        Future { [weak self] promise in
+        print("🚀 ShoppingListRepository.createShoppingList() called for list: '\(list.name)' with \(list.items.count) items")
+        return Future<ShoppingList, Error> { [weak self] promise in
             guard let self = self else {
                 promise(.failure(RepositoryError.unknown))
                 return
@@ -22,9 +23,33 @@ class ShoppingListRepository: ShoppingListRepositoryProtocol {
             self.mapToEntity(list, entity: entity)
 
             do {
+                print("💾 Attempting to save context...")
+                print("💾 Context has changes: \(self.context.hasChanges)")
+                
+                // Save the context
                 try self.context.save()
+                print("✅ ShoppingListRepository: Context saved successfully")
+                
+                // Ensure changes are persisted to the parent store
+                if self.context.parent != nil {
+                    print("💾 Context has parent, saving parent...")
+                    try self.context.parent?.save()
+                }
+                
+                print("✅ ShoppingListRepository: Saved list '\(list.name)' with \(list.items.count) items to CoreData")
+                
+                // Verify it was actually saved by fetching it back
+                let fetchRequest: NSFetchRequest<ShoppingListEntity> = ShoppingListEntity.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "id == %@", list.id as CVarArg)
+                if let savedEntity = try? self.context.fetch(fetchRequest).first {
+                    print("✅ ShoppingListRepository: Verified - list exists in CoreData with ID: \(savedEntity.id?.uuidString ?? "nil")")
+                } else {
+                    print("⚠️ ShoppingListRepository: Warning - list was saved but not found in CoreData!")
+                }
+                
                 promise(.success(list))
             } catch {
+                print("❌ ShoppingListRepository: Failed to save list - \(error.localizedDescription)")
                 promise(.failure(RepositoryError.saveFailed))
             }
         }
@@ -110,7 +135,8 @@ class ShoppingListRepository: ShoppingListRepositoryProtocol {
     }
 
     func fetchAllShoppingLists() -> AnyPublisher<[ShoppingList], Error> {
-        Future { [weak self] promise in
+        print("🔍 ShoppingListRepository.fetchAllShoppingLists() called")
+        return Future<[ShoppingList], Error> { [weak self] promise in
             guard let self = self else {
                 promise(.failure(RepositoryError.unknown))
                 return
@@ -121,9 +147,14 @@ class ShoppingListRepository: ShoppingListRepositoryProtocol {
 
             do {
                 let entities = try self.context.fetch(request)
+                print("📋 ShoppingListRepository: Fetched \(entities.count) shopping lists from CoreData")
+                entities.forEach { entity in
+                    print("  - '\(entity.name ?? "Unknown")' (ID: \(entity.id?.uuidString.prefix(8) ?? "nil"), Items: \(entity.items?.count ?? 0))")
+                }
                 let lists = entities.map { self.mapToDomain($0) }
                 promise(.success(lists))
             } catch {
+                print("❌ ShoppingListRepository: Failed to fetch lists - \(error.localizedDescription)")
                 promise(.failure(RepositoryError.fetchFailed))
             }
         }
@@ -220,6 +251,8 @@ class ShoppingListRepository: ShoppingListRepositoryProtocol {
         entity.isCompleted = domain.isCompleted
         entity.completedAt = domain.completedAt
 
+        print("🔄 Mapping list '\(domain.name)' with \(domain.items.count) items")
+
         // Clear existing items
         if let items = entity.items as? Set<ShoppingListItemEntity> {
             items.forEach { context.delete($0) }
@@ -243,6 +276,9 @@ class ShoppingListRepository: ShoppingListRepositoryProtocol {
 
             if let groceryItemEntity = try? context.fetch(groceryItemRequest).first {
                 itemEntity.groceryItem = groceryItemEntity
+                print("  ✓ Linked item to grocery: \(groceryItemEntity.name ?? "Unknown")")
+            } else {
+                print("  ⚠️ Warning: Grocery item not found for ID: \(item.groceryItemId.uuidString.prefix(8))")
             }
 
             return itemEntity

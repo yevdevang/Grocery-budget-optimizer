@@ -4,6 +4,7 @@ import Combine
 struct ShoppingListDetailView: View {
     let list: ShoppingList
     @StateObject private var viewModel: ShoppingListDetailViewModel
+    @ObservedObject private var currencyManager = CurrencyManager.shared
     @State private var showingAddItem = false
 
     init(list: ShoppingList) {
@@ -78,7 +79,7 @@ struct ShoppingListDetailView: View {
                     Text("Budget")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text(list.budgetAmount, format: .currency(code: "USD"))
+                    CurrencyText(value: list.budgetAmount)
                         .font(.headline)
                         .fontWeight(.semibold)
                         .minimumScaleFactor(0.8)
@@ -89,7 +90,7 @@ struct ShoppingListDetailView: View {
                     Text("Spent")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text(viewModel.totalSpent, format: .currency(code: "USD"))
+                    CurrencyText(value: viewModel.totalSpent)
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundStyle(viewModel.isOverBudget ? .red : .primary)
@@ -101,7 +102,7 @@ struct ShoppingListDetailView: View {
                     Text("Remaining")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text(viewModel.remaining, format: .currency(code: "USD"))
+                    CurrencyText(value: viewModel.remaining)
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundStyle(viewModel.remaining < 0 ? .red : .green)
@@ -166,11 +167,11 @@ struct ShoppingListItemRowWithDetails: View {
 
             VStack(alignment: .trailing, spacing: 4) {
                 if let actualPrice = itemWithDetails.actualPrice {
-                    Text(actualPrice, format: .currency(code: "USD"))
+                    CurrencyText(value: actualPrice)
                         .font(.subheadline)
                         .fontWeight(.medium)
                 } else {
-                    Text(itemWithDetails.estimatedPrice, format: .currency(code: "USD"))
+                    CurrencyText(value: itemWithDetails.estimatedPrice)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
@@ -219,11 +220,11 @@ struct ShoppingListItemRow: View {
 
             VStack(alignment: .trailing, spacing: 4) {
                 if let actualPrice = item.actualPrice {
-                    Text(actualPrice, format: .currency(code: "USD"))
+                    CurrencyText(value: actualPrice)
                         .font(.subheadline)
                         .fontWeight(.medium)
                 } else {
-                    Text(item.estimatedPrice, format: .currency(code: "USD"))
+                    CurrencyText(value: item.estimatedPrice)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
@@ -265,9 +266,12 @@ struct PriceRecommendationRow: View {
                 .foregroundStyle(.secondary)
 
             if recommendation.potentialSavings > 0 {
-                Text("Potential savings: \(recommendation.potentialSavings, format: .currency(code: "USD"))")
-                    .font(.caption)
-                    .foregroundStyle(.green)
+                HStack(spacing: 4) {
+                    Text("Potential savings:")
+                    CurrencyText(value: recommendation.potentialSavings)
+                }
+                .font(.caption)
+                .foregroundStyle(.green)
             }
         }
         .padding(.vertical, 4)

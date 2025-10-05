@@ -15,8 +15,7 @@ class DIContainer {
     }()
 
     lazy var shoppingListRepository: ShoppingListRepositoryProtocol = {
-        // Use mock repository for development until Core Data relationships are fixed
-        MockShoppingListRepository()
+        ShoppingListRepository(coreDataStack: CoreDataStack.shared)
     }()
 
     lazy var budgetRepository: BudgetRepositoryProtocol = {
