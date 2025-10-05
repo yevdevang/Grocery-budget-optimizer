@@ -39,6 +39,10 @@ class ShoppingListDetailViewModel: ObservableObject {
         self.shoppingListRepository = shoppingListRepository
         self.groceryItemRepository = groceryItemRepository
         self.items = list.items
+        print("🔍 ShoppingListDetailViewModel init:")
+        print("  List name: \(list.name)")
+        print("  List items count: \(list.items.count)")
+        print("  Items: \(list.items)")
         calculateTotalSpent()
         loadItemDetails()
     }
@@ -149,11 +153,18 @@ class ShoppingListDetailViewModel: ObservableObject {
     }
 
     private func loadItemDetails() {
+        print("🔍 loadItemDetails called with \(items.count) items")
+
         // Fetch grocery item details for each shopping list item
         let publishers = items.map { item in
-            groceryItemRepository.fetchItem(byId: item.groceryItemId)
+            print("  Fetching details for item: \(item.groceryItemId)")
+            return groceryItemRepository.fetchItem(byId: item.groceryItemId)
                 .map { groceryItem -> ShoppingListItemWithDetails? in
-                    guard let groceryItem = groceryItem else { return nil }
+                    guard let groceryItem = groceryItem else {
+                        print("  ⚠️ No grocery item found for ID: \(item.groceryItemId)")
+                        return nil
+                    }
+                    print("  ✅ Found grocery item: \(groceryItem.name)")
                     return ShoppingListItemWithDetails(
                         id: item.id,
                         item: item,
@@ -167,6 +178,7 @@ class ShoppingListDetailViewModel: ObservableObject {
             .collect()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
+                print("🔍 Loaded \(items.compactMap { $0 }.count) items with details")
                 self?.itemsWithDetails = items.compactMap { $0 }
             }
             .store(in: &cancellables)

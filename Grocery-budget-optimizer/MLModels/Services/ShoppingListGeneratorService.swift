@@ -115,6 +115,12 @@ class ShoppingListGeneratorService: ObservableObject {
     ) throws -> [ShoppingListRecommendation] {
         
         let budgetDouble = Double(truncating: budget as NSNumber)
+        print("💰💰💰 BUDGET ANALYSIS 💰💰💰")
+        print("   Input budget (Decimal): \(budget)")
+        print("   Converted to Double: \(budgetDouble)")
+        print("   This budget should be in USD (not converted from Rubles)")
+        print("💰💰💰💰💰💰💰💰💰💰💰")
+        
         var recommendations: [ShoppingListRecommendation] = []
         var remainingBudget = budgetDouble
         
@@ -124,36 +130,62 @@ class ShoppingListGeneratorService: ObservableObject {
         // Get available items and their categories
         let availableItems = itemDatabase.commonItems.shuffled()
         
-        // Priority order based on essential categories
-        let categoryPriority = [
-            "Dairy": 1.0,
-            "Produce": 0.9,
-            "Meat & Seafood": 0.8,
-            "Pantry": 0.7,
-            "Beverages": 0.6
+        // Priority order based on essential categories - using array to maintain order
+        let categoryPriority: [(String, Double)] = [
+            ("Dairy", 1.0),
+            ("Produce", 0.9),
+            ("Meat & Seafood", 0.8),
+            ("Pantry", 0.7),
+            ("Beverages", 0.6)
         ]
         
-        // Filter out recently purchased items (avoid duplicates)
-        let recentPurchaseSet = Set(previousPurchases)
-        let candidateItems = availableItems.filter { item in
-            !recentPurchaseSet.contains(item)
-        }
+        print("🔍 Starting list generation with budget: $\(budgetDouble)")
         
-        // Generate recommendations for each category
+        // Instead of filtering out all previous purchases, we'll prioritize items
+        // that haven't been purchased recently, but still include all items
+        let recentPurchaseSet = Set(previousPurchases)
+        
+        // Separate items into previously purchased and new items
+        let newItems = availableItems.filter { !recentPurchaseSet.contains($0) }
+        let previouslyPurchasedItems = availableItems.filter { recentPurchaseSet.contains($0) }
+        
+        // Prioritize new items first, then add previously purchased items
+        // This gives variety while still ensuring a full shopping list
+        let candidateItems = newItems + previouslyPurchasedItems
+
+        print("🎲 ML Generator: Total available items: \(availableItems.count)")
+        print("🎲 ML Generator: Previous purchases count: \(recentPurchaseSet.count)")
+        print("🎲 ML Generator: New items to prioritize: \(newItems.count)")
+        print("🎲 ML Generator: Previously purchased items: \(previouslyPurchasedItems.count)")
+        print("🎲 ML Generator: Budget: $\(budgetDouble), Household: \(householdSize)")
+        
+        // Generate recommendations for each category (in priority order)
         for (category, basePriority) in categoryPriority {
+            print("\n🏷️  Category: \(category) (priority: \(basePriority))")
             let categoryItems = candidateItems.filter { item in
                 itemDatabase.itemCategories[item] == category
             }
+            
+            print("   Found \(categoryItems.count) items in category '\(category)'")
+            print("   Items: \(categoryItems.joined(separator: ", "))")
             
             // Apply user preferences
             let userPreference = preferences[category] ?? basePriority
             let adjustedPriority = basePriority * userPreference
             
             // Skip if user has low preference for this category
-            guard adjustedPriority > 0.3 else { continue }
+            guard adjustedPriority > 0.3 else {
+                print("   ⏭️  Skipping category '\(category)' due to low preference: \(adjustedPriority)")
+                continue
+            }
             
-            // Add items from this category
-            let itemsToAdd = min(3, categoryItems.count) // Max 3 items per category
+            print("📋 Processing category '\(category)' with \(categoryItems.count) items")
+            
+            // Add items from this category - increase to 4-5 items per category
+            let itemsToAdd = min(5, categoryItems.count)
+            print("   Planning to add up to \(itemsToAdd) items from this category")
+            
+            var itemsAddedInCategory = 0
             
             for i in 0..<itemsToAdd {
                 let item = categoryItems[i]
@@ -162,34 +194,54 @@ class ShoppingListGeneratorService: ObservableObject {
                 let estimatedPrice = Decimal(basePrice)
                 let totalCost = quantity * estimatedPrice
                 
+                print("   [Item \(i+1)/\(itemsToAdd)] Considering '\(item)': $\(basePrice) x \(quantity) = $\(totalCost)")
+                
+                // Boost priority for items that haven't been purchased before
+                let isNewItem = !recentPurchaseSet.contains(item)
+                let priorityBoost = isNewItem ? 1.2 : 1.0
+                let finalPriority = adjustedPriority * priorityBoost
+                
                 // Check if we can afford this item
                 if Double(truncating: totalCost as NSNumber) <= remainingBudget {
                     let recommendation = ShoppingListRecommendation(
                         itemName: item,
                         quantity: quantity,
                         estimatedPrice: estimatedPrice,
-                        priority: adjustedPriority,
+                        priority: finalPriority,
                         category: category
                     )
-                    
+
                     recommendations.append(recommendation)
                     remainingBudget -= Double(truncating: totalCost as NSNumber)
-                    
-                    // Stop if budget is getting low
-                    if remainingBudget < 5.0 {
+                    itemsAddedInCategory += 1
+                    let newItemMarker = isNewItem ? "🆕" : "♻️"
+                    print("  ✅ \(newItemMarker) Added '\(item)' - Cost: $\(totalCost), Remaining: $\(remainingBudget)")
+
+                    // Stop if budget is getting low (reduced threshold)
+                    if remainingBudget < 3.0 {
+                        print("  ⚠️ Budget low ($\(remainingBudget)) - stopping category")
                         break
                     }
+                } else {
+                    print("  ❌ Cannot afford '\(item)' - Cost: $\(totalCost), Available: $\(remainingBudget)")
                 }
             }
             
-            // Stop if budget is exhausted
-            if remainingBudget < 5.0 {
+            print("   📊 Added \(itemsAddedInCategory) items from category '\(category)'")
+            
+            // Stop if budget is nearly exhausted (reduced threshold)
+            if remainingBudget < 2.0 {
+                print("💰 Budget nearly exhausted ($\(remainingBudget)) - stopping generation")
                 break
             }
         }
         
+        print("📊 Generated \(recommendations.count) total recommendations before final budget check")
+        
         // Sort by priority (highest first)
         recommendations.sort { $0.priority > $1.priority }
+        
+        print("🔍 Final budget validation - Original budget: $\(budget)")
         
         // Ensure we don't exceed budget
         var finalRecommendations: [ShoppingListRecommendation] = []
@@ -197,12 +249,17 @@ class ShoppingListGeneratorService: ObservableObject {
         
         for recommendation in recommendations {
             let itemCost = recommendation.totalCost
+            print("  💰 Checking '\(recommendation.itemName)': Cost=$\(itemCost), Running Total=$\(runningTotal), Budget=$\(budget)")
             if runningTotal + itemCost <= budget {
                 finalRecommendations.append(recommendation)
                 runningTotal += itemCost
+                print("    ✅ INCLUDED (new total: $\(runningTotal))")
+            } else {
+                print("    ❌ EXCLUDED (would exceed budget: $\(runningTotal + itemCost) > $\(budget))")
             }
         }
         
+        print("✅ Final result: \(finalRecommendations.count) items, Total cost: $\(runningTotal)")
         return finalRecommendations
     }
     

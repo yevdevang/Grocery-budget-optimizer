@@ -11,7 +11,7 @@ class DIContainer {
 
     // MARK: - Repositories
     lazy var groceryItemRepository: GroceryItemRepositoryProtocol = {
-        MockGroceryItemRepository()
+        GroceryItemRepository(coreDataStack: CoreDataStack.shared)
     }()
 
     lazy var shoppingListRepository: ShoppingListRepositoryProtocol = {
