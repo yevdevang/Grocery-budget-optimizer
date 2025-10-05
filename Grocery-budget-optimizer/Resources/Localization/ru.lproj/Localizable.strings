@@ -19,10 +19,12 @@
 /* Home Screen */
 "home.title" = "Оптимизатор бюджета на продукты";
 "home.subtitle" = "Умные покупки начинаются здесь";
+"home.greeting.morning" = "Доброе утро";
 "home.greeting.afternoon" = "Добрый день";
 "home.greeting.evening" = "Добрый вечер";
 "home.quickActions" = "Быстрые действия";
 "home.smartList" = "Умный список";
+"home.scanProduct" = "Сканировать товар";
 "home.addItem" = "Добавить товар";
 "home.addExpense" = "Добавить расход";
 "home.viewStats" = "Статистика";
@@ -253,3 +255,17 @@
 "smartList.createTitle" = "Создать умный список";
 "smartList.error" = "Ошибка";
 "smartList.errorMessage" = "Произошла ошибка при создании списка";
+
+/* Scanner */
+"scanner.title" = "Сканировать штрих-код";
+"scanner.instruction" = "Выровняйте штрих-код в рамке";
+"scanner.productInfo" = "Информация о товаре";
+"scanner.productDetails" = "Детали товара";
+"scanner.barcode" = "Штрих-код";
+"scanner.nutritionalInfo" = "Пищевая ценность";
+"scanner.addToItems" = "Добавить в мои товары";
+"scanner.error.title" = "Ошибка сканера";
+"scanner.error.message" = "Не удалось получить доступ к камере или отсканировать штрих-код";
+"scanner.error.cameraPermission" = "Для сканирования штрих-кодов требуется разрешение камеры. Пожалуйста, включите его в настройках.";
+"scanner.error.productNotFound" = "Товар не найден в базе данных";
+

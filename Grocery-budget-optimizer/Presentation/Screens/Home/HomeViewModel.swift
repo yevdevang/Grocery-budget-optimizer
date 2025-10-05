@@ -12,11 +12,14 @@ class HomeViewModel: ObservableObject {
     @Published var showingSmartList = false
     @Published var showingAddItem = false
     @Published var showingAddExpense = false
+    @Published var showingScanner = false
+    @Published var scannedProduct: ScannedProductInfo?
 
     private let getBudgetSummary: GetBudgetSummaryUseCaseProtocol
     private let getExpiringItems: GetExpiringItemsUseCaseProtocol
     private let getPredictions: GetPurchasePredictionsUseCaseProtocol
     private let purchaseRepository: PurchaseRepositoryProtocol
+    private let scanProductUseCase: ScanProductUseCaseProtocol
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -24,12 +27,14 @@ class HomeViewModel: ObservableObject {
         getBudgetSummary: GetBudgetSummaryUseCaseProtocol,
         getExpiringItems: GetExpiringItemsUseCaseProtocol,
         getPredictions: GetPurchasePredictionsUseCaseProtocol,
-        purchaseRepository: PurchaseRepositoryProtocol
+        purchaseRepository: PurchaseRepositoryProtocol,
+        scanProductUseCase: ScanProductUseCaseProtocol
     ) {
         self.getBudgetSummary = getBudgetSummary
         self.getExpiringItems = getExpiringItems
         self.getPredictions = getPredictions
         self.purchaseRepository = purchaseRepository
+        self.scanProductUseCase = scanProductUseCase
     }
 
     var greeting: String {
@@ -120,5 +125,36 @@ class HomeViewModel: ObservableObject {
     func showAnalytics() {
         print("🎯 showAnalytics tapped")
         // Will navigate to analytics tab
+    }
+
+    func showScanner() {
+        print("🎯 showScanner tapped")
+        showingScanner = true
+        print("📋 showingScanner = \(showingScanner)")
+    }
+
+    func handleScannedBarcode(_ barcode: String) {
+        print("📱 Handling scanned barcode: \(barcode)")
+        showingScanner = false
+
+        scanProductUseCase.execute(barcode: barcode)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { completion in
+                    if case .failure(let error) = completion {
+                        print("❌ Error fetching product: \(error)")
+                    }
+                },
+                receiveValue: { [weak self] productInfo in
+                    if let productInfo = productInfo {
+                        print("✅ Product info received, showing detail view")
+                        self?.scannedProduct = productInfo
+                    } else {
+                        print("⚠️ Product not found in database")
+                        // TODO: Show alert to user
+                    }
+                }
+            )
+            .store(in: &cancellables)
     }
 }

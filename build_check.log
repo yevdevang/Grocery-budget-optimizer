@@ -1,0 +1,60 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -scheme Grocery-budget-optimizer -destination "platform=iOS Simulator,name=iPhone 17" clean build
+
+2025-10-05 09:39:28.807 xcodebuild[21893:3751727] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+** CLEAN SUCCEEDED **
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'Grocery-budget-optimizer' in project 'Grocery-budget-optimizer' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/momc --dry-run --action generate --swift-version 5.0 --sdkroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk --iphonesimulator-deployment-target 26.0 --module Grocery_budget_optimizer /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Data/CoreData/GroceryBudgetOptimizer.xcdatamodeld /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/DerivedSources/CoreDataGenerated/GroceryBudgetOptimizer
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/Resources/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: cd4f6fa39d85303f542920bffd9ca7e6
+Build description path: /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/XCBuildData/cd4f6fa39d85303f542920bffd9ca7e6.xcbuilddata
+error: Multiple commands produce '/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Info.plist'
+    note: Target 'Grocery-budget-optimizer' (project 'Grocery-budget-optimizer') has copy command from '/Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer/App/Info.plist' to '/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Info.plist'
+    note: Target 'Grocery-budget-optimizer' (project 'Grocery-budget-optimizer') has process command with output '/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Info.plist'
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache
+    cd /Users/yevgenylevin/Documents/Develop/iOS/Grocery-budget-optimizer/Grocery-budget-optimizer.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -o /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache
+
+note: Disabling hardened runtime with ad-hoc codesigning. (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+warning: duplicate output file '/Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Info.plist' on task: ProcessInfoPlistFile /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Products/Debug-iphonesimulator/Grocery-budget-optimizer.app/Info.plist /Users/yevgenylevin/Library/Developer/Xcode/DerivedData/Grocery-budget-optimizer-ahhxmmlzdnqkqsabbhmxfpulbwgx/Build/Intermediates.noindex/Grocery-budget-optimizer.build/Debug-iphonesimulator/Grocery-budget-optimizer.build/empty-Grocery-budget-optimizer.plist (in target 'Grocery-budget-optimizer' from project 'Grocery-budget-optimizer')
+** BUILD FAILED **
+
+
+The following build commands failed:
+	Building project Grocery-budget-optimizer with scheme Grocery-budget-optimizer
+(1 failure)

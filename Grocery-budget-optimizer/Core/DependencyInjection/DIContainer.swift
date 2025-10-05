@@ -35,6 +35,11 @@ class DIContainer {
         MockExpirationTrackerRepository()
     }()
 
+    // MARK: - Network Services
+    lazy var openFoodFactsService: OpenFoodFactsServiceProtocol = {
+        OpenFoodFactsService()
+    }()
+
     // MARK: - ML Services
     lazy var mlCoordinator = MLCoordinator.shared
 
@@ -126,6 +131,11 @@ class DIContainer {
             shoppingListRepository: shoppingListRepository,
             groceryItemRepository: groceryItemRepository
         )
+    }()
+
+    // Product Scanning Use Cases
+    lazy var scanProductUseCase: ScanProductUseCaseProtocol = {
+        ScanProductUseCase(openFoodFactsService: openFoodFactsService)
     }()
 
     // MARK: - Private Setup Methods
