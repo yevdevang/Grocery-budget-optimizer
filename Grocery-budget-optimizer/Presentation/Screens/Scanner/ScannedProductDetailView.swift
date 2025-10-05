@@ -12,8 +12,10 @@ struct ScannedProductDetailView: View {
     let productInfo: ScannedProductInfo
     @Environment(\.dismiss) private var dismiss
     @State private var isLoading = false
-    @State private var productImage: UIImage?
     @State private var cancellable: AnyCancellable?
+    @State private var price: String = ""
+    @State private var quantity: String = "1"
+    @ObservedObject private var currencyManager = CurrencyManager.shared
 
     private let repository = DIContainer.shared.groceryItemRepository
 
@@ -21,16 +23,57 @@ struct ScannedProductDetailView: View {
         NavigationStack {
             Form {
                 Section(L10n.Scanner.productInfo) {
-                    if let image = productImage {
+                    if let imageUrlString = productInfo.imageUrl,
+                       let url = URL(string: imageUrlString) {
                         HStack {
                             Spacer()
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxHeight: 200)
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                            AsyncImage(url: url) { phase in
+                                switch phase {
+                                case .empty:
+                                    VStack {
+                                        ProgressView()
+                                        Text("Loading image...")
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                    .onAppear {
+                                        print("📥 Loading image from: \(url.absoluteString)")
+                                    }
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxHeight: 200)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                        .onAppear {
+                                            print("✅ Image loaded successfully")
+                                        }
+                                case .failure(let error):
+                                    VStack {
+                                        Image(systemName: "photo")
+                                            .font(.largeTitle)
+                                            .foregroundStyle(.gray)
+                                        Text("Failed to load image")
+                                            .font(.caption)
+                                            .foregroundStyle(.red)
+                                    }
+                                    .onAppear {
+                                        print("❌ Image failed to load: \(error.localizedDescription)")
+                                    }
+                                @unknown default:
+                                    EmptyView()
+                                }
+                            }
+                            .frame(maxHeight: 200)
                             Spacer()
                         }
+                    } else {
+                        Text("No image available")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .onAppear {
+                                print("⚠️ No image URL provided for product: \(productInfo.name)")
+                            }
                     }
 
                     LabeledContent(L10n.AddItem.name, value: productInfo.name)
@@ -49,6 +92,28 @@ struct ScannedProductDetailView: View {
                         Text(nutritionalInfo)
                             .font(.caption)
                             .foregroundStyle(.secondary)
+                    }
+                }
+
+                Section("Purchase Details") {
+                    HStack {
+                        Text("Price")
+                        Spacer()
+                        TextField("0.00", text: $price)
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.trailing)
+                            .frame(width: 100)
+                        Text(currencyManager.currentCurrency.symbol)
+                            .foregroundStyle(.secondary)
+                    }
+                    
+                    HStack {
+                        Text("Quantity")
+                        Spacer()
+                        TextField("1", text: $quantity)
+                            .keyboardType(.numberPad)
+                            .multilineTextAlignment(.trailing)
+                            .frame(width: 100)
                     }
                 }
 
@@ -75,50 +140,63 @@ struct ScannedProductDetailView: View {
                     Button(L10n.Common.cancel) { dismiss() }
                 }
             }
-            .task {
-                await loadProductImage()
-            }
-        }
-    }
-
-    private func loadProductImage() async {
-        guard let imageUrlString = productInfo.imageUrl,
-              let url = URL(string: imageUrlString) else {
-            return
-        }
-
-        do {
-            print("📥 Loading product image from: \(imageUrlString)")
-            let (data, _) = try await URLSession.shared.data(from: url)
-            productImage = UIImage(data: data)
-            print("✅ Product image loaded successfully")
-        } catch {
-            print("❌ Failed to load product image: \(error)")
         }
     }
 
     private func addItem() {
         isLoading = true
-
-        let item = productInfo.toGroceryItem()
-
-        print("💾 Adding scanned item: \(item.name)")
-
-        cancellable = repository.createItem(item)
-            .receive(on: DispatchQueue.main)
-            .sink(
-                receiveCompletion: { [self] completion in
-                    isLoading = false
-                    if case .failure(let error) = completion {
-                        print("❌ Error adding scanned item: \(error)")
-                    }
-                    cancellable?.cancel()
-                },
-                receiveValue: { [self] _ in
-                    print("✅ Scanned item added successfully")
-                    dismiss()
+        
+        Task {
+            var imageData: Data?
+            
+            // Download image if available
+            if let imageUrlString = productInfo.imageUrl,
+               let url = URL(string: imageUrlString) {
+                do {
+                    print("📥 Downloading product image...")
+                    let (data, _) = try await URLSession.shared.data(from: url)
+                    imageData = data
+                    print("✅ Product image downloaded successfully (\(data.count) bytes)")
+                } catch {
+                    print("⚠️ Failed to download product image: \(error.localizedDescription)")
+                    // Continue without image
                 }
-            )
+            }
+            
+            var item = productInfo.toGroceryItem(imageData: imageData)
+            
+            // Add price if entered
+            if let priceValue = Decimal(string: price), priceValue > 0 {
+                item.averagePrice = priceValue
+                print("💰 Price set to: \(priceValue)")
+            }
+            
+            if let imgData = item.imageData {
+                print("✅ Item has imageData: \(imgData.count) bytes")
+            } else {
+                print("⚠️ Item has NO imageData!")
+            }
+            
+            print("💾 Adding scanned item: \(item.name) (Qty: \(quantity))")
+            
+            await MainActor.run {
+                cancellable = repository.createItem(item)
+                    .receive(on: DispatchQueue.main)
+                    .sink(
+                        receiveCompletion: { [self] completion in
+                            isLoading = false
+                            if case .failure(let error) = completion {
+                                print("❌ Error adding scanned item: \(error)")
+                            }
+                            cancellable?.cancel()
+                        },
+                        receiveValue: { [self] _ in
+                            print("✅ Scanned item added successfully")
+                            dismiss()
+                        }
+                    )
+            }
+        }
     }
 }
 

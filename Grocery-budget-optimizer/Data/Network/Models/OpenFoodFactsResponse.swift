@@ -71,12 +71,14 @@ struct ScannedProductInfo: Identifiable {
     let imageUrl: String?
     let nutritionalInfo: String?
 
-    func toGroceryItem() -> GroceryItem {
+    func toGroceryItem(imageData: Data? = nil) -> GroceryItem {
         GroceryItem(
             name: name,
             category: mapToAppCategory(category),
             brand: brand,
             unit: unit,
+            notes: nutritionalInfo,
+            imageData: imageData,
             barcode: barcode
         )
     }

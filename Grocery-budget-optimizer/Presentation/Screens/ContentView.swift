@@ -8,6 +8,10 @@
 import SwiftUI
 import Combine
 
+#if canImport(UIKit)
+import UIKit
+#endif
+
 struct ContentView: View {
     @StateObject private var viewModel = GroceryItemsViewModel()
     @StateObject private var mlManager = MLModelManager()
@@ -183,15 +187,46 @@ struct GroceryItemRow: View {
     let priceAnalysis: PriceAnalysis?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack {
-                Text(item.displayName)
-                    .font(.headline)
-                Spacer()
-                VStack(alignment: .trailing, spacing: 2) {
-                    Text(item.formattedPrice)
-                        .font(.subheadline)
-                        .fontWeight(.medium)
+        HStack(spacing: 12) {
+            // Product Image
+            if let imageData = item.imageData,
+               let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 60, height: 60)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .onAppear {
+                        print("🖼️ Displaying image for \(item.name): \(imageData.count) bytes")
+                    }
+            } else {
+                // Placeholder image
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.gray.opacity(0.2))
+                    .frame(width: 60, height: 60)
+                    .overlay(
+                        Image(systemName: "photo")
+                            .foregroundColor(.gray)
+                            .font(.title3)
+                    )
+                    .onAppear {
+                        if let imgData = item.imageData {
+                            print("⚠️ Has imageData (\(imgData.count) bytes) but failed to create UIImage for \(item.name)")
+                        } else {
+                            print("ℹ️ No imageData for \(item.name)")
+                        }
+                    }
+            }
+            
+            VStack(alignment: .leading, spacing: 6) {
+                HStack {
+                    Text(item.displayName)
+                        .font(.headline)
+                    Spacer()
+                    VStack(alignment: .trailing, spacing: 2) {
+                        CurrencyText(value: item.averagePrice)
+                            .font(.subheadline)
+                            .fontWeight(.medium)
 
                     if let analysis = priceAnalysis {
                         if analysis.isGoodDeal {
@@ -249,6 +284,7 @@ struct GroceryItemRow: View {
             }
         }
         .padding(.vertical, 4)
+        }
     }
 }
 

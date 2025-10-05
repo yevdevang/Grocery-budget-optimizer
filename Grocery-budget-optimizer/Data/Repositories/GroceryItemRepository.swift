@@ -214,7 +214,13 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
     // MARK: - Mapping
 
     private func mapToDomain(_ entity: GroceryItemEntity) -> GroceryItem {
-        GroceryItem(
+        if let imgData = entity.imageData {
+            print("📤 Repository: Loading imageData for '\(entity.name ?? "unknown")': \(imgData.count) bytes")
+        } else {
+            print("ℹ️ Repository: No imageData in entity for '\(entity.name ?? "unknown")'")
+        }
+        
+        return GroceryItem(
             id: entity.id ?? UUID(),
             name: entity.name ?? "",
             category: entity.categoryName ?? "",
@@ -237,6 +243,13 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
         entity.unit = domain.unit
         entity.notes = domain.notes
         entity.imageData = domain.imageData
+        
+        if let imgData = domain.imageData {
+            print("💾 Repository: Saving imageData for '\(domain.name)': \(imgData.count) bytes")
+        } else {
+            print("⚠️ Repository: No imageData to save for '\(domain.name)'")
+        }
+        
         // TODO: Add barcode support when Core Data model is updated
         entity.averagePrice = domain.averagePrice as NSDecimalNumber
         entity.createdAt = domain.createdAt

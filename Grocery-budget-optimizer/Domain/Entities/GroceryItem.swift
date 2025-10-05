@@ -55,6 +55,6 @@ struct GroceryItem: Identifiable, Codable, Equatable {
     }
     
     var formattedPrice: String {
-        averagePrice.formatted()
+        String(format: "%.2f", NSDecimalNumber(decimal: averagePrice).doubleValue)
     }
 }

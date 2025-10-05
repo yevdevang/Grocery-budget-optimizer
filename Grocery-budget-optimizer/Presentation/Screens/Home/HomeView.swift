@@ -65,9 +65,14 @@ struct HomeView: View {
                 })
             }
             .sheet(isPresented: $viewModel.showingScanner) {
-                BarcodeScannerView { barcode in
-                    viewModel.handleScannedBarcode(barcode)
-                }
+                BarcodeScannerView(
+                    onBarcodeScanned: { barcode in
+                        viewModel.handleScannedBarcode(barcode)
+                    },
+                    onTestProductSelected: { name, barcode in
+                        viewModel.handleTestProduct(name: name, barcode: barcode)
+                    }
+                )
             }
             .sheet(item: $viewModel.scannedProduct) { productInfo in
                 ScannedProductDetailView(productInfo: productInfo)
