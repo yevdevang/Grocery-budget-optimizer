@@ -12,10 +12,16 @@ import Combine
 class GroceryItemRepository: GroceryItemRepositoryProtocol {
     private let coreDataStack: CoreDataStack
     private let context: NSManagedObjectContext
+    private let ramiLevyService: RamiLevyServiceProtocol
+    private var cancellables = Set<AnyCancellable>()
 
-    init(coreDataStack: CoreDataStack = .shared) {
+    init(
+        coreDataStack: CoreDataStack = .shared,
+        ramiLevyService: RamiLevyServiceProtocol = RamiLevyService()
+    ) {
         self.coreDataStack = coreDataStack
         self.context = coreDataStack.viewContext
+        self.ramiLevyService = ramiLevyService
 
         // Seed initial items if needed
         seedInitialItemsIfNeeded()
@@ -228,6 +234,7 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
             unit: entity.unit ?? "",
             notes: entity.notes,
             imageData: entity.imageData,
+            imageURL: entity.imageURL,
             barcode: nil, // TODO: Add barcode to Core Data model
             averagePrice: entity.averagePrice as Decimal? ?? 0,
             createdAt: entity.createdAt ?? Date(),
@@ -243,6 +250,7 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
         entity.unit = domain.unit
         entity.notes = domain.notes
         entity.imageData = domain.imageData
+        entity.imageURL = domain.imageURL
         
         if let imgData = domain.imageData {
             print("💾 Repository: Saving imageData for '\(domain.name)': \(imgData.count) bytes")
@@ -258,6 +266,19 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
 
     // MARK: - Seeding
 
+    func clearAllData() {
+        let request: NSFetchRequest<NSFetchRequestResult> = GroceryItemEntity.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+            print("🗑️ Cleared all grocery items from database")
+        } catch {
+            print("❌ Failed to clear grocery items: \(error)")
+        }
+    }
+
     private func seedInitialItemsIfNeeded() {
         let request: NSFetchRequest<GroceryItemEntity> = GroceryItemEntity.fetchRequest()
         request.fetchLimit = 1
@@ -266,13 +287,9 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
             let count = try context.count(for: request)
             print("📊 Found \(count) items in database")
             
-            // If we have items but not the expected 30, force reseed
-            if count > 0 && count < 30 {
-                print("⚠️ Database corrupted! Found \(count) items instead of 30. Force reseeding...")
-                forceReseed()
-            } else if count == 0 {
-                print("🌱 Seeding initial grocery items...")
-                seedInitialItems()
+            if count == 0 {
+                print("🌱 Seeding initial grocery items from Rami Levy API...")
+                seedInitialItemsFromAPI()
             } else {
                 print("✅ Database already seeded with \(count) items")
             }
@@ -281,25 +298,55 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
         }
     }
     
-    private func forceReseed() {
-        // Delete all existing items
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = GroceryItemEntity.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+    private func seedInitialItemsFromAPI() {
+        print("🌐 Starting to fetch products from Rami Levy API...")
         
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-            print("🗑️ Deleted all existing items")
-            
-            // Now seed fresh
-            seedInitialItems()
-        } catch {
-            print("❌ Failed to force reseed: \(error)")
-        }
+        // Fetch all products from Rami Levy API
+        ramiLevyService.fetchGroceryItems()
+            .sink(
+                receiveCompletion: { completion in
+                    if case .failure(let error) = completion {
+                        print("❌ Failed to fetch from Rami Levy API: \(error.localizedDescription)")
+                        print("🔄 Falling back to mock data...")
+                        self.seedFallbackItems()
+                    }
+                },
+                receiveValue: { [weak self] (items: [GroceryItem]) in
+                    guard let self = self else { return }
+                    print("✅ Fetched \(items.count) items from Rami Levy API")
+                    
+                    if items.isEmpty {
+                        print("⚠️ No items fetched from API, falling back to hardcoded data")
+                        self.seedFallbackItems()
+                        return
+                    }
+                    
+                    print("💾 Saving \(items.count) items to database...")
+                    
+                    for item in items {
+                        let entity = GroceryItemEntity(context: self.context)
+                        self.mapToEntity(item, entity: entity)
+                    }
+                    
+                    do {
+                        try self.context.save()
+                        print("✅ Successfully seeded \(items.count) grocery items from Rami Levy API")
+                    } catch {
+                        print("❌ Failed to save items from API: \(error)")
+                        // Clear any partial saves
+                        self.context.rollback()
+                        // Fall back to hardcoded data
+                        self.seedFallbackItems()
+                    }
+                }
+            )
+            .store(in: &cancellables)
     }
-
-    private func seedInitialItems() {
-        let initialItems = [
+    
+    private func seedFallbackItems() {
+        print("🔄 Using fallback hardcoded data...")
+        
+        let fallbackItems = [
             // Dairy
             GroceryItem(name: "Milk", category: "Dairy", unit: "1 gallon", averagePrice: 3.50),
             GroceryItem(name: "Cheese", category: "Dairy", unit: "1 lb", averagePrice: 4.99),
@@ -313,44 +360,95 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
             GroceryItem(name: "Bananas", category: "Produce", unit: "1 lb", averagePrice: 1.49),
             GroceryItem(name: "Carrots", category: "Produce", unit: "1 lb", averagePrice: 1.79),
             GroceryItem(name: "Onions", category: "Produce", unit: "1 lb", averagePrice: 1.99),
-            GroceryItem(name: "Potatoes", category: "Produce", unit: "5 lb", averagePrice: 2.49),
-            GroceryItem(name: "Bell Peppers", category: "Produce", unit: "1 lb", averagePrice: 3.99),
-            GroceryItem(name: "Broccoli", category: "Produce", unit: "1 lb", averagePrice: 2.99),
-            GroceryItem(name: "Spinach", category: "Produce", unit: "1 bunch", averagePrice: 2.49),
-            GroceryItem(name: "Garlic", category: "Produce", unit: "1 bulb", averagePrice: 0.99),
 
             // Meat & Seafood
             GroceryItem(name: "Chicken Breast", category: "Meat & Seafood", unit: "1 lb", averagePrice: 6.99),
             GroceryItem(name: "Ground Beef", category: "Meat & Seafood", unit: "1 lb", averagePrice: 5.99),
             GroceryItem(name: "Salmon", category: "Meat & Seafood", unit: "1 lb", averagePrice: 12.99),
-            GroceryItem(name: "Tuna", category: "Meat & Seafood", unit: "5 oz can", averagePrice: 2.99),
 
             // Pantry
             GroceryItem(name: "Bread", category: "Pantry", unit: "1 loaf", averagePrice: 2.49),
             GroceryItem(name: "Rice", category: "Pantry", unit: "2 lb", averagePrice: 3.99),
             GroceryItem(name: "Pasta", category: "Pantry", unit: "1 lb", averagePrice: 1.99),
             GroceryItem(name: "Eggs", category: "Pantry", unit: "1 dozen", averagePrice: 3.49),
-            GroceryItem(name: "Olive Oil", category: "Pantry", unit: "16 oz", averagePrice: 6.99),
-            GroceryItem(name: "Salt", category: "Pantry", unit: "26 oz", averagePrice: 1.99),
-            GroceryItem(name: "Pepper", category: "Pantry", unit: "2 oz", averagePrice: 2.99),
-            GroceryItem(name: "Cereal", category: "Pantry", unit: "18 oz", averagePrice: 4.99),
-            GroceryItem(name: "Oats", category: "Pantry", unit: "42 oz", averagePrice: 3.49),
-            GroceryItem(name: "Honey", category: "Pantry", unit: "12 oz", averagePrice: 5.99),
 
             // Beverages
-            GroceryItem(name: "Coffee", category: "Beverages", unit: "12 oz", averagePrice: 8.99)
+            GroceryItem(name: "Coffee", category: "Beverages", unit: "12 oz", averagePrice: 8.99),
+            GroceryItem(name: "Orange Juice", category: "Beverages", unit: "64 oz", averagePrice: 4.99)
         ]
 
-        for item in initialItems {
+        for item in fallbackItems {
             let entity = GroceryItemEntity(context: context)
             mapToEntity(item, entity: entity)
         }
 
         do {
             try context.save()
-            print("✅ Successfully seeded \(initialItems.count) grocery items")
+            print("✅ Successfully seeded \(fallbackItems.count) fallback grocery items")
         } catch {
-            print("❌ Failed to seed grocery items: \(error)")
+            print("❌ Failed to seed fallback grocery items: \(error)")
         }
+    }
+    
+    // MARK: - Public API Methods
+    
+    /// Refresh items from Rami Levy API
+    func refreshItemsFromAPI(category: String? = nil) -> AnyPublisher<[GroceryItem], Error> {
+        return ramiLevyService.fetchGroceryItems()
+            .map { [weak self] items in
+                guard let self = self else { return items }
+                
+                // Optionally filter by category if specified
+                let filteredItems = if let category = category {
+                    items.filter { $0.category.lowercased() == category.lowercased() }
+                } else {
+                    items
+                }
+                
+                print("✅ Fetched \(filteredItems.count) items from Rami Levy API" + (category != nil ? " for category: \(category!)" : ""))
+                
+                // Clear existing items and save new ones to database
+                self.clearAllData()
+                
+                // Save the fetched items to database
+                for item in filteredItems {
+                    let entity = GroceryItemEntity(context: self.context)
+                    self.mapToEntity(item, entity: entity)
+                }
+                
+                do {
+                    try self.context.save()
+                    print("✅ Saved \(filteredItems.count) Rami Levy items to database")
+                } catch {
+                    print("❌ Failed to save Rami Levy items: \(error)")
+                }
+                
+                return filteredItems
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    /// Search for products on Rami Levy API and optionally save them
+    func searchAndSaveProducts(query: String, saveResults: Bool = false) -> AnyPublisher<[GroceryItem], Error> {
+        ramiLevyService.searchGroceryItems(query: query)
+            .map { [weak self] items in
+                guard let self = self, saveResults else { return items }
+                
+                // Save the found items to database
+                for item in items {
+                    let entity = GroceryItemEntity(context: self.context)
+                    self.mapToEntity(item, entity: entity)
+                }
+                
+                do {
+                    try self.context.save()
+                    print("✅ Saved \(items.count) items from Rami Levy search to database")
+                } catch {
+                    print("❌ Failed to save Rami Levy search results: \(error)")
+                }
+                
+                return items
+            }
+            .eraseToAnyPublisher()
     }
 }

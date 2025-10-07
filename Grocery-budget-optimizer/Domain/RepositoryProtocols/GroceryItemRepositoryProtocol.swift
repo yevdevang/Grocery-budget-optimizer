@@ -17,4 +17,9 @@ protocol GroceryItemRepositoryProtocol {
     func updateItem(_ item: GroceryItem) -> AnyPublisher<GroceryItem, Error>
     func deleteItem(byId id: UUID) -> AnyPublisher<Void, Error>
     func fetchRecentItems(limit: Int) -> AnyPublisher<[GroceryItem], Error>
+    func clearAllData()
+    
+    // API-based methods
+    func refreshItemsFromAPI(category: String?) -> AnyPublisher<[GroceryItem], Error>
+    func searchAndSaveProducts(query: String, saveResults: Bool) -> AnyPublisher<[GroceryItem], Error>
 }
