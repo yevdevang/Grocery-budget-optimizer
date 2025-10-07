@@ -15,6 +15,7 @@ struct GroceryItem: Identifiable, Codable, Equatable {
     var unit: String
     var notes: String?
     var imageData: Data?
+    var imageURL: String?
     var barcode: String?
     var averagePrice: Decimal
     var createdAt: Date
@@ -28,6 +29,7 @@ struct GroceryItem: Identifiable, Codable, Equatable {
         unit: String,
         notes: String? = nil,
         imageData: Data? = nil,
+        imageURL: String? = nil,
         barcode: String? = nil,
         averagePrice: Decimal = 0,
         createdAt: Date = Date(),
@@ -40,6 +42,7 @@ struct GroceryItem: Identifiable, Codable, Equatable {
         self.unit = unit
         self.notes = notes
         self.imageData = imageData
+        self.imageURL = imageURL
         self.barcode = barcode
         self.averagePrice = averagePrice
         self.createdAt = createdAt

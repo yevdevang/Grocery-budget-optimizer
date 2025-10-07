@@ -21,6 +21,7 @@ extension GroceryItemEntity {
     @NSManaged public var unit: String?
     @NSManaged public var notes: String?
     @NSManaged public var imageData: Data?
+    @NSManaged public var imageURL: String?
     @NSManaged public var averagePrice: NSDecimalNumber?
     @NSManaged public var createdAt: Date?
     @NSManaged public var updatedAt: Date?

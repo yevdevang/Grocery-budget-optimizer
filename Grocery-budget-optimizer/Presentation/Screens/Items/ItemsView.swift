@@ -11,6 +11,7 @@ struct ItemsView: View {
     @State private var searchText = ""
     @State private var selectedCategory: String?
     @State private var showingAddItem = false
+    @State private var showingDeleteAllConfirmation = false
 
     var body: some View {
         NavigationStack {
@@ -28,6 +29,9 @@ struct ItemsView: View {
                         ItemRow(item: item)
                     }
                 }
+                .onDelete { indexSet in
+                    viewModel.deleteItems(at: indexSet)
+                }
             }
             .searchable(text: $searchText, prompt: L10n.Items.search)
             .onChange(of: searchText) { _, newValue in
@@ -35,6 +39,28 @@ struct ItemsView: View {
             }
             .navigationTitle(L10n.Items.title)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    HStack {
+                        if !viewModel.items.isEmpty {
+                            Button(role: .destructive) {
+                                showingDeleteAllConfirmation = true
+                            } label: {
+                                Image(systemName: "trash")
+                            }
+                        }
+                        
+                        // Refresh from Rami Levy API button
+                        Button {
+                            Task {
+                                await viewModel.forceRefreshFromAPI()
+                            }
+                        } label: {
+                            Image(systemName: viewModel.isLoading ? "arrow.clockwise" : "arrow.clockwise.circle")
+                        }
+                        .disabled(viewModel.isLoading)
+                    }
+                }
+                
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         showingAddItem = true
@@ -42,6 +68,16 @@ struct ItemsView: View {
                         Image(systemName: "plus.circle.fill")
                     }
                 }
+            }
+            .confirmationDialog("Delete All Items", isPresented: $showingDeleteAllConfirmation) {
+                Button("Delete All Items", role: .destructive) {
+                    Task {
+                        await viewModel.deleteAllItems()
+                    }
+                }
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text("Are you sure you want to delete all \(viewModel.items.count) items? This action cannot be undone.")
             }
             .sheet(isPresented: $showingAddItem) {
                 AddItemView(onItemAdded: {
@@ -88,23 +124,27 @@ struct ItemRow: View {
 
     var body: some View {
         HStack {
-            // Product Image
-            if let imageData = item.imageData,
-               let uiImage = UIImage(data: imageData) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-            } else {
-                // Image placeholder
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(width: 50, height: 50)
-                    .overlay {
-                        Image(systemName: "cube.box")
-                            .foregroundStyle(.gray)
-                    }
+            // Product Image - prioritize local data, fallback to URL, then placeholder
+            Group {
+                if let imageData = item.imageData,
+                   let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 50, height: 50)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                } else if let imageURL = item.imageURL {
+                    AsyncImageView(urlString: imageURL, width: 50, height: 50, cornerRadius: 8)
+                } else {
+                    // Image placeholder
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(width: 50, height: 50)
+                        .overlay {
+                            Image(systemName: "cube.box")
+                                .foregroundStyle(.gray)
+                        }
+                }
             }
 
             VStack(alignment: .leading, spacing: 4) {

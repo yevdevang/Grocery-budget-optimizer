@@ -12,16 +12,16 @@ import Combine
 class GroceryItemRepository: GroceryItemRepositoryProtocol {
     private let coreDataStack: CoreDataStack
     private let context: NSManagedObjectContext
-    private let openFoodFactsService: OpenFoodFactsServiceProtocol
+    private let ramiLevyService: RamiLevyServiceProtocol
     private var cancellables = Set<AnyCancellable>()
 
     init(
         coreDataStack: CoreDataStack = .shared,
-        openFoodFactsService: OpenFoodFactsServiceProtocol = OpenFoodFactsService()
+        ramiLevyService: RamiLevyServiceProtocol = RamiLevyService()
     ) {
         self.coreDataStack = coreDataStack
         self.context = coreDataStack.viewContext
-        self.openFoodFactsService = openFoodFactsService
+        self.ramiLevyService = ramiLevyService
 
         // Seed initial items if needed
         seedInitialItemsIfNeeded()
@@ -234,6 +234,7 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
             unit: entity.unit ?? "",
             notes: entity.notes,
             imageData: entity.imageData,
+            imageURL: entity.imageURL,
             barcode: nil, // TODO: Add barcode to Core Data model
             averagePrice: entity.averagePrice as Decimal? ?? 0,
             createdAt: entity.createdAt ?? Date(),
@@ -249,6 +250,7 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
         entity.unit = domain.unit
         entity.notes = domain.notes
         entity.imageData = domain.imageData
+        entity.imageURL = domain.imageURL
         
         if let imgData = domain.imageData {
             print("💾 Repository: Saving imageData for '\(domain.name)': \(imgData.count) bytes")
@@ -264,6 +266,19 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
 
     // MARK: - Seeding
 
+    func clearAllData() {
+        let request: NSFetchRequest<NSFetchRequestResult> = GroceryItemEntity.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+            print("🗑️ Cleared all grocery items from database")
+        } catch {
+            print("❌ Failed to clear grocery items: \(error)")
+        }
+    }
+
     private func seedInitialItemsIfNeeded() {
         let request: NSFetchRequest<GroceryItemEntity> = GroceryItemEntity.fetchRequest()
         request.fetchLimit = 1
@@ -273,7 +288,7 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
             print("📊 Found \(count) items in database")
             
             if count == 0 {
-                print("🌱 Seeding initial grocery items from API...")
+                print("🌱 Seeding initial grocery items from Rami Levy API...")
                 seedInitialItemsFromAPI()
             } else {
                 print("✅ Database already seeded with \(count) items")
@@ -284,70 +299,48 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
     }
     
     private func seedInitialItemsFromAPI() {
-        print("🌐 Starting to fetch products from Open Food Facts API...")
+        print("🌐 Starting to fetch products from Rami Levy API...")
         
-        // Categories to fetch from API
-        let categories = [
-            "dairy-products",
-            "fruits",
-            "vegetables", 
-            "meats",
-            "beverages",
-            "cereals-and-potatoes",
-            "snacks"
-        ]
-        
-        var allItems: [GroceryItem] = []
-        let group = DispatchGroup()
-        
-        // Fetch products from each category
-        for category in categories {
-            group.enter()
-            
-            openFoodFactsService.fetchProductsByCategory(category: category, page: 1, pageSize: 10)
-                .sink(
-                    receiveCompletion: { completion in
-                        if case .failure(let error) = completion {
-                            print("❌ Failed to fetch \(category): \(error.localizedDescription)")
-                        }
-                        group.leave()
-                    },
-                    receiveValue: { items in
-                        print("✅ Fetched \(items.count) items from category: \(category)")
-                        allItems.append(contentsOf: items)
+        // Fetch all products from Rami Levy API
+        ramiLevyService.fetchGroceryItems()
+            .sink(
+                receiveCompletion: { completion in
+                    if case .failure(let error) = completion {
+                        print("❌ Failed to fetch from Rami Levy API: \(error.localizedDescription)")
+                        print("🔄 Falling back to mock data...")
+                        self.seedFallbackItems()
                     }
-                )
-                .store(in: &cancellables)
-        }
-        
-        // Wait for all API calls to complete, then save to database
-        group.notify(queue: .main) { [weak self] in
-            guard let self = self else { return }
-            
-            if allItems.isEmpty {
-                print("⚠️ No items fetched from API, falling back to hardcoded data")
-                self.seedFallbackItems()
-                return
-            }
-            
-            print("💾 Saving \(allItems.count) items to database...")
-            
-            for item in allItems {
-                let entity = GroceryItemEntity(context: self.context)
-                self.mapToEntity(item, entity: entity)
-            }
-            
-            do {
-                try self.context.save()
-                print("✅ Successfully seeded \(allItems.count) grocery items from API")
-            } catch {
-                print("❌ Failed to save items from API: \(error)")
-                // Clear any partial saves
-                self.context.rollback()
-                // Fall back to hardcoded data
-                self.seedFallbackItems()
-            }
-        }
+                },
+                receiveValue: { [weak self] (items: [GroceryItem]) in
+                    guard let self = self else { return }
+                    print("✅ Fetched \(items.count) items from Rami Levy API")
+                    
+                    if items.isEmpty {
+                        print("⚠️ No items fetched from API, falling back to hardcoded data")
+                        self.seedFallbackItems()
+                        return
+                    }
+                    
+                    print("💾 Saving \(items.count) items to database...")
+                    
+                    for item in items {
+                        let entity = GroceryItemEntity(context: self.context)
+                        self.mapToEntity(item, entity: entity)
+                    }
+                    
+                    do {
+                        try self.context.save()
+                        print("✅ Successfully seeded \(items.count) grocery items from Rami Levy API")
+                    } catch {
+                        print("❌ Failed to save items from API: \(error)")
+                        // Clear any partial saves
+                        self.context.rollback()
+                        // Fall back to hardcoded data
+                        self.seedFallbackItems()
+                    }
+                }
+            )
+            .store(in: &cancellables)
     }
     
     private func seedFallbackItems() {
@@ -399,31 +392,47 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
     
     // MARK: - Public API Methods
     
-    /// Refresh items from API for a specific category
+    /// Refresh items from Rami Levy API
     func refreshItemsFromAPI(category: String? = nil) -> AnyPublisher<[GroceryItem], Error> {
-        if let category = category {
-            return openFoodFactsService.fetchProductsByCategory(category: category, page: 1, pageSize: 20)
-        } else {
-            // Fetch from multiple categories
-            let categories = ["dairy-products", "fruits", "vegetables", "meats", "beverages"]
-            let publishers = categories.map { cat in
-                openFoodFactsService.fetchProductsByCategory(category: cat, page: 1, pageSize: 10)
-            }
-            
-            return Publishers.MergeMany(publishers)
-                .collect()
-                .map { arrays in
-                    arrays.flatMap { $0 }
+        return ramiLevyService.fetchGroceryItems()
+            .map { [weak self] items in
+                guard let self = self else { return items }
+                
+                // Optionally filter by category if specified
+                let filteredItems = if let category = category {
+                    items.filter { $0.category.lowercased() == category.lowercased() }
+                } else {
+                    items
                 }
-                .eraseToAnyPublisher()
-        }
+                
+                print("✅ Fetched \(filteredItems.count) items from Rami Levy API" + (category != nil ? " for category: \(category!)" : ""))
+                
+                // Clear existing items and save new ones to database
+                self.clearAllData()
+                
+                // Save the fetched items to database
+                for item in filteredItems {
+                    let entity = GroceryItemEntity(context: self.context)
+                    self.mapToEntity(item, entity: entity)
+                }
+                
+                do {
+                    try self.context.save()
+                    print("✅ Saved \(filteredItems.count) Rami Levy items to database")
+                } catch {
+                    print("❌ Failed to save Rami Levy items: \(error)")
+                }
+                
+                return filteredItems
+            }
+            .eraseToAnyPublisher()
     }
     
-    /// Search for products on Open Food Facts and optionally save them
+    /// Search for products on Rami Levy API and optionally save them
     func searchAndSaveProducts(query: String, saveResults: Bool = false) -> AnyPublisher<[GroceryItem], Error> {
-        openFoodFactsService.searchProducts(query: query, page: 1, pageSize: 20)
-            .handleEvents(receiveOutput: { [weak self] items in
-                guard let self = self, saveResults else { return }
+        ramiLevyService.searchGroceryItems(query: query)
+            .map { [weak self] items in
+                guard let self = self, saveResults else { return items }
                 
                 // Save the found items to database
                 for item in items {
@@ -433,11 +442,13 @@ class GroceryItemRepository: GroceryItemRepositoryProtocol {
                 
                 do {
                     try self.context.save()
-                    print("✅ Saved \(items.count) items from search to database")
+                    print("✅ Saved \(items.count) items from Rami Levy search to database")
                 } catch {
-                    print("❌ Failed to save search results: \(error)")
+                    print("❌ Failed to save Rami Levy search results: \(error)")
                 }
-            })
+                
+                return items
+            }
             .eraseToAnyPublisher()
     }
 }
