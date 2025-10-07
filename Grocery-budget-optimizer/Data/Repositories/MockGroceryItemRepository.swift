@@ -125,6 +125,10 @@ class MockGroceryItemRepository: GroceryItemRepositoryProtocol {
             .eraseToAnyPublisher()
     }
     
+    func clearAllData() {
+        items.removeAll()
+    }
+    
     // API-based methods (mocked)
     func refreshItemsFromAPI(category: String?) -> AnyPublisher<[GroceryItem], Error> {
         // Mock implementation: just return existing items filtered by category

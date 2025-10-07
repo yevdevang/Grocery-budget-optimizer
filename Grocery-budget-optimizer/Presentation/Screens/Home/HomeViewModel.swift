@@ -214,7 +214,9 @@ class HomeViewModel: ObservableObject {
             category: category,
             unit: unit,
             imageUrl: testImageUrl,
-            nutritionalInfo: nil as String?
+            nutritionalInfo: nil as String?,
+            averagePrice: nil as Decimal?,
+            priceSource: .unavailable
         )
         
         // Close scanner and show product detail

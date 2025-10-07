@@ -18,6 +18,14 @@ struct ScannedProductDetailView: View {
     @ObservedObject private var currencyManager = CurrencyManager.shared
 
     private let repository = DIContainer.shared.groceryItemRepository
+    
+    init(productInfo: ScannedProductInfo) {
+        self.productInfo = productInfo
+        // Initialize price field with the fetched price if available
+        if let avgPrice = productInfo.averagePrice {
+            _price = State(initialValue: String(format: "%.2f", NSDecimalNumber(decimal: avgPrice).doubleValue))
+        }
+    }
 
     var body: some View {
         NavigationStack {
@@ -96,6 +104,17 @@ struct ScannedProductDetailView: View {
                 }
 
                 Section("Purchase Details") {
+                    // Price source indicator
+                    if productInfo.averagePrice != nil {
+                        HStack {
+                            Image(systemName: priceSourceIcon)
+                                .foregroundColor(priceSourceColor)
+                            Text(productInfo.priceSource.description)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    
                     HStack {
                         Text("Price")
                         Spacer()
@@ -140,6 +159,30 @@ struct ScannedProductDetailView: View {
                     Button(L10n.Common.cancel) { dismiss() }
                 }
             }
+        }
+    }
+    
+    // MARK: - Computed Properties
+    
+    private var priceSourceIcon: String {
+        switch productInfo.priceSource {
+        case .real:
+            return "checkmark.seal.fill"
+        case .estimated:
+            return "chart.line.uptrend.xyaxis"
+        case .unavailable:
+            return "questionmark.circle"
+        }
+    }
+    
+    private var priceSourceColor: Color {
+        switch productInfo.priceSource {
+        case .real:
+            return .green
+        case .estimated:
+            return .orange
+        case .unavailable:
+            return .gray
         }
     }
 
@@ -208,8 +251,10 @@ struct ScannedProductDetailView: View {
             brand: "Ferrero",
             category: "Spreads",
             unit: "400g",
-            imageUrl: nil,
-            nutritionalInfo: "Calories: 539 kcal/100g\nFat: 30.9g/100g\nCarbs: 57.5g/100g\nProtein: 6.3g/100g"
+            imageUrl: nil as String?,
+            nutritionalInfo: "Calories: 539 kcal/100g\nFat: 30.9g/100g\nCarbs: 57.5g/100g\nProtein: 6.3g/100g",
+            averagePrice: 3.21,
+            priceSource: .real(count: 118, currency: "EUR")
         )
     )
 }

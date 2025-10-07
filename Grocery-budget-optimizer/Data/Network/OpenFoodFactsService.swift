@@ -12,6 +12,7 @@ protocol OpenFoodFactsServiceProtocol {
     func fetchProduct(barcode: String) -> AnyPublisher<ScannedProductInfo?, Error>
     func searchProducts(query: String, page: Int, pageSize: Int) -> AnyPublisher<[GroceryItem], Error>
     func fetchProductsByCategory(category: String, page: Int, pageSize: Int) -> AnyPublisher<[GroceryItem], Error>
+    func fetchProductPrice(barcode: String) -> AnyPublisher<Decimal?, Error>
 }
 
 class OpenFoodFactsService: OpenFoodFactsServiceProtocol {
@@ -51,7 +52,9 @@ class OpenFoodFactsService: OpenFoodFactsServiceProtocol {
                     category: product.categories?.components(separatedBy: ",").first ?? "Other",
                     unit: product.quantity ?? "1 unit",
                     imageUrl: product.imageUrl,
-                    nutritionalInfo: self.formatNutritionalInfo(product.nutriments)
+                    nutritionalInfo: self.formatNutritionalInfo(product.nutriments),
+                    averagePrice: nil,
+                    priceSource: .unavailable
                 )
             }
             .receive(on: DispatchQueue.main)
@@ -182,6 +185,13 @@ class OpenFoodFactsService: OpenFoodFactsServiceProtocol {
         default:
             return Decimal(Double.random(in: 1.99...6.99))
         }
+    }
+    
+    func fetchProductPrice(barcode: String) -> AnyPublisher<Decimal?, Error> {
+        // Placeholder - returns nil for now
+        return Just<Decimal?>(nil)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
 }
 

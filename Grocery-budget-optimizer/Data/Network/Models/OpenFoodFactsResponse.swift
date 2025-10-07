@@ -70,6 +70,25 @@ struct ScannedProductInfo: Identifiable {
     let unit: String
     let imageUrl: String?
     let nutritionalInfo: String?
+    let averagePrice: Decimal?
+    let priceSource: PriceSource
+    
+    enum PriceSource {
+        case real(count: Int, currency: String)
+        case estimated
+        case unavailable
+        
+        var description: String {
+            switch self {
+            case .real(let count, let currency):
+                return "Based on \(count) price report(s) in \(currency)"
+            case .estimated:
+                return "Estimated price"
+            case .unavailable:
+                return "Price unavailable"
+            }
+        }
+    }
 
     func toGroceryItem(imageData: Data? = nil) -> GroceryItem {
         GroceryItem(
@@ -79,7 +98,8 @@ struct ScannedProductInfo: Identifiable {
             unit: unit,
             notes: nutritionalInfo,
             imageData: imageData,
-            barcode: barcode
+            barcode: barcode,
+            averagePrice: averagePrice ?? 0
         )
     }
 
